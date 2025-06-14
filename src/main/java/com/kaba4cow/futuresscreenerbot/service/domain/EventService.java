@@ -1,0 +1,35 @@
+package com.kaba4cow.futuresscreenerbot.service.domain;
+
+import java.math.BigDecimal;
+
+import org.springframework.stereotype.Service;
+
+import com.kaba4cow.futuresscreenerbot.entity.Event;
+import com.kaba4cow.futuresscreenerbot.entity.EventType;
+import com.kaba4cow.futuresscreenerbot.repository.EventRepository;
+import com.kaba4cow.futuresscreenerbot.service.NotificationService;
+import com.kaba4cow.futuresscreenerbot.tool.Symbol;
+
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
+@RequiredArgsConstructor
+@Service
+public class EventService {
+
+	private final EventRepository eventRepository;
+
+	private final NotificationService notificationService;
+
+	public void registerEvent(EventType type, Symbol symbol, BigDecimal value) {
+		Event event = new Event();
+		event.setSymbol(symbol);
+		event.setType(type);
+		event.setValue(value);
+		Event savedEvent = eventRepository.save(event);
+		log.info("Registered event [type={}, symbol={}/{}]", type, symbol.getBaseAsset(), symbol.getQuoteAsset());
+		notificationService.sendEventNotification(savedEvent);
+	}
+
+}
