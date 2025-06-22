@@ -20,7 +20,7 @@ public class TelegramMessageSender {
 	private final TelegramBot telegramBot;
 
 	@EventListener
-	public void handleSendMessage(SendMessageEvent event) {
+	public void handleSendMessageNotification(SendMessageEvent event) {
 		log.info("Executing SendMessage for {} chatIds", event.getChatIds().size());
 		SendMessage message = event.getMessage();
 		event.getChatIds().forEach(chatId -> {
@@ -35,7 +35,7 @@ public class TelegramMessageSender {
 	}
 
 	@EventListener
-	public void handleSendPhoto(SendPhotoEvent event) {
+	public void handleSendPhotoNotification(SendPhotoEvent event) {
 		log.info("Executing SendPhoto for {} chatIds", event.getChatIds().size());
 		SendPhoto photo = event.getPhoto();
 		event.getChatIds().forEach(chatId -> {

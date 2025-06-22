@@ -7,7 +7,7 @@ import io.pebbletemplates.pebble.PebbleEngine;
 import io.pebbletemplates.pebble.loader.ClasspathLoader;
 
 @Configuration
-public class TemplateConfig {
+public class TemplateEngineConfig {
 
 	@Bean
 	public PebbleEngine templateEngine() {

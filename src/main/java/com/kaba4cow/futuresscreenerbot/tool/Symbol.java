@@ -23,4 +23,8 @@ public class Symbol {
 		return baseAsset.concat(quoteAsset);
 	}
 
+	public String toAssetsString() {
+		return String.format("%s/%s", baseAsset, quoteAsset);
+	}
+
 }
