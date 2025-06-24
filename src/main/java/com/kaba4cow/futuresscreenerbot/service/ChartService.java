@@ -51,7 +51,7 @@ public class ChartService {
 			}
 		}
 
-		int width = barSeries.getBarCount() * chartProperties.getBarWidth() + chartProperties.getOffset();
+		int width = chartProperties.getBarCount() * chartProperties.getBarWidth() + chartProperties.getOffset();
 		int height = 2 * width / 3;
 
 		BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
@@ -65,8 +65,8 @@ public class ChartService {
 		graphics.setColor(chartColorProperties.getBackground());
 		graphics.fillRect(0, 0, width, height);
 
-		int barX = 0;
-		for (int i = 0; i <= barSeries.getLastIndex(); i++) {
+		int barX = chartProperties.getBarCount() * chartProperties.getBarWidth() - chartProperties.getBarWidth();
+		for (int i = barSeries.getLastIndex(); i >= 0; i--) {
 			Bar bar = barSeries.getBar(i);
 			double open = bar.getOpenPrice();
 			double close = bar.getClosePrice();
@@ -84,7 +84,7 @@ public class ChartService {
 			graphics.setColor(bar.isBullish() ? chartColorProperties.getBull() : chartColorProperties.getBear());
 			graphics.fillRect(barX + chartProperties.getBarWidth() / 2, (int) highY, 1, (int) tailHeight);
 			graphics.fillRect(barX + 1, (int) Math.min(openY, closeY), chartProperties.getBarWidth() - 2, (int) bodyHeight);
-			barX += chartProperties.getBarWidth();
+			barX -= chartProperties.getBarWidth();
 		}
 
 		graphics.setStroke(new BasicStroke(1f, BasicStroke.CAP_SQUARE, BasicStroke.JOIN_ROUND, 1f,
