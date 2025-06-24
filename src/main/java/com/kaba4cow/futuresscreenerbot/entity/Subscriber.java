@@ -1,5 +1,7 @@
 package com.kaba4cow.futuresscreenerbot.entity;
 
+import com.kaba4cow.futuresscreenerbot.telegram.updatehandler.command.CommandIdentifier;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
@@ -27,6 +29,10 @@ public class Subscriber {
 	@Enumerated(EnumType.STRING)
 	@Column(name = "column_state")
 	private SubscriberState state;
+
+	@Enumerated(EnumType.STRING)
+	@Column(name = "column_last_command")
+	private CommandIdentifier lastCommand;
 
 	@Embedded
 	private SubscriberSettings settings;

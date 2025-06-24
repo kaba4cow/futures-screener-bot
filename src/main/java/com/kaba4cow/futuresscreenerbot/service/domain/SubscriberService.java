@@ -10,6 +10,7 @@ import com.kaba4cow.futuresscreenerbot.entity.SubscriberSettings;
 import com.kaba4cow.futuresscreenerbot.entity.SubscriberState;
 import com.kaba4cow.futuresscreenerbot.properties.SubscriberSettingsProperties;
 import com.kaba4cow.futuresscreenerbot.repository.SubscriberRepository;
+import com.kaba4cow.futuresscreenerbot.telegram.updatehandler.command.CommandIdentifier;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -31,6 +32,7 @@ public class SubscriberService {
 		Subscriber subscriber = new Subscriber();
 		subscriber.setId(id);
 		subscriber.setState(SubscriberState.SUBSCRIBED);
+		subscriber.setLastCommand(CommandIdentifier.NONE);
 		subscriber.setSettings(createSettings());
 		Subscriber savedSubscriber = subscriberRepository.save(subscriber);
 		log.info("Registered subscriber [id={}]", id);

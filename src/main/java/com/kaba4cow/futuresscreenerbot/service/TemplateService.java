@@ -30,6 +30,10 @@ public class TemplateService {
 		return writer.toString();
 	}
 
+	public String evaluateTemplate(String templateName) {
+		return evaluateTemplate(templateName, Map.of());
+	}
+
 	private String buildTemplatePath(String templateName) {
 		StringBuilder templatePath = new StringBuilder();
 		if (Objects.nonNull(templateProperties.getPrefix()))

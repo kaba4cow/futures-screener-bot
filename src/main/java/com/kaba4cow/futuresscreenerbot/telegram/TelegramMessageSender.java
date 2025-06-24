@@ -28,8 +28,7 @@ public class TelegramMessageSender {
 				message.setChatId(chatId);
 				telegramBot.execute(message);
 			} catch (TelegramApiException exception) {
-				log.error("Could not execute SendMessage for chatId={}", chatId);
-				log.trace("Caused by exception:", exception);
+				log.error("Could not execute SendMessage for chatId=" + chatId, exception);
 			}
 		});
 	}
@@ -43,8 +42,7 @@ public class TelegramMessageSender {
 				photo.setChatId(chatId);
 				telegramBot.execute(photo);
 			} catch (TelegramApiException exception) {
-				log.error("Could not execute SendPhoto for chatId={}", chatId);
-				log.trace("Caused by exception:", exception);
+				log.error("Could not execute SendPhoto for chatId=" + chatId, exception);
 			}
 		});
 	}

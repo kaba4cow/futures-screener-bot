@@ -1,4 +1,4 @@
-package com.kaba4cow.futuresscreenerbot.properties.telegram;
+package com.kaba4cow.futuresscreenerbot.properties;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;

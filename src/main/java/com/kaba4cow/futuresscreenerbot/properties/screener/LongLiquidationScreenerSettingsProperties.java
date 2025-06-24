@@ -10,16 +10,12 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@ConfigurationProperties(prefix = "application.screeners.settings.liquidation")
+@ConfigurationProperties(prefix = "application.screeners.settings.long-liquidation")
 @Component
-public class LiquidationScreenerSettingsProperties {
+public class LongLiquidationScreenerSettingsProperties {
 
 	private BigDecimal minLongLiquidationThreshold;
 
 	private BigDecimal maxLongLiquidationThreshold;
-
-	private BigDecimal minShortLiquidationThreshold;
-
-	private BigDecimal maxShortLiquidationThreshold;
 
 }

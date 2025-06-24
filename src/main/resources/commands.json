@@ -1,0 +1,11 @@
+{
+	"START": "/start",
+	"SUBSCRIBE": "🔔 Subscribe",
+	"UNSUBSCRIBE": "🔕 Unsubscribe",
+	"SETTINGS": "🔧 Settings",
+	"CANCEL": "❌ Cancel",
+	"PUMP": "🟢 Pump",
+	"DUMP": "🔴 Dump",
+	"SHORT_LIQUIDATION": "🟩 Short Liquidation",
+	"LONG_LIQUIDATION": "🟥 Long Liquidation"
+}

@@ -5,10 +5,10 @@ import java.util.function.Function;
 
 import org.springframework.context.ApplicationEvent;
 
-import com.kaba4cow.futuresscreenerbot.properties.telegram.TelegramProperties;
+import com.kaba4cow.futuresscreenerbot.properties.TemplateProperties;
 
 public interface Notification {
 
-	Function<Set<Long>, ApplicationEvent> prepareEvent(TelegramProperties telegramProperties);
+	Function<Set<Long>, ApplicationEvent> prepareEvent(TemplateProperties templateProperties);
 
 }

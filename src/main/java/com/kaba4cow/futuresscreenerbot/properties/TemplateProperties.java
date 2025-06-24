@@ -16,4 +16,6 @@ public class TemplateProperties {
 
 	private String suffix;
 
+	private String parseMode;
+
 }

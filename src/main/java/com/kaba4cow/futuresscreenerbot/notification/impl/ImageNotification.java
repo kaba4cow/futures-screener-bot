@@ -9,7 +9,7 @@ import org.telegram.telegrambots.meta.api.methods.send.SendPhoto;
 
 import com.kaba4cow.futuresscreenerbot.event.SendPhotoEvent;
 import com.kaba4cow.futuresscreenerbot.notification.Notification;
-import com.kaba4cow.futuresscreenerbot.properties.telegram.TelegramProperties;
+import com.kaba4cow.futuresscreenerbot.properties.TemplateProperties;
 import com.kaba4cow.futuresscreenerbot.tool.ImageInputFileWriter;
 
 import lombok.RequiredArgsConstructor;
@@ -22,11 +22,11 @@ public class ImageNotification implements Notification {
 	private final String caption;
 
 	@Override
-	public Function<Set<Long>, ApplicationEvent> prepareEvent(TelegramProperties telegramProperties) {
+	public Function<Set<Long>, ApplicationEvent> prepareEvent(TemplateProperties templateProperties) {
 		SendPhoto photo = new SendPhoto();
 		photo.setCaption(caption);
 		photo.setPhoto(ImageInputFileWriter.createInputFile(image));
-		photo.setParseMode(telegramProperties.getParseMode());
+		photo.setParseMode(templateProperties.getParseMode());
 		return chatIds -> new SendPhotoEvent(this, chatIds, photo);
 	}
 

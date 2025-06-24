@@ -22,4 +22,8 @@ public class SendMessageEvent extends ApplicationEvent {
 		this.message = message;
 	}
 
+	public SendMessageEvent(Object source, Long chatId, SendMessage message) {
+		this(source, Set.of(chatId), message);
+	}
+
 }

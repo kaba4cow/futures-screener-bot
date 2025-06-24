@@ -1,0 +1,1 @@
+Choose new {{valueName}} value from {{min}} to {{max}} ({{valueUnit}})

@@ -5,7 +5,8 @@ import java.math.BigDecimal;
 import org.json.JSONObject;
 
 import com.kaba4cow.futuresscreenerbot.entity.EventType;
-import com.kaba4cow.futuresscreenerbot.properties.screener.LiquidationScreenerSettingsProperties;
+import com.kaba4cow.futuresscreenerbot.properties.screener.LongLiquidationScreenerSettingsProperties;
+import com.kaba4cow.futuresscreenerbot.properties.screener.ShortLiquidationScreenerSettingsProperties;
 import com.kaba4cow.futuresscreenerbot.screener.Screener;
 import com.kaba4cow.futuresscreenerbot.screener.ScreenerType;
 import com.kaba4cow.futuresscreenerbot.service.domain.EventService;
@@ -18,7 +19,9 @@ public class LiquidationScreener implements Screener {
 
 	private final Symbol symbol;
 
-	private final LiquidationScreenerSettingsProperties liquidationScreenerSettingsProperties;
+	private final ShortLiquidationScreenerSettingsProperties shortLiquidationScreenerSettingsProperties;
+
+	private final LongLiquidationScreenerSettingsProperties longLiquidationScreenerSettingsProperties;
 
 	private final EventService eventService;
 
@@ -28,10 +31,10 @@ public class LiquidationScreener implements Screener {
 		BigDecimal price = jsonData.getJSONObject("o").getBigDecimal("p");
 		BigDecimal quantity = jsonData.getJSONObject("o").getBigDecimal("q");
 		BigDecimal liquidation = price.multiply(quantity);
-		if (side.equals("SELL") && liquidation.doubleValue() >= liquidationScreenerSettingsProperties
+		if (side.equals("SELL") && liquidation.doubleValue() >= longLiquidationScreenerSettingsProperties
 				.getMinLongLiquidationThreshold().doubleValue())
 			eventService.registerEvent(EventType.LONG_LIQUIDATION, symbol, liquidation);
-		if (side.equals("BUY") && liquidation.doubleValue() >= liquidationScreenerSettingsProperties
+		if (side.equals("BUY") && liquidation.doubleValue() >= shortLiquidationScreenerSettingsProperties
 				.getMinShortLiquidationThreshold().doubleValue())
 			eventService.registerEvent(EventType.SHORT_LIQUIDATION, symbol, liquidation);
 	}

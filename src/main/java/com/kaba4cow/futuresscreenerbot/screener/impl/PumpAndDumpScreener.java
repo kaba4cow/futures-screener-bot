@@ -5,7 +5,8 @@ import java.math.BigDecimal;
 import org.json.JSONObject;
 
 import com.kaba4cow.futuresscreenerbot.entity.EventType;
-import com.kaba4cow.futuresscreenerbot.properties.screener.PumpAndDumpScreenerSettingsProperties;
+import com.kaba4cow.futuresscreenerbot.properties.screener.DumpScreenerSettingsProperties;
+import com.kaba4cow.futuresscreenerbot.properties.screener.PumpScreenerSettingsProperties;
 import com.kaba4cow.futuresscreenerbot.screener.Screener;
 import com.kaba4cow.futuresscreenerbot.screener.ScreenerType;
 import com.kaba4cow.futuresscreenerbot.service.domain.EventService;
@@ -21,7 +22,9 @@ public class PumpAndDumpScreener implements Screener {
 
 	private final Symbol symbol;
 
-	private final PumpAndDumpScreenerSettingsProperties pumpAndDumpScreenerSettingsProperties;
+	private final PumpScreenerSettingsProperties pumpScreenerSettingsProperties;
+
+	private final DumpScreenerSettingsProperties dumpScreenerSettingsProperties;
 
 	private final EventService eventService;
 
@@ -36,9 +39,9 @@ public class PumpAndDumpScreener implements Screener {
 			double firstPrice = firstBar.getClosePrice();
 			double lastPrice = lastBar.getClosePrice();
 			double deltaPrice = MathUtil.calculateDelta(firstPrice, lastPrice);
-			if (deltaPrice > 0f && deltaPrice >= pumpAndDumpScreenerSettingsProperties.getMinPumpThreshold().doubleValue())
+			if (deltaPrice > 0f && deltaPrice >= pumpScreenerSettingsProperties.getMinPumpThreshold().doubleValue())
 				eventService.registerEvent(EventType.PUMP, symbol, BigDecimal.valueOf(deltaPrice));
-			if (deltaPrice < 0f && deltaPrice <= -pumpAndDumpScreenerSettingsProperties.getMinDumpThreshold().doubleValue())
+			if (deltaPrice < 0f && deltaPrice <= -dumpScreenerSettingsProperties.getMinDumpThreshold().doubleValue())
 				eventService.registerEvent(EventType.DUMP, symbol, BigDecimal.valueOf(deltaPrice).abs());
 		}
 	}

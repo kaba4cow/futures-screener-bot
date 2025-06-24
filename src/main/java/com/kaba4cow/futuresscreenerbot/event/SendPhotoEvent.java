@@ -22,4 +22,8 @@ public class SendPhotoEvent extends ApplicationEvent {
 		this.photo = photo;
 	}
 
+	public SendPhotoEvent(Object source, Long chatId, SendPhoto message) {
+		this(source, Set.of(chatId), message);
+	}
+
 }

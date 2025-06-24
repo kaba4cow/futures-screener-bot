@@ -10,16 +10,12 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@ConfigurationProperties(prefix = "application.screeners.settings.pump-and-dump")
+@ConfigurationProperties(prefix = "application.screeners.settings.short-liquidation")
 @Component
-public class PumpAndDumpScreenerSettingsProperties {
+public class ShortLiquidationScreenerSettingsProperties {
 
-	private BigDecimal minPumpThreshold;
+	private BigDecimal minShortLiquidationThreshold;
 
-	private BigDecimal maxPumpThreshold;
-
-	private BigDecimal minDumpThreshold;
-
-	private BigDecimal maxDumpThreshold;
+	private BigDecimal maxShortLiquidationThreshold;
 
 }

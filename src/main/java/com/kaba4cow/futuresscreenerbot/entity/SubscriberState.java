@@ -1,7 +1,14 @@
 package com.kaba4cow.futuresscreenerbot.entity;
 
+import lombok.Getter;
+import lombok.RequiredArgsConstructor;
+
+@RequiredArgsConstructor
+@Getter
 public enum SubscriberState {
 
-	SUBSCRIBED, UNSUBSCRIBED;
+	SUBSCRIBED("Subscribed"), UNSUBSCRIBED("Unsubscribed");
+
+	private final String name;
 
 }

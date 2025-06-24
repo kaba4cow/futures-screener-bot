@@ -16,7 +16,7 @@ import com.kaba4cow.futuresscreenerbot.entity.SubscriberState;
 import com.kaba4cow.futuresscreenerbot.notification.Notification;
 import com.kaba4cow.futuresscreenerbot.notification.writer.NotificationWriter;
 import com.kaba4cow.futuresscreenerbot.notification.writer.NotificationWriterRegistry;
-import com.kaba4cow.futuresscreenerbot.properties.telegram.TelegramProperties;
+import com.kaba4cow.futuresscreenerbot.properties.TemplateProperties;
 import com.kaba4cow.futuresscreenerbot.repository.EventRepository;
 import com.kaba4cow.futuresscreenerbot.repository.SubscriberRepository;
 
@@ -28,7 +28,7 @@ import lombok.extern.slf4j.Slf4j;
 @Service
 public class NotificationService {
 
-	private final TelegramProperties telegramProperties;
+	private final TemplateProperties templateProperties;
 
 	private final SubscriberRepository subscriberRepository;
 
@@ -42,7 +42,7 @@ public class NotificationService {
 		List<Subscriber> subscribers = subscriberRepository.findAllSubscribersByState(SubscriberState.SUBSCRIBED);
 		if (subscribers.isEmpty())
 			return;
-		ApplicationEvent applicationEvent = createNotification(event).prepareEvent(telegramProperties)
+		ApplicationEvent applicationEvent = createNotification(event).prepareEvent(templateProperties)
 				.apply(getChatIds(subscribers));
 		applicationEventPublisher.publishEvent(applicationEvent);
 		log.info("Sent event notification [type={}, symbol={}] to {} subscribers", event.getType(),

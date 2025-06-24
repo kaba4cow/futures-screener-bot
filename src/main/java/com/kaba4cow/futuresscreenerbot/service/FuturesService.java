@@ -9,9 +9,9 @@ import org.json.JSONObject;
 import org.springframework.stereotype.Service;
 
 import com.binance.connector.futures.client.FuturesClient;
+import com.kaba4cow.futuresscreenerbot.tool.ParametersBuilder;
 import com.kaba4cow.futuresscreenerbot.tool.Symbol;
 import com.kaba4cow.futuresscreenerbot.tool.barseries.BarSeries;
-import com.kaba4cow.futuresscreenerbot.tool.builder.ParametersBuilder;
 import com.kaba4cow.futuresscreenerbot.tool.util.JsonUtil;
 
 import lombok.RequiredArgsConstructor;
