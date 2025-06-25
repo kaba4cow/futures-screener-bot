@@ -35,7 +35,7 @@ public class TelegramBot extends TelegramLongPollingBot {
 
 	@Override
 	public void onUpdateReceived(Update update) {
-		applicationEventPublisher.publishEvent(new TelegramUpdateEvent(this, update));
+		applicationEventPublisher.publishEvent(new TelegramUpdateEvent(update));
 	}
 
 	@Override

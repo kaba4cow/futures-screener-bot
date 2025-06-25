@@ -9,17 +9,15 @@ import lombok.Getter;
 @Getter
 public class SendMessageEvent extends TelegramMessageEvent {
 
-	private static final long serialVersionUID = 1L;
-
 	private final SendMessage message;
 
-	public SendMessageEvent(Object source, Set<Long> chatIds, SendMessage message) {
-		super(source, chatIds);
+	public SendMessageEvent(Set<Long> chatIds, SendMessage message) {
+		super(chatIds);
 		this.message = message;
 	}
 
-	public SendMessageEvent(Object source, Long chatId, SendMessage message) {
-		this(source, Set.of(chatId), message);
+	public SendMessageEvent(Long chatId, SendMessage message) {
+		this(Set.of(chatId), message);
 	}
 
 }

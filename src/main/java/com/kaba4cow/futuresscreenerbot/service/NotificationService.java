@@ -6,12 +6,12 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import org.springframework.context.ApplicationEvent;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Service;
 
 import com.kaba4cow.futuresscreenerbot.entity.Event;
 import com.kaba4cow.futuresscreenerbot.entity.Subscriber;
+import com.kaba4cow.futuresscreenerbot.event.message.TelegramMessageEvent;
 import com.kaba4cow.futuresscreenerbot.notification.Notification;
 import com.kaba4cow.futuresscreenerbot.notification.writer.NotificationWriter;
 import com.kaba4cow.futuresscreenerbot.notification.writer.NotificationWriterRegistry;
@@ -41,7 +41,7 @@ public class NotificationService {
 		List<Subscriber> subscribers = subscriberService.getSubscribersForEvent(event);
 		if (subscribers.isEmpty())
 			return;
-		ApplicationEvent applicationEvent = createNotification(event)//
+		TelegramMessageEvent applicationEvent = createNotification(event)//
 				.prepareEvent(templateProperties)//
 				.apply(getChatIds(subscribers));
 		applicationEventPublisher.publishEvent(applicationEvent);

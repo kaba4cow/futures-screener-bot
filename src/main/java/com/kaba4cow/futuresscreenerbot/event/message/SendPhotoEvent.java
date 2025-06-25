@@ -9,17 +9,15 @@ import lombok.Getter;
 @Getter
 public class SendPhotoEvent extends TelegramMessageEvent {
 
-	private static final long serialVersionUID = 1L;
-
 	private final SendPhoto photo;
 
-	public SendPhotoEvent(Object source, Set<Long> chatIds, SendPhoto photo) {
-		super(source, chatIds);
+	public SendPhotoEvent(Set<Long> chatIds, SendPhoto photo) {
+		super(chatIds);
 		this.photo = photo;
 	}
 
-	public SendPhotoEvent(Object source, Long chatId, SendPhoto message) {
-		this(source, Set.of(chatId), message);
+	public SendPhotoEvent(Long chatId, SendPhoto message) {
+		this(Set.of(chatId), message);
 	}
 
 }
