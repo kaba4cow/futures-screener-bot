@@ -7,10 +7,10 @@ import org.springframework.stereotype.Component;
 import com.kaba4cow.futuresscreenerbot.entity.Subscriber;
 import com.kaba4cow.futuresscreenerbot.properties.screener.PumpScreenerSettingsProperties;
 import com.kaba4cow.futuresscreenerbot.service.TemplateService;
+import com.kaba4cow.futuresscreenerbot.telegram.command.Command;
 import com.kaba4cow.futuresscreenerbot.telegram.replykeyboard.ReplyKeyboardFactory;
 import com.kaba4cow.futuresscreenerbot.telegram.updatehandler.UpdateResponse;
 import com.kaba4cow.futuresscreenerbot.telegram.updatehandler.commandhandler.CommandHandler;
-import com.kaba4cow.futuresscreenerbot.telegram.updatehandler.commandhandler.CommandIdentifier;
 
 import lombok.RequiredArgsConstructor;
 
@@ -36,8 +36,8 @@ public class PumpCommandHandler implements CommandHandler {
 	}
 
 	@Override
-	public CommandIdentifier getCommand() {
-		return CommandIdentifier.PUMP;
+	public Command getCommand() {
+		return Command.PUMP;
 	}
 
 }

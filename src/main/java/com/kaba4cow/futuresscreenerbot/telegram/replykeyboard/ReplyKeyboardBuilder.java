@@ -10,8 +10,8 @@ import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboardMar
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.KeyboardButton;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.KeyboardRow;
 
-import com.kaba4cow.futuresscreenerbot.telegram.updatehandler.commandhandler.CommandIdentifier;
-import com.kaba4cow.futuresscreenerbot.telegram.updatehandler.commandhandler.CommandResolver;
+import com.kaba4cow.futuresscreenerbot.telegram.command.Command;
+import com.kaba4cow.futuresscreenerbot.telegram.command.CommandResolver;
 
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
@@ -23,7 +23,7 @@ class ReplyKeyboardBuilder {
 
 	private final CommandResolver commandResolver;
 
-	ReplyKeyboardBuilder row(CommandIdentifier... options) {
+	ReplyKeyboardBuilder row(Command... options) {
 		KeyboardRow row = new KeyboardRow();
 		Arrays.stream(options)//
 				.map(commandResolver::getCommand)//

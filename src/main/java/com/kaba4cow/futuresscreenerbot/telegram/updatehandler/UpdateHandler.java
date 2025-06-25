@@ -9,11 +9,11 @@ import com.kaba4cow.futuresscreenerbot.entity.Subscriber;
 import com.kaba4cow.futuresscreenerbot.event.message.SendMessageEvent;
 import com.kaba4cow.futuresscreenerbot.properties.TemplateProperties;
 import com.kaba4cow.futuresscreenerbot.repository.SubscriberRepository;
+import com.kaba4cow.futuresscreenerbot.telegram.command.Command;
+import com.kaba4cow.futuresscreenerbot.telegram.command.CommandResolver;
 import com.kaba4cow.futuresscreenerbot.telegram.replykeyboard.ReplyKeyboardFactory;
 import com.kaba4cow.futuresscreenerbot.telegram.updatehandler.commandhandler.CommandHandler;
 import com.kaba4cow.futuresscreenerbot.telegram.updatehandler.commandhandler.CommandHandlerRegistry;
-import com.kaba4cow.futuresscreenerbot.telegram.updatehandler.commandhandler.CommandIdentifier;
-import com.kaba4cow.futuresscreenerbot.telegram.updatehandler.commandhandler.CommandResolver;
 import com.kaba4cow.futuresscreenerbot.telegram.updatehandler.inputhandler.InputHandler;
 import com.kaba4cow.futuresscreenerbot.telegram.updatehandler.inputhandler.InputHandlerRegistry;
 
@@ -47,8 +47,8 @@ public class UpdateHandler {
 	}
 
 	private UpdateResponse getResponse(Subscriber subscriber, String commandText) {
-		CommandIdentifier lastCommand = subscriber.getLastCommand();
-		CommandIdentifier currentCommand = commandIdentifierResolver.resolveIdentifier(commandText);
+		Command lastCommand = subscriber.getLastCommand();
+		Command currentCommand = commandIdentifierResolver.resolveCommand(commandText);
 		if (currentCommand == null && lastCommand.isInputRequired()) {
 			InputHandler inputHandler = inputHandlerRegistry.getHandler(lastCommand);
 			return inputHandler.apply(subscriber, commandText);

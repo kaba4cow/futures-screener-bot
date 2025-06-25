@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 
 import com.kaba4cow.futuresscreenerbot.entity.SubscriberSettings;
 import com.kaba4cow.futuresscreenerbot.properties.screener.LongLiquidationScreenerSettingsProperties;
-import com.kaba4cow.futuresscreenerbot.telegram.updatehandler.commandhandler.CommandIdentifier;
+import com.kaba4cow.futuresscreenerbot.telegram.command.Command;
 
 import lombok.RequiredArgsConstructor;
 
@@ -29,8 +29,8 @@ public class LongLiquidationInputHandler extends SettingsInputHandler {
 	}
 
 	@Override
-	public CommandIdentifier getCommand() {
-		return CommandIdentifier.LONG_LIQUIDATION;
+	public Command getCommand() {
+		return Command.LONG_LIQUIDATION;
 	}
 
 }

@@ -11,7 +11,7 @@ import com.kaba4cow.futuresscreenerbot.entity.SubscriberState;
 import com.kaba4cow.futuresscreenerbot.repository.SubscriberRepository;
 import com.kaba4cow.futuresscreenerbot.service.domain.settingsextractor.SubscriberSettingsExtractor;
 import com.kaba4cow.futuresscreenerbot.service.domain.settingsextractor.SubscriberSettingsExtractorRegistry;
-import com.kaba4cow.futuresscreenerbot.telegram.updatehandler.commandhandler.CommandIdentifier;
+import com.kaba4cow.futuresscreenerbot.telegram.command.Command;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -37,7 +37,7 @@ public class SubscriberService {
 		Subscriber subscriber = new Subscriber();
 		subscriber.setId(id);
 		subscriber.setState(SubscriberState.SUBSCRIBED);
-		subscriber.setLastCommand(CommandIdentifier.NONE);
+		subscriber.setLastCommand(Command.NONE);
 		subscriber.setSettings(subscriberSettingsFactory.createSettings());
 		Subscriber savedSubscriber = subscriberRepository.save(subscriber);
 		log.info("Registered subscriber [id={}]", id);

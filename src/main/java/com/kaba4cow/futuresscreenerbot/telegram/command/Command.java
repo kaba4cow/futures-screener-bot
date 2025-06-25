@@ -1,11 +1,11 @@
-package com.kaba4cow.futuresscreenerbot.telegram.updatehandler.commandhandler;
+package com.kaba4cow.futuresscreenerbot.telegram.command;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 @Getter
-public enum CommandIdentifier {
+public enum Command {
 
 	NONE(false), //
 

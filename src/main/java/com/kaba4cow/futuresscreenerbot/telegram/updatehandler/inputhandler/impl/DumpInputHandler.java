@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 
 import com.kaba4cow.futuresscreenerbot.entity.SubscriberSettings;
 import com.kaba4cow.futuresscreenerbot.properties.screener.DumpScreenerSettingsProperties;
-import com.kaba4cow.futuresscreenerbot.telegram.updatehandler.commandhandler.CommandIdentifier;
+import com.kaba4cow.futuresscreenerbot.telegram.command.Command;
 
 import lombok.RequiredArgsConstructor;
 
@@ -28,8 +28,8 @@ public class DumpInputHandler extends SettingsInputHandler {
 	}
 
 	@Override
-	public CommandIdentifier getCommand() {
-		return CommandIdentifier.DUMP;
+	public Command getCommand() {
+		return Command.DUMP;
 	}
 
 }

@@ -1,4 +1,4 @@
-package com.kaba4cow.futuresscreenerbot.telegram.updatehandler.commandhandler;
+package com.kaba4cow.futuresscreenerbot.telegram.command;
 
 import java.net.URL;
 import java.nio.file.Files;
@@ -18,9 +18,9 @@ import lombok.extern.slf4j.Slf4j;
 @Component
 public class CommandResolver {
 
-	private final Map<String, CommandIdentifier> commandToIdentifierMappings = new TreeMap<>();
+	private final Map<String, Command> commandToIdentifierMappings = new TreeMap<>();
 
-	private final Map<CommandIdentifier, String> identifierToCommandMappings = new TreeMap<>();
+	private final Map<Command, String> identifierToCommandMappings = new TreeMap<>();
 
 	@SneakyThrows
 	@PostConstruct
@@ -30,7 +30,7 @@ public class CommandResolver {
 		Path path = Paths.get(resource.toURI());
 		JSONObject json = new JSONObject(Files.readString(path));
 		for (String key : json.keySet()) {
-			CommandIdentifier identifier = CommandIdentifier.valueOf(key);
+			Command identifier = Command.valueOf(key);
 			String command = json.getString(key);
 			commandToIdentifierMappings.put(command, identifier);
 			identifierToCommandMappings.put(identifier, command);
@@ -38,14 +38,14 @@ public class CommandResolver {
 		}
 	}
 
-	public CommandIdentifier resolveIdentifier(String command) {
+	public Command resolveCommand(String command) {
 		if (commandToIdentifierMappings.containsKey(command))
 			return commandToIdentifierMappings.get(command);
 		else
 			return null;
 	}
 
-	public String getCommand(CommandIdentifier identifier) {
+	public String getCommand(Command identifier) {
 		return identifierToCommandMappings.get(identifier);
 	}
 

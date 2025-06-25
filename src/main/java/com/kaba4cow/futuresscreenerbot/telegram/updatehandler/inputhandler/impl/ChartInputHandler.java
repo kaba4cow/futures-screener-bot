@@ -9,9 +9,9 @@ import com.kaba4cow.futuresscreenerbot.entity.Subscriber;
 import com.kaba4cow.futuresscreenerbot.properties.screener.ScreenerProperties;
 import com.kaba4cow.futuresscreenerbot.service.ChartService;
 import com.kaba4cow.futuresscreenerbot.service.TemplateService;
+import com.kaba4cow.futuresscreenerbot.telegram.command.Command;
 import com.kaba4cow.futuresscreenerbot.telegram.replykeyboard.ReplyKeyboardFactory;
 import com.kaba4cow.futuresscreenerbot.telegram.updatehandler.UpdateResponse;
-import com.kaba4cow.futuresscreenerbot.telegram.updatehandler.commandhandler.CommandIdentifier;
 import com.kaba4cow.futuresscreenerbot.telegram.updatehandler.inputhandler.InputHandler;
 import com.kaba4cow.futuresscreenerbot.tool.Symbol;
 
@@ -50,8 +50,8 @@ public class ChartInputHandler implements InputHandler {
 	}
 
 	@Override
-	public CommandIdentifier getCommand() {
-		return CommandIdentifier.CHART;
+	public Command getCommand() {
+		return Command.CHART;
 	}
 
 }

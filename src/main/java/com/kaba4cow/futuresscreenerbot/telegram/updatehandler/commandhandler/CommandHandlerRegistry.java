@@ -5,16 +5,18 @@ import java.util.concurrent.ConcurrentHashMap;
 
 import org.springframework.stereotype.Component;
 
+import com.kaba4cow.futuresscreenerbot.telegram.command.Command;
+
 @Component
 public class CommandHandlerRegistry {
 
-	private final Map<CommandIdentifier, CommandHandler> handers = new ConcurrentHashMap<>();
+	private final Map<Command, CommandHandler> handers = new ConcurrentHashMap<>();
 
 	public void register(CommandHandler command) {
 		handers.put(command.getCommand(), command);
 	}
 
-	public CommandHandler getHandler(CommandIdentifier identifier) {
+	public CommandHandler getHandler(Command identifier) {
 		return handers.get(identifier);
 	}
 
