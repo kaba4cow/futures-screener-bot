@@ -66,7 +66,7 @@ public class UpdateHandler {
 				.text(response.getResponseText())//
 				.replyMarkup(response.getReplyKeyboardSupplier().accept(replyKeyboardFactory, subscriber))//
 				.build();
-		applicationEventPublisher.publishEvent(new SendMessageEvent(this, subscriber.getId(), message));
+		applicationEventPublisher.publishEvent(new SendMessageEvent(subscriber.getId(), message));
 	}
 
 }
