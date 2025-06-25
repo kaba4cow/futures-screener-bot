@@ -27,7 +27,7 @@ application:
         suffix: .md
     screeners:
         excluded-base-assets: USDC, USTC, USDT, FDUSD, BTCST, BTCDOM, BTC, ETH, BCH, ETC, BNB, SOL, XRP, TRX, LTC
-        quote-assets: USDT
+        quote-asset: USDT
         settings:
             pump:
                 min-pump-threshold: 1.0

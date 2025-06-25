@@ -48,8 +48,8 @@ public class ScreenerStarter {
 
 	private boolean filterSymbol(Symbol symbol) {
 		return !screenerProperties.getExcludedBaseAssets().contains(symbol.getBaseAsset()) && //
-				!screenerProperties.getQuoteAssets().contains(symbol.getBaseAsset()) && //
-				screenerProperties.getQuoteAssets().contains(symbol.getQuoteAsset());
+				!screenerProperties.getQuoteAsset().equalsIgnoreCase(symbol.getBaseAsset()) && //
+				screenerProperties.getQuoteAsset().equalsIgnoreCase(symbol.getQuoteAsset());
 	}
 
 	private void registerScreenersForSymbol(Symbol symbol, Map<String, Screener> screeners) {

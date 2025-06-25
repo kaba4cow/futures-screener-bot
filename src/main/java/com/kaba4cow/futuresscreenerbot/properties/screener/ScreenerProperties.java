@@ -16,6 +16,6 @@ public class ScreenerProperties {
 
 	private List<String> excludedBaseAssets;
 
-	private List<String> quoteAssets;
+	private String quoteAsset;
 
 }
