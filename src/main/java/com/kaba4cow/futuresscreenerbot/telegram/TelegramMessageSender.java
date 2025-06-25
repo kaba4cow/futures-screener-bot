@@ -6,8 +6,8 @@ import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.methods.send.SendPhoto;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
-import com.kaba4cow.futuresscreenerbot.event.SendMessageEvent;
-import com.kaba4cow.futuresscreenerbot.event.SendPhotoEvent;
+import com.kaba4cow.futuresscreenerbot.event.message.SendMessageEvent;
+import com.kaba4cow.futuresscreenerbot.event.message.SendPhotoEvent;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

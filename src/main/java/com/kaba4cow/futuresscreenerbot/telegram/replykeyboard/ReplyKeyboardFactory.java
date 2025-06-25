@@ -23,8 +23,8 @@ public class ReplyKeyboardFactory {
 		return new ReplyKeyboardBuilder(commandResolver)//
 				.row(CommandIdentifier.PUMP, CommandIdentifier.LONG_LIQUIDATION)//
 				.row(CommandIdentifier.DUMP, CommandIdentifier.SHORT_LIQUIDATION)//
+				.row(CommandIdentifier.CHART, CommandIdentifier.SETTINGS)//
 				.row(changeStateCommand)//
-				.row(CommandIdentifier.SETTINGS)//
 				.build();
 	}
 

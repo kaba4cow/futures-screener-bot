@@ -6,7 +6,7 @@ import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
 
 import com.kaba4cow.futuresscreenerbot.entity.Subscriber;
-import com.kaba4cow.futuresscreenerbot.event.SendMessageEvent;
+import com.kaba4cow.futuresscreenerbot.event.message.SendMessageEvent;
 import com.kaba4cow.futuresscreenerbot.properties.TemplateProperties;
 import com.kaba4cow.futuresscreenerbot.repository.SubscriberRepository;
 import com.kaba4cow.futuresscreenerbot.telegram.replykeyboard.ReplyKeyboardFactory;

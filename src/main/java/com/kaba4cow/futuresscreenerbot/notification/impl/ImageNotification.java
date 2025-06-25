@@ -7,7 +7,7 @@ import java.util.function.Function;
 import org.springframework.context.ApplicationEvent;
 import org.telegram.telegrambots.meta.api.methods.send.SendPhoto;
 
-import com.kaba4cow.futuresscreenerbot.event.SendPhotoEvent;
+import com.kaba4cow.futuresscreenerbot.event.message.SendPhotoEvent;
 import com.kaba4cow.futuresscreenerbot.notification.Notification;
 import com.kaba4cow.futuresscreenerbot.properties.TemplateProperties;
 import com.kaba4cow.futuresscreenerbot.tool.ImageInputFileWriter;

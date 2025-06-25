@@ -1,24 +1,20 @@
-package com.kaba4cow.futuresscreenerbot.event;
+package com.kaba4cow.futuresscreenerbot.event.message;
 
 import java.util.Set;
 
-import org.springframework.context.ApplicationEvent;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 
 import lombok.Getter;
 
 @Getter
-public class SendMessageEvent extends ApplicationEvent {
+public class SendMessageEvent extends TelegramMessageEvent {
 
 	private static final long serialVersionUID = 1L;
-
-	private final Set<Long> chatIds;
 
 	private final SendMessage message;
 
 	public SendMessageEvent(Object source, Set<Long> chatIds, SendMessage message) {
-		super(source);
-		this.chatIds = chatIds;
+		super(source, chatIds);
 		this.message = message;
 	}
 

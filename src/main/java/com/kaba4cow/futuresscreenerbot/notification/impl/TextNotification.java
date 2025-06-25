@@ -6,7 +6,7 @@ import java.util.function.Function;
 import org.springframework.context.ApplicationEvent;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 
-import com.kaba4cow.futuresscreenerbot.event.SendMessageEvent;
+import com.kaba4cow.futuresscreenerbot.event.message.SendMessageEvent;
 import com.kaba4cow.futuresscreenerbot.notification.Notification;
 import com.kaba4cow.futuresscreenerbot.properties.TemplateProperties;
 
