@@ -1,0 +1,1 @@
+Could not create chart image for {{symbol}}

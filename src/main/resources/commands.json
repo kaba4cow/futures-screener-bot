@@ -7,5 +7,6 @@
 	"PUMP": "🟢 Pump",
 	"DUMP": "🔴 Dump",
 	"SHORT_LIQUIDATION": "🟩 Short Liquidation",
-	"LONG_LIQUIDATION": "🟥 Long Liquidation"
+	"LONG_LIQUIDATION": "🟥 Long Liquidation",
+	"CHART": "📈 Chart"
 }

@@ -1,10 +1,9 @@
 package com.kaba4cow.futuresscreenerbot.telegram.updatehandler.command;
 
-import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
-@RequiredArgsConstructor(access = AccessLevel.PRIVATE)
+@RequiredArgsConstructor
 @Getter
 public enum CommandIdentifier {
 
@@ -15,6 +14,8 @@ public enum CommandIdentifier {
 	CANCEL(false), //
 
 	SUBSCRIBE(false), UNSUBSCRIBE(false), SETTINGS(false), //
+
+	CHART(true), //
 
 	PUMP(true), DUMP(true), SHORT_LIQUIDATION(true), LONG_LIQUIDATION(true);
 
