@@ -24,17 +24,17 @@ public abstract class SettingsInputHandler implements InputHandler {
 			BigDecimal value = new BigDecimal(input);
 			if (isOutOfRange(value))
 				return UpdateResponse.builder()//
-						.responseText(templateService.evaluateTemplate("messages/out-of-range"))//
+						.responseText(templateService.evaluateTemplate("messages/settings/out-of-range"))//
 						.replyKeyboardSupplier(ReplyKeyboardFactory::buildCancelKeyboard)//
 						.build();
 			setValue(subscriber.getSettings(), value);
 			return UpdateResponse.builder()//
-					.responseText(templateService.evaluateTemplate("messages/value-set"))//
+					.responseText(templateService.evaluateTemplate("messages/settings/value-set"))//
 					.replyKeyboardSupplier(ReplyKeyboardFactory::buildMenuKeyboard)//
 					.build();
 		} catch (Exception exception) {
 			return UpdateResponse.builder()//
-					.responseText(templateService.evaluateTemplate("messages/invalid"))//
+					.responseText(templateService.evaluateTemplate("messages/settings/invalid"))//
 					.replyKeyboardSupplier(ReplyKeyboardFactory::buildCancelKeyboard)//
 					.build();
 		}

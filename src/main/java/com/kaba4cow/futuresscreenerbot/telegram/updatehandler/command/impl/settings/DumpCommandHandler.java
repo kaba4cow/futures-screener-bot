@@ -25,7 +25,7 @@ public class DumpCommandHandler implements CommandHandler {
 	@Override
 	public UpdateResponse apply(Subscriber subscriber) {
 		return UpdateResponse.builder()//
-				.responseText(templateService.evaluateTemplate("messages/set-value", Map.of(//
+				.responseText(templateService.evaluateTemplate("messages/settings/set-value", Map.of(//
 						"valueName", "Dump Threshold", //
 						"valueUnit", "%", //
 						"min", dumpScreenerSettingsProperties.getMinDumpThreshold(), //
