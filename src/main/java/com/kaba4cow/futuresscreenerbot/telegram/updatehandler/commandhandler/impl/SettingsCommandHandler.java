@@ -25,7 +25,7 @@ public class SettingsCommandHandler implements CommandHandler {
 	private final ReplyKeyboardFactory replyKeyboardFactory;
 
 	@Override
-	public TelegramMessage apply(Subscriber subscriber) {
+	public TelegramMessage getResponseMessage(Subscriber subscriber) {
 		SubscriberSettings subscriberSettings = subscriber.getSettings();
 		return new TelegramTextMessage(SendMessage.builder()//
 				.chatId(subscriber.getId())//

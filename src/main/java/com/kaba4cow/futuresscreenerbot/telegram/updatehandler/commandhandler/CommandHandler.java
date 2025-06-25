@@ -13,7 +13,7 @@ public interface CommandHandler {
 		registry.register(this);
 	}
 
-	TelegramMessage apply(Subscriber subscriber);
+	TelegramMessage getResponseMessage(Subscriber subscriber);
 
 	Command getCommand();
 

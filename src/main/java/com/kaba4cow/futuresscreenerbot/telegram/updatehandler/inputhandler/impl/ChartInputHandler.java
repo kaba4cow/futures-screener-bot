@@ -35,7 +35,7 @@ public class ChartInputHandler implements InputHandler {
 	private final ReplyKeyboardFactory replyKeyboardFactory;
 
 	@Override
-	public TelegramMessage apply(Subscriber subscriber, String input) {
+	public TelegramMessage getResponseMessage(Subscriber subscriber, String input) {
 		Symbol symbol = new Symbol(input.toUpperCase(), screenerProperties.getQuoteAsset());
 		try {
 			RenderedImage chartImage = chartService.createChart(symbol);

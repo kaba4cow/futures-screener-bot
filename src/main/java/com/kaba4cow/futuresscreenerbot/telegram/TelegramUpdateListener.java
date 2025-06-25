@@ -15,20 +15,20 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @RequiredArgsConstructor
 @Component
-public class TelegramUpdateReceiver {
+public class TelegramUpdateListener {
 
 	private final SubscriberService subscriberService;
 
-	private final UpdateHandler commandHandler;
+	private final UpdateHandler updateHandler;
 
 	@EventListener
-	public void handleReceiveUpdate(TelegramUpdateEvent telegramUpdateEvent) {
+	public void handleTelegramUpdateEvent(TelegramUpdateEvent telegramUpdateEvent) {
 		Update update = telegramUpdateEvent.getUpdate();
 		if (update.hasMessage()) {
 			log.info("Received update [chatId={}]", update.getMessage().getChatId());
 			Long id = update.getMessage().getChatId();
 			Subscriber subscriber = subscriberService.getOrRegisterSubscriber(id);
-			commandHandler.handleCommand(subscriber, update);
+			updateHandler.handleUpdate(subscriber, update);
 		}
 	}
 

@@ -13,7 +13,7 @@ public interface InputHandler {
 		registry.register(this);
 	}
 
-	TelegramMessage apply(Subscriber subscriber, String input);
+	TelegramMessage getResponseMessage(Subscriber subscriber, String input);
 
 	Command getCommand();
 

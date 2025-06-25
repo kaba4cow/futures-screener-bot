@@ -27,7 +27,7 @@ public class DumpCommandHandler implements CommandHandler {
 	private final ReplyKeyboardFactory replyKeyboardFactory;
 
 	@Override
-	public TelegramMessage apply(Subscriber subscriber) {
+	public TelegramMessage getResponseMessage(Subscriber subscriber) {
 		return new TelegramTextMessage(SendMessage.builder()//
 				.chatId(subscriber.getId())//
 				.text(templateService.evaluateTemplate("messages/settings/set-value", Map.of(//

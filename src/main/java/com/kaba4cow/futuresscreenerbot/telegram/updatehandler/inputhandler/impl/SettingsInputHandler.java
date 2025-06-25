@@ -24,7 +24,7 @@ public abstract class SettingsInputHandler implements InputHandler {
 	public SettingsInputHandler() {}
 
 	@Override
-	public TelegramMessage apply(Subscriber subscriber, String input) {
+	public TelegramMessage getResponseMessage(Subscriber subscriber, String input) {
 		try {
 			BigDecimal value = new BigDecimal(input);
 			if (isOutOfRange(value))

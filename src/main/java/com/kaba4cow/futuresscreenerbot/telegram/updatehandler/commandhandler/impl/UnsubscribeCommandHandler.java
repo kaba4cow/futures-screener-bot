@@ -23,7 +23,7 @@ public class UnsubscribeCommandHandler implements CommandHandler {
 	private final ReplyKeyboardFactory replyKeyboardFactory;
 
 	@Override
-	public TelegramMessage apply(Subscriber subscriber) {
+	public TelegramMessage getResponseMessage(Subscriber subscriber) {
 		subscriber.setState(SubscriberState.UNSUBSCRIBED);
 		return new TelegramTextMessage(SendMessage.builder()//
 				.chatId(subscriber.getId())//

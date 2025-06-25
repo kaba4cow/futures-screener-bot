@@ -1,5 +1,7 @@
 package com.kaba4cow.futuresscreenerbot.telegram.updatehandler;
 
+import java.util.Objects;
+
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.meta.api.objects.Update;
 
@@ -30,25 +32,25 @@ public class UpdateHandler {
 
 	private final TelegramMessageService telegramMessageService;
 
-	public void handleCommand(Subscriber subscriber, Update update) {
+	public void handleUpdate(Subscriber subscriber, Update update) {
 		if (update.getMessage().hasText()) {
 			String commandText = update.getMessage().getText();
-			TelegramMessage message = getResponse(subscriber, commandText);
+			TelegramMessage message = getResponseMessage(subscriber, commandText);
 			subscriberRepository.save(subscriber);
 			telegramMessageService.sendMessage(message);
 		}
 	}
 
-	private TelegramMessage getResponse(Subscriber subscriber, String commandText) {
+	private TelegramMessage getResponseMessage(Subscriber subscriber, String commandText) {
 		Command lastCommand = subscriber.getLastCommand();
 		Command currentCommand = commandResolver.resolveCommand(commandText);
-		if (currentCommand == null && lastCommand.isInputRequired()) {
+		if (Objects.isNull(currentCommand) && lastCommand.isInputRequired()) {
 			InputHandler inputHandler = inputHandlerRegistry.getHandler(lastCommand);
-			return inputHandler.apply(subscriber, commandText);
+			return inputHandler.getResponseMessage(subscriber, commandText);
 		} else {
 			CommandHandler commandHandler = commandHandlerRegistry.getHandler(currentCommand);
 			subscriber.setLastCommand(commandHandler.getCommand());
-			return commandHandler.apply(subscriber);
+			return commandHandler.getResponseMessage(subscriber);
 		}
 	}
 
