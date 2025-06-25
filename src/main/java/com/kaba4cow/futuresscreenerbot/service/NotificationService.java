@@ -12,13 +12,12 @@ import org.springframework.stereotype.Service;
 
 import com.kaba4cow.futuresscreenerbot.entity.Event;
 import com.kaba4cow.futuresscreenerbot.entity.Subscriber;
-import com.kaba4cow.futuresscreenerbot.entity.SubscriberState;
 import com.kaba4cow.futuresscreenerbot.notification.Notification;
 import com.kaba4cow.futuresscreenerbot.notification.writer.NotificationWriter;
 import com.kaba4cow.futuresscreenerbot.notification.writer.NotificationWriterRegistry;
 import com.kaba4cow.futuresscreenerbot.properties.TemplateProperties;
 import com.kaba4cow.futuresscreenerbot.repository.EventRepository;
-import com.kaba4cow.futuresscreenerbot.repository.SubscriberRepository;
+import com.kaba4cow.futuresscreenerbot.service.domain.SubscriberService;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -30,7 +29,7 @@ public class NotificationService {
 
 	private final TemplateProperties templateProperties;
 
-	private final SubscriberRepository subscriberRepository;
+	private final SubscriberService subscriberService;
 
 	private final EventRepository eventRepository;
 
@@ -39,10 +38,11 @@ public class NotificationService {
 	private final ApplicationEventPublisher applicationEventPublisher;
 
 	public void sendEventNotification(Event event) {
-		List<Subscriber> subscribers = subscriberRepository.findAllSubscribersByState(SubscriberState.SUBSCRIBED);
+		List<Subscriber> subscribers = subscriberService.getSubscribersForEvent(event);
 		if (subscribers.isEmpty())
 			return;
-		ApplicationEvent applicationEvent = createNotification(event).prepareEvent(templateProperties)
+		ApplicationEvent applicationEvent = createNotification(event)//
+				.prepareEvent(templateProperties)//
 				.apply(getChatIds(subscribers));
 		applicationEventPublisher.publishEvent(applicationEvent);
 		log.info("Sent event notification [type={}, symbol={}] to {} subscribers", event.getType(),

@@ -28,7 +28,7 @@ public class EventService {
 		event.setType(type);
 		event.setValue(value);
 		Event savedEvent = eventRepository.save(event);
-		log.info("Registered event [type={}, symbol={}/{}]", type, symbol.getBaseAsset(), symbol.getQuoteAsset());
+		log.info("Registered event [symbol={}, type={}, value={}]", symbol.toAssetsString(), type, value);
 		notificationService.sendEventNotification(savedEvent);
 	}
 
