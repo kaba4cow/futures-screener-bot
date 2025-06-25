@@ -1,3 +1,3 @@
-🔴 <a href="https://www.binance.com/futures/{{baseAsset}}{{quoteAsset}}">{{baseAsset}}/{{quoteAsset}}</a> 🔔 <b>{{eventCount}}</b> 
+🔴 <a href="https://www.binance.com/futures/{{symbol}}">{{assets}}</a> 🔔 <b>{{eventCount}}</b> 
 
 Dump: -{{dumpValue}}%

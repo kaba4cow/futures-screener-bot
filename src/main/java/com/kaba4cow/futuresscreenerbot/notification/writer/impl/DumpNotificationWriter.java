@@ -28,8 +28,8 @@ public class DumpNotificationWriter implements NotificationWriter {
 	public ImageNotification createNotification(Event event, long eventCount) {
 		BigDecimal rounded = event.getValue().setScale(2, RoundingMode.HALF_UP);
 		String text = templateService.evaluateTemplate("events/dump", Map.of(//
-				"baseAsset", event.getSymbol().getBaseAsset(), //
-				"quoteAsset", event.getSymbol().getQuoteAsset(), //
+				"symbol", event.getSymbol().toSymbolString(), //
+				"assets", event.getSymbol().toAssetsString(), //
 				"eventCount", eventCount, //
 				"dumpValue", rounded.toPlainString()//
 		));

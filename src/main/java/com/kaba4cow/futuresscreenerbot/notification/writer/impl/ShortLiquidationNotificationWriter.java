@@ -24,8 +24,8 @@ public class ShortLiquidationNotificationWriter implements NotificationWriter {
 	public TextNotification createNotification(Event event, long eventCount) {
 		BigDecimal rounded = event.getValue().setScale(0, RoundingMode.HALF_UP);
 		String text = templateService.evaluateTemplate("events/short-liquidation", Map.of(//
-				"baseAsset", event.getSymbol().getBaseAsset(), //
-				"quoteAsset", event.getSymbol().getQuoteAsset(), //
+				"symbol", event.getSymbol().toSymbolString(), //
+				"assets", event.getSymbol().toAssetsString(), //
 				"eventCount", eventCount, //
 				"liquidationValue", rounded.toPlainString()//
 		));
