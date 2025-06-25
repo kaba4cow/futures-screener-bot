@@ -1,16 +1,19 @@
-package com.kaba4cow.futuresscreenerbot.notification.writer.impl;
+package com.kaba4cow.futuresscreenerbot.notificationwriter.impl;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.Map;
+import java.util.Set;
 
 import org.springframework.stereotype.Component;
+import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 
 import com.kaba4cow.futuresscreenerbot.entity.Event;
 import com.kaba4cow.futuresscreenerbot.entity.EventType;
-import com.kaba4cow.futuresscreenerbot.notification.impl.TextNotification;
-import com.kaba4cow.futuresscreenerbot.notification.writer.NotificationWriter;
+import com.kaba4cow.futuresscreenerbot.notificationwriter.NotificationWriter;
 import com.kaba4cow.futuresscreenerbot.service.TemplateService;
+import com.kaba4cow.futuresscreenerbot.telegram.message.TelegramMessage;
+import com.kaba4cow.futuresscreenerbot.telegram.message.TelegramTextMessage;
 
 import lombok.RequiredArgsConstructor;
 
@@ -21,7 +24,7 @@ public class LongLiquidationNotificationWriter implements NotificationWriter {
 	private final TemplateService templateService;
 
 	@Override
-	public TextNotification createNotification(Event event, long eventCount) {
+	public TelegramMessage createMessage(Set<Long> chatIds, Event event, long eventCount) {
 		BigDecimal rounded = event.getValue().setScale(0, RoundingMode.HALF_UP);
 		String text = templateService.evaluateTemplate("events/long-liquidation", Map.of(//
 				"symbol", event.getSymbol().toSymbolString(), //
@@ -29,7 +32,9 @@ public class LongLiquidationNotificationWriter implements NotificationWriter {
 				"eventCount", eventCount, //
 				"liquidationValue", rounded.toPlainString()//
 		));
-		return new TextNotification(text);
+		SendMessage message = new SendMessage();
+		message.setText(text);
+		return new TelegramTextMessage(chatIds, message);
 	}
 
 	@Override

@@ -1,4 +1,4 @@
-package com.kaba4cow.futuresscreenerbot.notification.writer;
+package com.kaba4cow.futuresscreenerbot.notificationwriter;
 
 import java.util.Map;
 import java.util.NoSuchElementException;

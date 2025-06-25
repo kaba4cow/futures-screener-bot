@@ -1,14 +1,16 @@
-package com.kaba4cow.futuresscreenerbot.notification.writer;
+package com.kaba4cow.futuresscreenerbot.notificationwriter;
+
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.kaba4cow.futuresscreenerbot.entity.Event;
 import com.kaba4cow.futuresscreenerbot.entity.EventType;
-import com.kaba4cow.futuresscreenerbot.notification.Notification;
+import com.kaba4cow.futuresscreenerbot.telegram.message.TelegramMessage;
 
 public interface NotificationWriter {
 
-	Notification createNotification(Event event, long eventCount);
+	TelegramMessage createMessage(Set<Long> chatIds, Event event, long eventCount);
 
 	EventType getEventType();
 
