@@ -10,8 +10,8 @@ import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboardMar
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.KeyboardButton;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.buttons.KeyboardRow;
 
-import com.kaba4cow.futuresscreenerbot.telegram.updatehandler.command.CommandIdentifier;
-import com.kaba4cow.futuresscreenerbot.telegram.updatehandler.command.CommandResolver;
+import com.kaba4cow.futuresscreenerbot.telegram.updatehandler.commandhandler.CommandIdentifier;
+import com.kaba4cow.futuresscreenerbot.telegram.updatehandler.commandhandler.CommandResolver;
 
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;

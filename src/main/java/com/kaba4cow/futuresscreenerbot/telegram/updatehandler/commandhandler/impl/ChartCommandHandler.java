@@ -1,4 +1,4 @@
-package com.kaba4cow.futuresscreenerbot.telegram.updatehandler.command.impl;
+package com.kaba4cow.futuresscreenerbot.telegram.updatehandler.commandhandler.impl;
 
 import org.springframework.stereotype.Component;
 
@@ -6,28 +6,28 @@ import com.kaba4cow.futuresscreenerbot.entity.Subscriber;
 import com.kaba4cow.futuresscreenerbot.service.TemplateService;
 import com.kaba4cow.futuresscreenerbot.telegram.replykeyboard.ReplyKeyboardFactory;
 import com.kaba4cow.futuresscreenerbot.telegram.updatehandler.UpdateResponse;
-import com.kaba4cow.futuresscreenerbot.telegram.updatehandler.command.CommandHandler;
-import com.kaba4cow.futuresscreenerbot.telegram.updatehandler.command.CommandIdentifier;
+import com.kaba4cow.futuresscreenerbot.telegram.updatehandler.commandhandler.CommandHandler;
+import com.kaba4cow.futuresscreenerbot.telegram.updatehandler.commandhandler.CommandIdentifier;
 
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 @Component
-public class StartCommandHandler implements CommandHandler {
+public class ChartCommandHandler implements CommandHandler {
 
 	private final TemplateService templateService;
 
 	@Override
 	public UpdateResponse apply(Subscriber subscriber) {
 		return UpdateResponse.builder()//
-				.responseText(templateService.evaluateTemplate("messages/start"))//
-				.replyKeyboardSupplier(ReplyKeyboardFactory::buildMenuKeyboard)//
+				.responseText(templateService.evaluateTemplate("messages/chart/asset"))//
+				.replyKeyboardSupplier(ReplyKeyboardFactory::buildCancelKeyboard)//
 				.build();
 	}
 
 	@Override
 	public CommandIdentifier getCommand() {
-		return CommandIdentifier.START;
+		return CommandIdentifier.CHART;
 	}
 
 }

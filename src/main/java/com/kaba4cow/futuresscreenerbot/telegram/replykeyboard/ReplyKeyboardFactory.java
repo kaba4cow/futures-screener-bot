@@ -5,8 +5,8 @@ import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboard;
 
 import com.kaba4cow.futuresscreenerbot.entity.Subscriber;
 import com.kaba4cow.futuresscreenerbot.entity.SubscriberState;
-import com.kaba4cow.futuresscreenerbot.telegram.updatehandler.command.CommandIdentifier;
-import com.kaba4cow.futuresscreenerbot.telegram.updatehandler.command.CommandResolver;
+import com.kaba4cow.futuresscreenerbot.telegram.updatehandler.commandhandler.CommandIdentifier;
+import com.kaba4cow.futuresscreenerbot.telegram.updatehandler.commandhandler.CommandResolver;
 
 import lombok.RequiredArgsConstructor;
 

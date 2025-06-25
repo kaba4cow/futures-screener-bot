@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 
 import com.kaba4cow.futuresscreenerbot.entity.SubscriberSettings;
 import com.kaba4cow.futuresscreenerbot.properties.screener.PumpScreenerSettingsProperties;
-import com.kaba4cow.futuresscreenerbot.telegram.updatehandler.command.CommandIdentifier;
+import com.kaba4cow.futuresscreenerbot.telegram.updatehandler.commandhandler.CommandIdentifier;
 
 import lombok.RequiredArgsConstructor;
 

@@ -11,7 +11,7 @@ import com.kaba4cow.futuresscreenerbot.entity.SubscriberState;
 import com.kaba4cow.futuresscreenerbot.repository.SubscriberRepository;
 import com.kaba4cow.futuresscreenerbot.service.domain.settingsextractor.SubscriberSettingsExtractor;
 import com.kaba4cow.futuresscreenerbot.service.domain.settingsextractor.SubscriberSettingsExtractorRegistry;
-import com.kaba4cow.futuresscreenerbot.telegram.updatehandler.command.CommandIdentifier;
+import com.kaba4cow.futuresscreenerbot.telegram.updatehandler.commandhandler.CommandIdentifier;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

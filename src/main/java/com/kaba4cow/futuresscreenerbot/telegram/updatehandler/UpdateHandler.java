@@ -10,10 +10,10 @@ import com.kaba4cow.futuresscreenerbot.event.message.SendMessageEvent;
 import com.kaba4cow.futuresscreenerbot.properties.TemplateProperties;
 import com.kaba4cow.futuresscreenerbot.repository.SubscriberRepository;
 import com.kaba4cow.futuresscreenerbot.telegram.replykeyboard.ReplyKeyboardFactory;
-import com.kaba4cow.futuresscreenerbot.telegram.updatehandler.command.CommandHandler;
-import com.kaba4cow.futuresscreenerbot.telegram.updatehandler.command.CommandHandlerRegistry;
-import com.kaba4cow.futuresscreenerbot.telegram.updatehandler.command.CommandIdentifier;
-import com.kaba4cow.futuresscreenerbot.telegram.updatehandler.command.CommandResolver;
+import com.kaba4cow.futuresscreenerbot.telegram.updatehandler.commandhandler.CommandHandler;
+import com.kaba4cow.futuresscreenerbot.telegram.updatehandler.commandhandler.CommandHandlerRegistry;
+import com.kaba4cow.futuresscreenerbot.telegram.updatehandler.commandhandler.CommandIdentifier;
+import com.kaba4cow.futuresscreenerbot.telegram.updatehandler.commandhandler.CommandResolver;
 import com.kaba4cow.futuresscreenerbot.telegram.updatehandler.inputhandler.InputHandler;
 import com.kaba4cow.futuresscreenerbot.telegram.updatehandler.inputhandler.InputHandlerRegistry;
 

@@ -1,6 +1,6 @@
 package com.kaba4cow.futuresscreenerbot.entity;
 
-import com.kaba4cow.futuresscreenerbot.telegram.updatehandler.command.CommandIdentifier;
+import com.kaba4cow.futuresscreenerbot.telegram.updatehandler.commandhandler.CommandIdentifier;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Embedded;

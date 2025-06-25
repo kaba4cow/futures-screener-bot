@@ -1,4 +1,4 @@
-package com.kaba4cow.futuresscreenerbot.telegram.updatehandler.command.impl;
+package com.kaba4cow.futuresscreenerbot.telegram.updatehandler.commandhandler.impl;
 
 import java.util.Map;
 
@@ -9,8 +9,8 @@ import com.kaba4cow.futuresscreenerbot.entity.SubscriberSettings;
 import com.kaba4cow.futuresscreenerbot.service.TemplateService;
 import com.kaba4cow.futuresscreenerbot.telegram.replykeyboard.ReplyKeyboardFactory;
 import com.kaba4cow.futuresscreenerbot.telegram.updatehandler.UpdateResponse;
-import com.kaba4cow.futuresscreenerbot.telegram.updatehandler.command.CommandHandler;
-import com.kaba4cow.futuresscreenerbot.telegram.updatehandler.command.CommandIdentifier;
+import com.kaba4cow.futuresscreenerbot.telegram.updatehandler.commandhandler.CommandHandler;
+import com.kaba4cow.futuresscreenerbot.telegram.updatehandler.commandhandler.CommandIdentifier;
 
 import lombok.RequiredArgsConstructor;
 

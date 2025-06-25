@@ -1,35 +1,35 @@
-package com.kaba4cow.futuresscreenerbot.telegram.updatehandler.command.impl.settings;
+package com.kaba4cow.futuresscreenerbot.telegram.updatehandler.commandhandler.impl.settings;
 
 import java.util.Map;
 
 import org.springframework.stereotype.Component;
 
 import com.kaba4cow.futuresscreenerbot.entity.Subscriber;
-import com.kaba4cow.futuresscreenerbot.properties.screener.LongLiquidationScreenerSettingsProperties;
+import com.kaba4cow.futuresscreenerbot.properties.screener.ShortLiquidationScreenerSettingsProperties;
 import com.kaba4cow.futuresscreenerbot.service.TemplateService;
 import com.kaba4cow.futuresscreenerbot.telegram.replykeyboard.ReplyKeyboardFactory;
 import com.kaba4cow.futuresscreenerbot.telegram.updatehandler.UpdateResponse;
-import com.kaba4cow.futuresscreenerbot.telegram.updatehandler.command.CommandHandler;
-import com.kaba4cow.futuresscreenerbot.telegram.updatehandler.command.CommandIdentifier;
+import com.kaba4cow.futuresscreenerbot.telegram.updatehandler.commandhandler.CommandHandler;
+import com.kaba4cow.futuresscreenerbot.telegram.updatehandler.commandhandler.CommandIdentifier;
 
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 @Component
-public class LongLiquidationCommandHandler implements CommandHandler {
+public class ShortLiquidationCommandHandler implements CommandHandler {
 
 	private final TemplateService templateService;
 
-	private final LongLiquidationScreenerSettingsProperties longLiquidationScreenerSettingsProperties;
+	private final ShortLiquidationScreenerSettingsProperties shortLiquidationScreenerSettingsProperties;
 
 	@Override
 	public UpdateResponse apply(Subscriber subscriber) {
 		return UpdateResponse.builder()//
 				.responseText(templateService.evaluateTemplate("messages/settings/set-value", Map.of(//
-						"valueName", "Long Liquidation Threshold", //
+						"valueName", "Short Liquidation Threshold", //
 						"valueUnit", "$", //
-						"min", longLiquidationScreenerSettingsProperties.getMinLongLiquidationThreshold(), //
-						"max", longLiquidationScreenerSettingsProperties.getMaxLongLiquidationThreshold()//
+						"min", shortLiquidationScreenerSettingsProperties.getMinShortLiquidationThreshold(), //
+						"max", shortLiquidationScreenerSettingsProperties.getMaxShortLiquidationThreshold()//
 				)))//
 				.replyKeyboardSupplier(ReplyKeyboardFactory::buildCancelKeyboard)//
 				.build();
@@ -37,7 +37,7 @@ public class LongLiquidationCommandHandler implements CommandHandler {
 
 	@Override
 	public CommandIdentifier getCommand() {
-		return CommandIdentifier.LONG_LIQUIDATION;
+		return CommandIdentifier.SHORT_LIQUIDATION;
 	}
 
 }
