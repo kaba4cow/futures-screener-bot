@@ -5,10 +5,9 @@ import java.util.function.Function;
 
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 
-import com.kaba4cow.futuresscreenerbot.event.message.SendMessageEvent;
-import com.kaba4cow.futuresscreenerbot.event.message.TelegramMessageEvent;
 import com.kaba4cow.futuresscreenerbot.notification.Notification;
-import com.kaba4cow.futuresscreenerbot.properties.TemplateProperties;
+import com.kaba4cow.futuresscreenerbot.telegram.message.TelegramMessage;
+import com.kaba4cow.futuresscreenerbot.telegram.message.TelegramTextMessage;
 
 import lombok.RequiredArgsConstructor;
 
@@ -18,12 +17,11 @@ public class TextNotification implements Notification {
 	private final String text;
 
 	@Override
-	public Function<Set<Long>, TelegramMessageEvent> prepareEvent(TemplateProperties templateProperties) {
+	public Function<Set<Long>, TelegramMessage> prepareEvent() {
 		SendMessage message = new SendMessage();
 		message.setText(text);
 		message.disableWebPagePreview();
-		message.setParseMode(templateProperties.getParseMode());
-		return chatIds -> new SendMessageEvent(chatIds, message);
+		return chatIds -> new TelegramTextMessage(chatIds, message);
 	}
 
 }

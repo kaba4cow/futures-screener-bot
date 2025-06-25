@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.kaba4cow.futuresscreenerbot.entity.Subscriber;
 import com.kaba4cow.futuresscreenerbot.telegram.command.Command;
-import com.kaba4cow.futuresscreenerbot.telegram.updatehandler.UpdateResponse;
+import com.kaba4cow.futuresscreenerbot.telegram.message.TelegramMessage;
 
 public interface InputHandler {
 
@@ -13,7 +13,7 @@ public interface InputHandler {
 		registry.register(this);
 	}
 
-	UpdateResponse apply(Subscriber subscriber, String input);
+	TelegramMessage apply(Subscriber subscriber, String input);
 
 	Command getCommand();
 

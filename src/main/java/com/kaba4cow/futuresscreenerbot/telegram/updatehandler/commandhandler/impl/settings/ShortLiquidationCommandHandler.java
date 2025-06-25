@@ -3,13 +3,15 @@ package com.kaba4cow.futuresscreenerbot.telegram.updatehandler.commandhandler.im
 import java.util.Map;
 
 import org.springframework.stereotype.Component;
+import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 
 import com.kaba4cow.futuresscreenerbot.entity.Subscriber;
 import com.kaba4cow.futuresscreenerbot.properties.screener.ShortLiquidationScreenerSettingsProperties;
 import com.kaba4cow.futuresscreenerbot.service.TemplateService;
 import com.kaba4cow.futuresscreenerbot.telegram.command.Command;
+import com.kaba4cow.futuresscreenerbot.telegram.message.TelegramMessage;
+import com.kaba4cow.futuresscreenerbot.telegram.message.TelegramTextMessage;
 import com.kaba4cow.futuresscreenerbot.telegram.replykeyboard.ReplyKeyboardFactory;
-import com.kaba4cow.futuresscreenerbot.telegram.updatehandler.UpdateResponse;
 import com.kaba4cow.futuresscreenerbot.telegram.updatehandler.commandhandler.CommandHandler;
 
 import lombok.RequiredArgsConstructor;
@@ -22,17 +24,20 @@ public class ShortLiquidationCommandHandler implements CommandHandler {
 
 	private final ShortLiquidationScreenerSettingsProperties shortLiquidationScreenerSettingsProperties;
 
+	private final ReplyKeyboardFactory replyKeyboardFactory;
+
 	@Override
-	public UpdateResponse apply(Subscriber subscriber) {
-		return UpdateResponse.builder()//
-				.responseText(templateService.evaluateTemplate("messages/settings/set-value", Map.of(//
+	public TelegramMessage apply(Subscriber subscriber) {
+		return new TelegramTextMessage(SendMessage.builder()//
+				.chatId(subscriber.getId())//
+				.text(templateService.evaluateTemplate("messages/settings/set-value", Map.of(//
 						"valueName", "Short Liquidation Threshold", //
 						"valueUnit", "$", //
 						"min", shortLiquidationScreenerSettingsProperties.getMinShortLiquidationThreshold(), //
 						"max", shortLiquidationScreenerSettingsProperties.getMaxShortLiquidationThreshold()//
 				)))//
-				.replyKeyboardSupplier(ReplyKeyboardFactory::buildCancelKeyboard)//
-				.build();
+				.replyMarkup(replyKeyboardFactory.buildCancelKeyboard(subscriber))//
+				.build());
 	}
 
 	@Override

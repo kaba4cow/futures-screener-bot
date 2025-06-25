@@ -4,15 +4,20 @@ import java.awt.image.RenderedImage;
 import java.util.Map;
 
 import org.springframework.stereotype.Component;
+import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
+import org.telegram.telegrambots.meta.api.methods.send.SendPhoto;
 
 import com.kaba4cow.futuresscreenerbot.entity.Subscriber;
 import com.kaba4cow.futuresscreenerbot.properties.screener.ScreenerProperties;
 import com.kaba4cow.futuresscreenerbot.service.ChartService;
 import com.kaba4cow.futuresscreenerbot.service.TemplateService;
 import com.kaba4cow.futuresscreenerbot.telegram.command.Command;
+import com.kaba4cow.futuresscreenerbot.telegram.message.TelegramMessage;
+import com.kaba4cow.futuresscreenerbot.telegram.message.TelegramPhotoMessage;
+import com.kaba4cow.futuresscreenerbot.telegram.message.TelegramTextMessage;
 import com.kaba4cow.futuresscreenerbot.telegram.replykeyboard.ReplyKeyboardFactory;
-import com.kaba4cow.futuresscreenerbot.telegram.updatehandler.UpdateResponse;
 import com.kaba4cow.futuresscreenerbot.telegram.updatehandler.inputhandler.InputHandler;
+import com.kaba4cow.futuresscreenerbot.tool.ImageInputFileWriter;
 import com.kaba4cow.futuresscreenerbot.tool.Symbol;
 
 import lombok.RequiredArgsConstructor;
@@ -27,25 +32,30 @@ public class ChartInputHandler implements InputHandler {
 
 	private final TemplateService templateService;
 
+	private final ReplyKeyboardFactory replyKeyboardFactory;
+
 	@Override
-	public UpdateResponse apply(Subscriber subscriber, String input) {
+	public TelegramMessage apply(Subscriber subscriber, String input) {
 		Symbol symbol = new Symbol(input.toUpperCase(), screenerProperties.getQuoteAsset());
 		try {
 			RenderedImage chartImage = chartService.createChart(symbol);
-			return UpdateResponse.builder()//
-					.responseText(templateService.evaluateTemplate("messages/chart/chart", Map.of(//
+			return new TelegramPhotoMessage(SendPhoto.builder()//
+					.chatId(subscriber.getId())//
+					.photo(ImageInputFileWriter.createInputFile(chartImage))//
+					.caption(templateService.evaluateTemplate("messages/chart/chart", Map.of(//
 							"symbol", symbol.toSymbolString(), //
 							"assets", symbol.toAssetsString()//
 					)))//
-					.replyKeyboardSupplier(ReplyKeyboardFactory::buildMenuKeyboard)//
-					.build();
+					.replyMarkup(replyKeyboardFactory.buildMenuKeyboard(subscriber))//
+					.build());
 		} catch (Exception exception) {
-			return UpdateResponse.builder()//
-					.responseText(templateService.evaluateTemplate("messages/chart/error", Map.of(//
+			return new TelegramTextMessage(SendMessage.builder()//
+					.chatId(subscriber.getId())//
+					.text(templateService.evaluateTemplate("messages/chart/error", Map.of(//
 							"symbol", symbol.toSymbolString()//
 					)))//
-					.replyKeyboardSupplier(ReplyKeyboardFactory::buildCancelKeyboard)//
-					.build();
+					.replyMarkup(replyKeyboardFactory.buildCancelKeyboard(subscriber))//
+					.build());
 		}
 	}
 
