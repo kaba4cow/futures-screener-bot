@@ -1,6 +1,5 @@
 package com.kaba4cow.futuresscreenerbot.telegram;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
@@ -21,7 +20,6 @@ public class TelegramBot extends TelegramLongPollingBot {
 
 	private final ApplicationEventPublisher applicationEventPublisher;
 
-	@Autowired
 	public TelegramBot(TelegramBotProperties telegramBotProperties, ApplicationEventPublisher applicationEventPublisher) {
 		super(telegramBotProperties.getToken());
 		this.telegramBotProperties = telegramBotProperties;
