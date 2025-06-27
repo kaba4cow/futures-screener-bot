@@ -1,4 +1,4 @@
-package com.kaba4cow.futuresscreenerbot.notificationwriter.impl;
+package com.kaba4cow.futuresscreenerbot.notification.impl;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -10,7 +10,7 @@ import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 
 import com.kaba4cow.futuresscreenerbot.entity.Event;
 import com.kaba4cow.futuresscreenerbot.entity.EventType;
-import com.kaba4cow.futuresscreenerbot.notificationwriter.NotificationWriter;
+import com.kaba4cow.futuresscreenerbot.notification.NotificationFactory;
 import com.kaba4cow.futuresscreenerbot.service.TemplateService;
 import com.kaba4cow.futuresscreenerbot.telegram.message.TelegramMessage;
 import com.kaba4cow.futuresscreenerbot.telegram.message.TelegramTextMessage;
@@ -19,14 +19,14 @@ import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 @Component
-public class ShortLiquidationNotificationWriter implements NotificationWriter {
+public class LongLiquidationNotificationFactory implements NotificationFactory {
 
 	private final TemplateService templateService;
 
 	@Override
 	public TelegramMessage createMessage(Set<Long> chatIds, Event event, long eventCount) {
 		BigDecimal rounded = event.getValue().setScale(0, RoundingMode.HALF_UP);
-		String text = templateService.evaluateTemplate("events/short-liquidation", Map.of(//
+		String text = templateService.evaluateTemplate("events/long-liquidation", Map.of(//
 				"symbol", event.getSymbol().toSymbolString(), //
 				"assets", event.getSymbol().toAssetsString(), //
 				"eventCount", eventCount, //
@@ -39,7 +39,7 @@ public class ShortLiquidationNotificationWriter implements NotificationWriter {
 
 	@Override
 	public EventType getEventType() {
-		return EventType.SHORT_LIQUIDATION;
+		return EventType.LONG_LIQUIDATION;
 	}
 
 }

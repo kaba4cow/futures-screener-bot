@@ -1,4 +1,4 @@
-package com.kaba4cow.futuresscreenerbot.notificationwriter;
+package com.kaba4cow.futuresscreenerbot.notification;
 
 import java.util.Set;
 
@@ -8,15 +8,15 @@ import com.kaba4cow.futuresscreenerbot.entity.Event;
 import com.kaba4cow.futuresscreenerbot.entity.EventType;
 import com.kaba4cow.futuresscreenerbot.telegram.message.TelegramMessage;
 
-public interface NotificationWriter {
+public interface NotificationFactory {
 
 	TelegramMessage createMessage(Set<Long> chatIds, Event event, long eventCount);
 
 	EventType getEventType();
 
 	@Autowired
-	default void registerSelf(NotificationWriterRegistry registry) {
-		registry.registerNotificationWriter(this);
+	default void registerSelf(NotificationFactoryRegistry registry) {
+		registry.register(this);
 	}
 
 }

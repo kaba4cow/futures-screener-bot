@@ -10,8 +10,8 @@ import org.springframework.stereotype.Service;
 
 import com.kaba4cow.futuresscreenerbot.entity.Event;
 import com.kaba4cow.futuresscreenerbot.entity.Subscriber;
-import com.kaba4cow.futuresscreenerbot.notificationwriter.NotificationWriter;
-import com.kaba4cow.futuresscreenerbot.notificationwriter.NotificationWriterRegistry;
+import com.kaba4cow.futuresscreenerbot.notification.NotificationFactory;
+import com.kaba4cow.futuresscreenerbot.notification.NotificationFactoryRegistry;
 import com.kaba4cow.futuresscreenerbot.repository.EventRepository;
 import com.kaba4cow.futuresscreenerbot.service.domain.SubscriberService;
 import com.kaba4cow.futuresscreenerbot.service.telegram.TelegramMessageService;
@@ -29,7 +29,7 @@ public class NotificationService {
 
 	private final EventRepository eventRepository;
 
-	private final NotificationWriterRegistry notificationWriterRegistry;
+	private final NotificationFactoryRegistry notificationFactoryRegistry;
 
 	private final TelegramMessageService telegramMessageService;
 
@@ -51,8 +51,8 @@ public class NotificationService {
 
 	private TelegramMessage createMessage(Set<Long> chatIds, Event event) {
 		long eventCount = eventRepository.countEvents(event, LocalDateTime.now().minusHours(24L));
-		NotificationWriter notificationWriter = notificationWriterRegistry.getNotificationWriter(event.getType());
-		return notificationWriter.createMessage(chatIds, event, eventCount);
+		NotificationFactory notificationFactory = notificationFactoryRegistry.getFactory(event.getType());
+		return notificationFactory.createMessage(chatIds, event, eventCount);
 	}
 
 }
