@@ -14,7 +14,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Embeddable
-public class SubscriberSettings {
+public class SubscriberSettings implements SubscriberSettingsProvider {
 
 	@Column(name = "column_pump_threshold")
 	private BigDecimal pumpThreshold;

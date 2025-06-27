@@ -5,6 +5,8 @@ import java.math.BigDecimal;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
+import com.kaba4cow.futuresscreenerbot.entity.SubscriberSettingsProvider;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -12,14 +14,14 @@ import lombok.Setter;
 @Setter
 @ConfigurationProperties(prefix = "application.subscribers.settings")
 @Component
-public class SubscriberSettingsProperties {
+public class SubscriberSettingsProperties implements SubscriberSettingsProvider {
 
 	private BigDecimal pumpThreshold;
-	
+
 	private BigDecimal dumpThreshold;
-	
+
 	private BigDecimal longLiquidationThreshold;
-	
+
 	private BigDecimal shortLiquidationThreshold;
 
 }
