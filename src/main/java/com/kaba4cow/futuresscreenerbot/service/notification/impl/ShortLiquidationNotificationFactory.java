@@ -1,4 +1,4 @@
-package com.kaba4cow.futuresscreenerbot.notification.impl;
+package com.kaba4cow.futuresscreenerbot.service.notification.impl;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -10,8 +10,8 @@ import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 
 import com.kaba4cow.futuresscreenerbot.entity.Event;
 import com.kaba4cow.futuresscreenerbot.entity.EventType;
-import com.kaba4cow.futuresscreenerbot.notification.NotificationFactory;
 import com.kaba4cow.futuresscreenerbot.service.TemplateService;
+import com.kaba4cow.futuresscreenerbot.service.notification.NotificationFactory;
 import com.kaba4cow.futuresscreenerbot.telegram.message.TelegramMessage;
 import com.kaba4cow.futuresscreenerbot.telegram.message.TelegramTextMessage;
 

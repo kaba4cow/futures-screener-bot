@@ -1,4 +1,4 @@
-package com.kaba4cow.futuresscreenerbot.notification;
+package com.kaba4cow.futuresscreenerbot.service.notification;
 
 import java.util.Set;
 

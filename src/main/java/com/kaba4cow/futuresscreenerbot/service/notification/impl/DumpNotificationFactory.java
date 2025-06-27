@@ -1,4 +1,4 @@
-package com.kaba4cow.futuresscreenerbot.notification.impl;
+package com.kaba4cow.futuresscreenerbot.service.notification.impl;
 
 import java.awt.image.RenderedImage;
 import java.math.BigDecimal;
@@ -11,9 +11,9 @@ import org.telegram.telegrambots.meta.api.methods.send.SendPhoto;
 
 import com.kaba4cow.futuresscreenerbot.entity.Event;
 import com.kaba4cow.futuresscreenerbot.entity.EventType;
-import com.kaba4cow.futuresscreenerbot.notification.NotificationFactory;
 import com.kaba4cow.futuresscreenerbot.service.ChartService;
 import com.kaba4cow.futuresscreenerbot.service.TemplateService;
+import com.kaba4cow.futuresscreenerbot.service.notification.NotificationFactory;
 import com.kaba4cow.futuresscreenerbot.telegram.message.TelegramMessage;
 import com.kaba4cow.futuresscreenerbot.telegram.message.TelegramPhotoMessage;
 import com.kaba4cow.futuresscreenerbot.tool.ImageInputFileWriter;
@@ -22,7 +22,7 @@ import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 @Component
-public class PumpNotificationFactory implements NotificationFactory {
+public class DumpNotificationFactory implements NotificationFactory {
 
 	private final TemplateService templateService;
 
@@ -31,11 +31,11 @@ public class PumpNotificationFactory implements NotificationFactory {
 	@Override
 	public TelegramMessage createMessage(Set<Long> chatIds, Event event, long eventCount) {
 		BigDecimal rounded = event.getValue().setScale(2, RoundingMode.HALF_UP);
-		String text = templateService.evaluateTemplate("events/pump", Map.of(//
+		String text = templateService.evaluateTemplate("events/dump", Map.of(//
 				"symbol", event.getSymbol().toSymbolString(), //
 				"assets", event.getSymbol().toAssetsString(), //
 				"eventCount", eventCount, //
-				"pumpValue", rounded.toPlainString()//
+				"dumpValue", rounded.toPlainString()//
 		));
 		RenderedImage chartImage = chartService.createChart(event.getSymbol());
 		SendPhoto message = new SendPhoto();
@@ -46,7 +46,7 @@ public class PumpNotificationFactory implements NotificationFactory {
 
 	@Override
 	public EventType getEventType() {
-		return EventType.PUMP;
+		return EventType.DUMP;
 	}
 
 }

@@ -1,4 +1,4 @@
-package com.kaba4cow.futuresscreenerbot.service;
+package com.kaba4cow.futuresscreenerbot.service.notification;
 
 import java.time.LocalDateTime;
 import java.util.Collection;
@@ -10,8 +10,6 @@ import org.springframework.stereotype.Service;
 
 import com.kaba4cow.futuresscreenerbot.entity.Event;
 import com.kaba4cow.futuresscreenerbot.entity.Subscriber;
-import com.kaba4cow.futuresscreenerbot.notification.NotificationFactory;
-import com.kaba4cow.futuresscreenerbot.notification.NotificationFactoryRegistry;
 import com.kaba4cow.futuresscreenerbot.repository.EventRepository;
 import com.kaba4cow.futuresscreenerbot.service.domain.SubscriberService;
 import com.kaba4cow.futuresscreenerbot.service.telegram.TelegramMessageService;
