@@ -42,7 +42,11 @@ public class CommandResolver {
 		if (commandToIdentifierMappings.containsKey(command))
 			return commandToIdentifierMappings.get(command);
 		else
-			return null;
+			return Command.UNKNOWN;
+	}
+
+	public boolean hasCommand(String command) {
+		return commandToIdentifierMappings.containsKey(command);
 	}
 
 	public String getCommand(Command identifier) {

@@ -38,7 +38,7 @@ class SubscriberServiceTest {
 		assertNotNull(subscriber);
 		assertEquals(1L, subscriber.getId());
 		assertEquals(SubscriberState.SUBSCRIBED, subscriber.getState());
-		assertEquals(Command.NONE, subscriber.getLastCommand());
+		assertEquals(Command.UNKNOWN, subscriber.getLastCommand());
 
 		SubscriberSettings settings = subscriber.getSettings();
 		assertNotNull(settings);

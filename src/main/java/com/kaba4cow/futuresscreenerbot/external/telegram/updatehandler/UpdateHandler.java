@@ -1,7 +1,5 @@
 package com.kaba4cow.futuresscreenerbot.external.telegram.updatehandler;
 
-import java.util.Objects;
-
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.meta.api.objects.Update;
 
@@ -34,24 +32,30 @@ public class UpdateHandler {
 
 	public void handleUpdate(Subscriber subscriber, Update update) {
 		if (update.getMessage().hasText()) {
-			String commandText = update.getMessage().getText();
-			TelegramMessage message = getResponseMessage(subscriber, commandText);
+			String text = update.getMessage().getText();
+			TelegramMessage message = getResponseMessage(subscriber, text);
 			subscriberRepository.save(subscriber);
 			telegramMessageService.sendMessage(message);
 		}
 	}
 
-	private TelegramMessage getResponseMessage(Subscriber subscriber, String commandText) {
-		Command lastCommand = subscriber.getLastCommand();
-		Command currentCommand = commandResolver.resolveCommand(commandText);
-		if (Objects.isNull(currentCommand) && lastCommand.isInputRequired()) {
-			InputHandler inputHandler = inputHandlerRegistry.getHandler(lastCommand);
-			return inputHandler.getResponseMessage(subscriber, commandText);
-		} else {
-			CommandHandler commandHandler = commandHandlerRegistry.getHandler(currentCommand);
-			subscriber.setLastCommand(commandHandler.getCommand());
-			return commandHandler.getResponseMessage(subscriber);
-		}
+	private TelegramMessage getResponseMessage(Subscriber subscriber, String text) {
+		if (!commandResolver.hasCommand(text) && subscriber.getLastCommand().isInputRequired())
+			return getInputResponseMessage(subscriber, text);
+		else
+			return getCommandResponseMessage(subscriber, text);
+	}
+
+	private TelegramMessage getInputResponseMessage(Subscriber subscriber, String text) {
+		InputHandler inputHandler = inputHandlerRegistry.getHandler(subscriber.getLastCommand());
+		return inputHandler.getResponseMessage(subscriber, text);
+	}
+
+	private TelegramMessage getCommandResponseMessage(Subscriber subscriber, String text) {
+		Command currentCommand = commandResolver.resolveCommand(text);
+		CommandHandler commandHandler = commandHandlerRegistry.getHandler(currentCommand);
+		subscriber.setLastCommand(commandHandler.getCommand());
+		return commandHandler.getResponseMessage(subscriber);
 	}
 
 }

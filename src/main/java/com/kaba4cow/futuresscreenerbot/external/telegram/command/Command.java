@@ -7,7 +7,7 @@ import lombok.RequiredArgsConstructor;
 @Getter
 public enum Command {
 
-	NONE(false), //
+	UNKNOWN(false), //
 
 	START(false), //
 

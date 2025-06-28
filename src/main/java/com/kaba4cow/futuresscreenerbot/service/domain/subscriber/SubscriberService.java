@@ -37,7 +37,7 @@ public class SubscriberService {
 		Subscriber subscriber = new Subscriber();
 		subscriber.setId(id);
 		subscriber.setState(SubscriberState.SUBSCRIBED);
-		subscriber.setLastCommand(Command.NONE);
+		subscriber.setLastCommand(Command.UNKNOWN);
 		subscriber.setSettings(subscriberSettingsFactory.createSettings());
 		Subscriber savedSubscriber = subscriberRepository.save(subscriber);
 		log.info("Registered subscriber [id={}]", id);
