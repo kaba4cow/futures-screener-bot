@@ -53,9 +53,4 @@ class SubscriberServiceTest {
 		assertEquals(function.apply(expected), function.apply(actual));
 	}
 
-	@Test
-	void testSubscriberFiltering() {
-
-	}
-
 }
