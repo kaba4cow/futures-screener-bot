@@ -22,7 +22,7 @@ public class EventService {
 
 	private final NotificationService notificationService;
 
-	public void registerEvent(EventType type, Symbol symbol, BigDecimal value) {
+	public Event registerEvent(EventType type, Symbol symbol, BigDecimal value) {
 		Event event = new Event();
 		event.setSymbol(symbol);
 		event.setType(type);
@@ -30,6 +30,7 @@ public class EventService {
 		Event savedEvent = eventRepository.save(event);
 		log.info("Registered event [symbol={}, type={}, value={}]", symbol.toAssetsString(), type, value);
 		notificationService.sendEventNotification(savedEvent);
+		return savedEvent;
 	}
 
 }
