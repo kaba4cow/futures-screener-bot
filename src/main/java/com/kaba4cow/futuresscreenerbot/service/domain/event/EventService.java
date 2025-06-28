@@ -4,8 +4,8 @@ import java.time.LocalDateTime;
 
 import org.springframework.stereotype.Service;
 
-import com.kaba4cow.futuresscreenerbot.entity.Event;
-import com.kaba4cow.futuresscreenerbot.entity.EventType;
+import com.kaba4cow.futuresscreenerbot.entity.event.Event;
+import com.kaba4cow.futuresscreenerbot.entity.event.EventType;
 import com.kaba4cow.futuresscreenerbot.repository.EventRepository;
 import com.kaba4cow.futuresscreenerbot.service.notification.NotificationService;
 import com.kaba4cow.futuresscreenerbot.tool.Symbol;

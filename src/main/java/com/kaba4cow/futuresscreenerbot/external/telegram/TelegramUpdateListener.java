@@ -4,7 +4,7 @@ import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.meta.api.objects.Update;
 
-import com.kaba4cow.futuresscreenerbot.entity.Subscriber;
+import com.kaba4cow.futuresscreenerbot.entity.subscriber.Subscriber;
 import com.kaba4cow.futuresscreenerbot.event.TelegramUpdateEvent;
 import com.kaba4cow.futuresscreenerbot.external.telegram.updatehandler.UpdateHandler;
 import com.kaba4cow.futuresscreenerbot.service.domain.subscriber.SubscriberService;

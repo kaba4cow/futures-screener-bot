@@ -1,4 +1,4 @@
-package com.kaba4cow.futuresscreenerbot.entity;
+package com.kaba4cow.futuresscreenerbot.entity.subscriber;
 
 import com.kaba4cow.futuresscreenerbot.external.telegram.command.Command;
 

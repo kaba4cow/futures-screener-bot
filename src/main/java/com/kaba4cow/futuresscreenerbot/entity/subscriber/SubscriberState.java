@@ -1,4 +1,4 @@
-package com.kaba4cow.futuresscreenerbot.entity;
+package com.kaba4cow.futuresscreenerbot.entity.subscriber;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

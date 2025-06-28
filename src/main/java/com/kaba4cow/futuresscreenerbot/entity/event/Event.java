@@ -1,4 +1,4 @@
-package com.kaba4cow.futuresscreenerbot.entity;
+package com.kaba4cow.futuresscreenerbot.entity.event;
 
 import java.time.LocalDateTime;
 import java.util.UUID;

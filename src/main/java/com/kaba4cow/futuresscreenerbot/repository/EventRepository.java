@@ -8,8 +8,8 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
-import com.kaba4cow.futuresscreenerbot.entity.Event;
-import com.kaba4cow.futuresscreenerbot.entity.EventType;
+import com.kaba4cow.futuresscreenerbot.entity.event.Event;
+import com.kaba4cow.futuresscreenerbot.entity.event.EventType;
 import com.kaba4cow.futuresscreenerbot.tool.Symbol;
 
 import jakarta.transaction.Transactional;

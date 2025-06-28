@@ -1,4 +1,4 @@
-package com.kaba4cow.futuresscreenerbot.entity;
+package com.kaba4cow.futuresscreenerbot.entity.subscriber;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;

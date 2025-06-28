@@ -5,9 +5,9 @@ import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
-import com.kaba4cow.futuresscreenerbot.entity.Event;
-import com.kaba4cow.futuresscreenerbot.entity.Subscriber;
-import com.kaba4cow.futuresscreenerbot.entity.SubscriberState;
+import com.kaba4cow.futuresscreenerbot.entity.event.Event;
+import com.kaba4cow.futuresscreenerbot.entity.subscriber.Subscriber;
+import com.kaba4cow.futuresscreenerbot.entity.subscriber.SubscriberState;
 import com.kaba4cow.futuresscreenerbot.external.telegram.command.Command;
 import com.kaba4cow.futuresscreenerbot.repository.SubscriberRepository;
 import com.kaba4cow.futuresscreenerbot.service.domain.subscriber.settingsextractor.SubscriberSettingsExtractor;

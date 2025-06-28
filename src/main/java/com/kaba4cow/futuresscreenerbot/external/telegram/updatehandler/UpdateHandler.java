@@ -5,7 +5,7 @@ import java.util.Objects;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.meta.api.objects.Update;
 
-import com.kaba4cow.futuresscreenerbot.entity.Subscriber;
+import com.kaba4cow.futuresscreenerbot.entity.subscriber.Subscriber;
 import com.kaba4cow.futuresscreenerbot.external.telegram.command.Command;
 import com.kaba4cow.futuresscreenerbot.external.telegram.command.CommandResolver;
 import com.kaba4cow.futuresscreenerbot.external.telegram.message.TelegramMessage;

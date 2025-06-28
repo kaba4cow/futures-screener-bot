@@ -9,8 +9,8 @@ import java.util.Set;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.meta.api.methods.send.SendPhoto;
 
-import com.kaba4cow.futuresscreenerbot.entity.Event;
-import com.kaba4cow.futuresscreenerbot.entity.EventType;
+import com.kaba4cow.futuresscreenerbot.entity.event.Event;
+import com.kaba4cow.futuresscreenerbot.entity.event.EventType;
 import com.kaba4cow.futuresscreenerbot.external.telegram.message.TelegramMessage;
 import com.kaba4cow.futuresscreenerbot.external.telegram.message.TelegramPhotoMessage;
 import com.kaba4cow.futuresscreenerbot.service.ChartService;

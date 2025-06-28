@@ -6,7 +6,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 import org.springframework.stereotype.Component;
 
-import com.kaba4cow.futuresscreenerbot.entity.EventType;
+import com.kaba4cow.futuresscreenerbot.entity.event.EventType;
 
 @Component
 public class NotificationFactoryRegistry {

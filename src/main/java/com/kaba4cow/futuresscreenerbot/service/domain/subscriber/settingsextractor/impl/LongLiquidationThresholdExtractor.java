@@ -2,8 +2,8 @@ package com.kaba4cow.futuresscreenerbot.service.domain.subscriber.settingsextrac
 
 import org.springframework.stereotype.Component;
 
-import com.kaba4cow.futuresscreenerbot.entity.EventType;
-import com.kaba4cow.futuresscreenerbot.entity.SubscriberSettings;
+import com.kaba4cow.futuresscreenerbot.entity.event.EventType;
+import com.kaba4cow.futuresscreenerbot.entity.subscriber.SubscriberSettings;
 import com.kaba4cow.futuresscreenerbot.service.domain.subscriber.settingsextractor.SubscriberSettingsExtractor;
 
 @Component

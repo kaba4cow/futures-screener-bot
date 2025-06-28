@@ -8,8 +8,8 @@ import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
-import com.kaba4cow.futuresscreenerbot.entity.Event;
-import com.kaba4cow.futuresscreenerbot.entity.Subscriber;
+import com.kaba4cow.futuresscreenerbot.entity.event.Event;
+import com.kaba4cow.futuresscreenerbot.entity.subscriber.Subscriber;
 import com.kaba4cow.futuresscreenerbot.external.telegram.message.TelegramMessage;
 import com.kaba4cow.futuresscreenerbot.service.domain.event.EventService;
 import com.kaba4cow.futuresscreenerbot.service.domain.subscriber.SubscriberService;
