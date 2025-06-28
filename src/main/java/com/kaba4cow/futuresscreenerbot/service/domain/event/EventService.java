@@ -28,13 +28,13 @@ public class EventService {
 		Event savedEvent = eventRepository.save(event);
 		log.info("Registered event [symbol={}, type={}, value={}]", signature.getSymbol().toAssetsString(), signature.getType(),
 				value);
-		long eventCountBySignature = countEvents(event, LocalDateTime.now().minusHours(24L));
+		long eventCountBySignature = countEventsBySignature(event.getSignature(), LocalDateTime.now().minusHours(24L));
 		notificationService.sendEventNotification(savedEvent, eventCountBySignature);
 		return savedEvent;
 	}
 
-	public long countEvents(Event event, LocalDateTime time) {
-		return eventRepository.countEvents(event.getSignature(), time);
+	public long countEventsBySignature(EventSignature signature, LocalDateTime time) {
+		return eventRepository.countEvents(signature, time);
 	}
 
 	public void deleteAllEvents() {
