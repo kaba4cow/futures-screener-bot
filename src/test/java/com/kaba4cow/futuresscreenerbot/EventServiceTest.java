@@ -39,31 +39,29 @@ class EventServiceTest {
 
 	@Test
 	void testEventFiltering() {
-		Event btcPumpEvent1 = eventService.registerEvent(new EventSignature(EventType.PUMP, new Symbol("BTC", "USDT")), 5.0);
-		assertNotNull(btcPumpEvent1);
+		Symbol btcSymbol = new Symbol("BTC", "USDT");
+		Symbol ethSymbol = new Symbol("ETH", "USDT");
+
+		assertNotNull(eventService.registerEvent(new EventSignature(EventType.PUMP, btcSymbol), 5.0));
 
 		LocalDateTime thresholdTime = LocalDateTime.now();
 
-		Event btcPumpEvent2 = eventService.registerEvent(new EventSignature(EventType.PUMP, new Symbol("BTC", "USDT")), 5.0);
-		assertNotNull(btcPumpEvent2);
+		assertNotNull(eventService.registerEvent(new EventSignature(EventType.PUMP, btcSymbol), 5.0));
 
-		Event btcPumpEvent3 = eventService.registerEvent(new EventSignature(EventType.PUMP, new Symbol("BTC", "USDT")), 5.0);
-		assertNotNull(btcPumpEvent3);
+		assertNotNull(eventService.registerEvent(new EventSignature(EventType.PUMP, btcSymbol), 5.0));
 
-		Event ethPumpEvent = eventService.registerEvent(new EventSignature(EventType.PUMP, new Symbol("ETH", "USDT")), 5.0);
-		assertNotNull(ethPumpEvent);
+		assertNotNull(eventService.registerEvent(new EventSignature(EventType.PUMP, ethSymbol), 5.0));
 
-		Event ethDumpEvent = eventService.registerEvent(new EventSignature(EventType.DUMP, new Symbol("ETH", "USDT")), 5.0);
-		assertNotNull(ethDumpEvent);
+		assertNotNull(eventService.registerEvent(new EventSignature(EventType.DUMP, ethSymbol), 5.0));
 
 		assertEquals(2, eventService.countEventsBySignature(new EventSignature(//
 				EventType.PUMP, //
-				new Symbol("BTC", "USDT")//
+				btcSymbol//
 		), thresholdTime));
 
 		assertEquals(1, eventService.countEventsBySignature(new EventSignature(//
 				EventType.DUMP, //
-				new Symbol("ETH", "USDT")//
+				ethSymbol//
 		), thresholdTime));
 	}
 
