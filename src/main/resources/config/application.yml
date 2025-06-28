@@ -2,7 +2,12 @@ spring:
     application:
         name: Futures Screener Bot
     config:
-        import: classpath:config/telegram.yml
+        import: 
+            - classpath:config/telegram.yml
+            - classpath:config/chart.yml
+            - classpath:config/screeners.yml
+            - classpath:config/subscribers.yml
+            - classpath:config/templates.yml
     h2:
         console:
             enabled: true
@@ -20,44 +25,3 @@ spring:
         properties:
             hibernate:
                 format_sql: false
-application:
-    templates:
-        parse-mode: HTML
-        prefix: templates/
-        suffix: .md
-    screeners:
-        excluded-base-assets: USDC, USTC, USDT, FDUSD, BTCST, BTCDOM, BTC, ETH, BCH, ETC, BNB, SOL, XRP, TRX, LTC
-        quote-asset: USDT
-        settings:
-            pump:
-                min-pump-threshold: 1.0
-                max-pump-threshold: 100.0
-            dump:
-                min-dump-threshold: 1.0
-                max-dump-threshold: 100.0
-            long-liquidation:
-                min-long-liquidation-threshold: 10000.0
-                max-long-liquidation-threshold: 100000.0
-            short-liquidation:
-                min-short-liquidation-threshold: 10000.0
-                max-short-liquidation-threshold: 100000.0
-    subscribers:
-        settings:
-            pump-threshold: 5.0
-            dump-threshold: 5.0
-            long-liquidation-threshold: 50000.0
-            short-liquidation-threshold: 50000.0
-    chart:
-        bar-count: 180
-        bar-width: 8
-        offset: 90
-        interval: 1m
-        line-stroke: 2, 4
-        font: Liberation 18
-        date-time-pattern: 'dd.MM.yyyy HH:mm'
-        color:
-            background: 0x141923
-            text: 0xAAC3D7
-            line: 0x696E78
-            bull: 0xA967D
-            bear: 0xE63746

@@ -1,0 +1,15 @@
+application:
+    chart:
+        bar-count: 180
+        bar-width: 8
+        offset: 90
+        interval: 1m
+        line-stroke: 2, 4
+        font: Liberation 18
+        date-time-pattern: 'dd.MM.yyyy HH:mm'
+        color:
+            background: 0x141923
+            text: 0xAAC3D7
+            line: 0x696E78
+            bull: 0xA967D
+            bear: 0xE63746

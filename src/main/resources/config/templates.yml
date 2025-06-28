@@ -1,0 +1,5 @@
+application:
+    templates:
+        parse-mode: HTML
+        prefix: templates/
+        suffix: .md

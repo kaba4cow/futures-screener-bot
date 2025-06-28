@@ -1,0 +1,7 @@
+application:
+    subscribers:
+        settings:
+            pump-threshold: 5.0
+            dump-threshold: 5.0
+            long-liquidation-threshold: 50000.0
+            short-liquidation-threshold: 50000.0

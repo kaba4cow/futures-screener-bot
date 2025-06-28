@@ -1,0 +1,17 @@
+application:
+    screeners:
+        excluded-base-assets: USDC, USTC, USDT, FDUSD, BTCST, BTCDOM, BTC, ETH, BCH, ETC, BNB, SOL, XRP, TRX, LTC
+        quote-asset: USDT
+        settings:
+            pump:
+                min-pump-threshold: 1.0
+                max-pump-threshold: 100.0
+            dump:
+                min-dump-threshold: 1.0
+                max-dump-threshold: 100.0
+            long-liquidation:
+                min-long-liquidation-threshold: 10000.0
+                max-long-liquidation-threshold: 100000.0
+            short-liquidation:
+                min-short-liquidation-threshold: 10000.0
+                max-short-liquidation-threshold: 100000.0
