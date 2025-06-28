@@ -46,7 +46,7 @@ public class ChartInputHandler implements InputHandler {
 							"symbol", symbol.toSymbolString(), //
 							"assets", symbol.toAssetsString()//
 					)))//
-					.replyMarkup(replyKeyboardFactory.buildMenuKeyboard(subscriber))//
+					.replyMarkup(replyKeyboardFactory.buildCancelKeyboard(subscriber))//
 					.build());
 		} catch (Exception exception) {
 			return new TelegramTextMessage(SendMessage.builder()//
