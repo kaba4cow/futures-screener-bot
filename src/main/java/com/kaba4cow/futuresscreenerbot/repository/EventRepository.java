@@ -19,10 +19,6 @@ public interface EventRepository extends JpaRepository<Event, UUID> {
 	@Query("SELECT COUNT(e) FROM Event e WHERE e.type = :type AND e.symbol = :symbol AND e.eventTime >= :time")
 	long countEvents(@Param("type") EventType type, @Param("symbol") Symbol symbol, @Param("time") LocalDateTime time);
 
-	default long countEvents(Event event, LocalDateTime time) {
-		return countEvents(event.getType(), event.getSymbol(), time);
-	}
-
 	@Modifying
 	@Transactional
 	@Query("DELETE FROM Event e WHERE e.eventTime < :thresholdTime")

@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 import com.kaba4cow.futuresscreenerbot.entity.Event;
 import com.kaba4cow.futuresscreenerbot.entity.Subscriber;
 import com.kaba4cow.futuresscreenerbot.external.telegram.message.TelegramMessage;
-import com.kaba4cow.futuresscreenerbot.repository.EventRepository;
+import com.kaba4cow.futuresscreenerbot.service.domain.event.EventService;
 import com.kaba4cow.futuresscreenerbot.service.domain.subscriber.SubscriberService;
 import com.kaba4cow.futuresscreenerbot.service.telegram.TelegramMessageService;
 
@@ -25,7 +25,7 @@ public class NotificationService {
 
 	private final SubscriberService subscriberService;
 
-	private final EventRepository eventRepository;
+	private final EventService eventService;
 
 	private final NotificationFactoryRegistry notificationFactoryRegistry;
 
@@ -48,7 +48,7 @@ public class NotificationService {
 	}
 
 	private TelegramMessage createMessage(Set<Long> chatIds, Event event) {
-		long eventCount = eventRepository.countEvents(event, LocalDateTime.now().minusHours(24L));
+		long eventCount = eventService.countEvents(event, LocalDateTime.now().minusHours(24L));
 		NotificationFactory notificationFactory = notificationFactoryRegistry.getFactory(event.getType());
 		return notificationFactory.createMessage(chatIds, event, eventCount);
 	}

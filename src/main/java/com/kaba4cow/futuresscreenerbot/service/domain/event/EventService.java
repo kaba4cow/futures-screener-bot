@@ -1,5 +1,7 @@
 package com.kaba4cow.futuresscreenerbot.service.domain.event;
 
+import java.time.LocalDateTime;
+
 import org.springframework.stereotype.Service;
 
 import com.kaba4cow.futuresscreenerbot.entity.Event;
@@ -29,6 +31,10 @@ public class EventService {
 		log.info("Registered event [symbol={}, type={}, value={}]", symbol.toAssetsString(), type, value);
 		notificationService.sendEventNotification(savedEvent);
 		return savedEvent;
+	}
+
+	public long countEvents(Event event, LocalDateTime time) {
+		return eventRepository.countEvents(event.getType(), event.getSymbol(), time);
 	}
 
 	public void deleteAllEvents() {
