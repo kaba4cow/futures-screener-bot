@@ -9,15 +9,14 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import com.kaba4cow.futuresscreenerbot.entity.event.Event;
-import com.kaba4cow.futuresscreenerbot.entity.event.EventType;
-import com.kaba4cow.futuresscreenerbot.tool.Symbol;
+import com.kaba4cow.futuresscreenerbot.entity.event.EventSignature;
 
 import jakarta.transaction.Transactional;
 
 public interface EventRepository extends JpaRepository<Event, UUID> {
 
-	@Query("SELECT COUNT(e) FROM Event e WHERE e.type = :type AND e.symbol = :symbol AND e.eventTime >= :time")
-	long countEvents(@Param("type") EventType type, @Param("symbol") Symbol symbol, @Param("time") LocalDateTime time);
+	@Query("SELECT COUNT(e) FROM Event e WHERE e.signature = :signature AND e.eventTime >= :time")
+	long countEvents(@Param("signature") EventSignature signature, @Param("time") LocalDateTime time);
 
 	@Modifying
 	@Transactional

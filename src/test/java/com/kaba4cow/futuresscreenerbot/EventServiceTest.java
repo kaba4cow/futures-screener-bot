@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import com.kaba4cow.futuresscreenerbot.entity.event.Event;
+import com.kaba4cow.futuresscreenerbot.entity.event.EventSignature;
 import com.kaba4cow.futuresscreenerbot.entity.event.EventType;
 import com.kaba4cow.futuresscreenerbot.service.domain.event.EventService;
 import com.kaba4cow.futuresscreenerbot.tool.Symbol;
@@ -27,10 +28,10 @@ class EventServiceTest {
 	@Test
 	void testEventRegistration() {
 		Symbol symbol = new Symbol("BTC", "USDT");
-		Event event = eventService.registerEvent(EventType.PUMP, symbol, 5.0);
+		EventSignature signature = new EventSignature(EventType.PUMP, symbol);
+		Event event = eventService.registerEvent(signature, 5.0);
 		assertNotNull(event);
-		assertEquals(EventType.PUMP, event.getType());
-		assertEquals(symbol, event.getSymbol());
+		assertEquals(signature, event.getSignature());
 		assertEquals(5.0, event.getValue());
 	}
 

@@ -17,6 +17,7 @@ import com.kaba4cow.futuresscreenerbot.service.ChartService;
 import com.kaba4cow.futuresscreenerbot.service.TemplateService;
 import com.kaba4cow.futuresscreenerbot.service.notification.NotificationFactory;
 import com.kaba4cow.futuresscreenerbot.tool.ImageInputFileWriter;
+import com.kaba4cow.futuresscreenerbot.tool.Symbol;
 
 import lombok.RequiredArgsConstructor;
 
@@ -31,13 +32,14 @@ public class PumpNotificationFactory implements NotificationFactory {
 	@Override
 	public TelegramMessage createMessage(Set<Long> chatIds, Event event, long eventCount) {
 		BigDecimal rounded = new BigDecimal(event.getValue()).setScale(2, RoundingMode.HALF_UP);
+		Symbol symbol = event.getSignature().getSymbol();
 		String text = templateService.evaluateTemplate("events/pump", Map.of(//
-				"symbol", event.getSymbol().toSymbolString(), //
-				"assets", event.getSymbol().toAssetsString(), //
+				"symbol", symbol.toSymbolString(), //
+				"assets", symbol.toAssetsString(), //
 				"eventCount", eventCount, //
 				"pumpValue", rounded.toPlainString()//
 		));
-		RenderedImage chartImage = chartService.createChart(event.getSymbol());
+		RenderedImage chartImage = chartService.createChart(symbol);
 		SendPhoto message = new SendPhoto();
 		message.setCaption(text);
 		message.setPhoto(ImageInputFileWriter.createInputFile(chartImage));

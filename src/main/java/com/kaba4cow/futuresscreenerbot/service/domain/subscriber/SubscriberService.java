@@ -45,7 +45,8 @@ public class SubscriberService {
 	}
 
 	public List<Subscriber> getSubscribersForEvent(Event event) {
-		SubscriberSettingsExtractor extractor = subscriberSettingsExtractorRegistry.getExtractor(event.getType());
+		SubscriberSettingsExtractor extractor = subscriberSettingsExtractorRegistry
+				.getExtractor(event.getSignature().getType());
 		return subscriberRepository.findAllSubscribersByState(SubscriberState.SUBSCRIBED).stream()//
 				.filter(subscriber -> subscriberFilter.filter(subscriber, extractor, event))//
 				.collect(Collectors.toList());

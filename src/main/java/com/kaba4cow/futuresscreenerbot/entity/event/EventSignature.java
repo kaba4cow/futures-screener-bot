@@ -23,15 +23,15 @@ import lombok.Setter;
 @Embeddable
 public class EventSignature {
 
+	@Enumerated(EnumType.STRING)
+	@Column(name = "column_type", updatable = false)
+	private EventType type;
+
 	@Embedded
 	@AttributeOverrides({ //
 			@AttributeOverride(name = "baseAsset", column = @Column(name = "column_base_asset", updatable = false)), //
 			@AttributeOverride(name = "quoteAsset", column = @Column(name = "column_quote_asset", updatable = false)) //
 	})
 	private Symbol symbol;
-
-	@Enumerated(EnumType.STRING)
-	@Column(name = "column_type", updatable = false)
-	private EventType type;
 
 }

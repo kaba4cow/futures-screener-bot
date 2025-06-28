@@ -4,6 +4,7 @@ import org.json.JSONObject;
 
 import com.kaba4cow.futuresscreenerbot.config.properties.screener.LongLiquidationScreenerSettingsProperties;
 import com.kaba4cow.futuresscreenerbot.config.properties.screener.ShortLiquidationScreenerSettingsProperties;
+import com.kaba4cow.futuresscreenerbot.entity.event.EventSignature;
 import com.kaba4cow.futuresscreenerbot.entity.event.EventType;
 import com.kaba4cow.futuresscreenerbot.external.screener.Screener;
 import com.kaba4cow.futuresscreenerbot.external.screener.ScreenerType;
@@ -30,9 +31,9 @@ public class LiquidationScreener implements Screener {
 		float quantity = jsonData.getJSONObject("o").getFloat("q");
 		double liquidation = price * quantity;
 		if (side.equals("SELL") && liquidation >= longLiquidationScreenerSettingsProperties.getMinLongLiquidationThreshold())
-			eventService.registerEvent(EventType.LONG_LIQUIDATION, symbol, liquidation);
+			eventService.registerEvent(new EventSignature(EventType.LONG_LIQUIDATION, symbol), liquidation);
 		if (side.equals("BUY") && liquidation >= shortLiquidationScreenerSettingsProperties.getMinShortLiquidationThreshold())
-			eventService.registerEvent(EventType.SHORT_LIQUIDATION, symbol, liquidation);
+			eventService.registerEvent(new EventSignature(EventType.SHORT_LIQUIDATION, symbol), liquidation);
 	}
 
 	@Override
