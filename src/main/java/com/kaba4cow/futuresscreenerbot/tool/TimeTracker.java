@@ -21,8 +21,6 @@ public class TimeTracker {
 	}
 
 	public TimeTracker start() {
-		if (!finished)
-			throw new IllegalStateException("TimeTracker has not finished yet");
 		if (started)
 			throw new IllegalStateException("TimeTracker has already started");
 		startTimeMillis = System.currentTimeMillis();
