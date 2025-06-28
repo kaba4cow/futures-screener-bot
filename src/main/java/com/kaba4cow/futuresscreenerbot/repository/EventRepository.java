@@ -21,7 +21,7 @@ public interface EventRepository extends JpaRepository<Event, UUID> {
 
 	@Modifying
 	@Transactional
-	@Query("DELETE FROM Event e WHERE e.eventTime < :thresholdTime")
-	int deleteExpiredEvents(@Param("thresholdTime") LocalDateTime thresholdTime);
+	@Query("DELETE FROM Event e WHERE e.eventTime < :time")
+	int deleteEventsBefore(@Param("time") LocalDateTime time);
 
 }

@@ -20,7 +20,7 @@ public class EventCleanUpService {
 
 	@Scheduled(fixedDelay = 10L, timeUnit = TimeUnit.MINUTES)
 	public void deleteExpiredEvents() {
-		long expiredEvents = eventRepository.deleteExpiredEvents(LocalDateTime.now().minusHours(24L));
+		long expiredEvents = eventRepository.deleteEventsBefore(LocalDateTime.now().minusHours(24L));
 		log.info("Deleted {} expired events", expiredEvents);
 	}
 
