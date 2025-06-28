@@ -2,7 +2,7 @@ spring:
     application:
         name: Futures Screener Bot
     config:
-        import: classpath:telegram.yml
+        import: classpath:config/telegram.yml
     h2:
         console:
             enabled: true
