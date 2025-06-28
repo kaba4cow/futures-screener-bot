@@ -1,4 +1,4 @@
-package com.kaba4cow.futuresscreenerbot.properties.screener;
+package com.kaba4cow.futuresscreenerbot.config.properties.screener;
 
 import java.util.List;
 

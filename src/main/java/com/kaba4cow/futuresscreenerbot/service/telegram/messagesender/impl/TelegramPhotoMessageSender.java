@@ -4,9 +4,9 @@ import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.meta.api.methods.send.SendPhoto;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
+import com.kaba4cow.futuresscreenerbot.config.properties.TemplateProperties;
 import com.kaba4cow.futuresscreenerbot.external.telegram.TelegramBot;
 import com.kaba4cow.futuresscreenerbot.external.telegram.message.TelegramPhotoMessage;
-import com.kaba4cow.futuresscreenerbot.properties.TemplateProperties;
 import com.kaba4cow.futuresscreenerbot.service.telegram.messagesender.TelegramMessageSender;
 
 import lombok.RequiredArgsConstructor;

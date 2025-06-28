@@ -1,4 +1,4 @@
-package com.kaba4cow.futuresscreenerbot.converter;
+package com.kaba4cow.futuresscreenerbot.config.properties.converter;
 
 import java.awt.Color;
 

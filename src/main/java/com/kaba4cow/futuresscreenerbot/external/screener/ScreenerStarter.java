@@ -9,8 +9,8 @@ import org.json.JSONObject;
 import org.springframework.stereotype.Component;
 
 import com.binance.connector.futures.client.WebsocketClient;
+import com.kaba4cow.futuresscreenerbot.config.properties.screener.ScreenerProperties;
 import com.kaba4cow.futuresscreenerbot.external.screener.factory.ScreenerFactory;
-import com.kaba4cow.futuresscreenerbot.properties.screener.ScreenerProperties;
 import com.kaba4cow.futuresscreenerbot.service.FuturesService;
 import com.kaba4cow.futuresscreenerbot.tool.Symbol;
 

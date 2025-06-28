@@ -6,7 +6,7 @@ import java.util.Objects;
 
 import org.springframework.stereotype.Service;
 
-import com.kaba4cow.futuresscreenerbot.properties.TemplateProperties;
+import com.kaba4cow.futuresscreenerbot.config.properties.TemplateProperties;
 
 import io.pebbletemplates.pebble.PebbleEngine;
 import io.pebbletemplates.pebble.template.PebbleTemplate;

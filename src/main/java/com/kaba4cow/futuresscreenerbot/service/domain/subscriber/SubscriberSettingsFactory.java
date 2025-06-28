@@ -2,8 +2,8 @@ package com.kaba4cow.futuresscreenerbot.service.domain.subscriber;
 
 import org.springframework.stereotype.Component;
 
+import com.kaba4cow.futuresscreenerbot.config.properties.SubscriberSettingsProperties;
 import com.kaba4cow.futuresscreenerbot.entity.SubscriberSettings;
-import com.kaba4cow.futuresscreenerbot.properties.SubscriberSettingsProperties;
 
 import lombok.RequiredArgsConstructor;
 

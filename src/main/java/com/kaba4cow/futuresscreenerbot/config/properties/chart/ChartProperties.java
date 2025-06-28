@@ -1,4 +1,4 @@
-package com.kaba4cow.futuresscreenerbot.properties.chart;
+package com.kaba4cow.futuresscreenerbot.config.properties.chart;
 
 import java.awt.Font;
 

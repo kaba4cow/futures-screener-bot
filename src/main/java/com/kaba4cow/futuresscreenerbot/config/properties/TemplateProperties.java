@@ -1,4 +1,4 @@
-package com.kaba4cow.futuresscreenerbot.properties;
+package com.kaba4cow.futuresscreenerbot.config.properties;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;

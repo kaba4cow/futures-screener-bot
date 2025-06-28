@@ -8,8 +8,8 @@ import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import org.telegram.telegrambots.updatesreceivers.DefaultBotSession;
 
+import com.kaba4cow.futuresscreenerbot.config.properties.TelegramBotProperties;
 import com.kaba4cow.futuresscreenerbot.event.TelegramUpdateEvent;
-import com.kaba4cow.futuresscreenerbot.properties.TelegramBotProperties;
 
 import jakarta.annotation.PostConstruct;
 

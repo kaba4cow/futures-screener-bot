@@ -2,11 +2,11 @@ package com.kaba4cow.futuresscreenerbot.external.screener.impl;
 
 import org.json.JSONObject;
 
+import com.kaba4cow.futuresscreenerbot.config.properties.screener.LongLiquidationScreenerSettingsProperties;
+import com.kaba4cow.futuresscreenerbot.config.properties.screener.ShortLiquidationScreenerSettingsProperties;
 import com.kaba4cow.futuresscreenerbot.entity.EventType;
 import com.kaba4cow.futuresscreenerbot.external.screener.Screener;
 import com.kaba4cow.futuresscreenerbot.external.screener.ScreenerType;
-import com.kaba4cow.futuresscreenerbot.properties.screener.LongLiquidationScreenerSettingsProperties;
-import com.kaba4cow.futuresscreenerbot.properties.screener.ShortLiquidationScreenerSettingsProperties;
 import com.kaba4cow.futuresscreenerbot.service.domain.event.EventService;
 import com.kaba4cow.futuresscreenerbot.tool.Symbol;
 

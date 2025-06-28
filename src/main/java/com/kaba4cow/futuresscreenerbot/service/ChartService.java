@@ -9,8 +9,8 @@ import java.time.format.DateTimeFormatter;
 
 import org.springframework.stereotype.Service;
 
-import com.kaba4cow.futuresscreenerbot.properties.chart.ChartColorProperties;
-import com.kaba4cow.futuresscreenerbot.properties.chart.ChartProperties;
+import com.kaba4cow.futuresscreenerbot.config.properties.chart.ChartColorProperties;
+import com.kaba4cow.futuresscreenerbot.config.properties.chart.ChartProperties;
 import com.kaba4cow.futuresscreenerbot.tool.Symbol;
 import com.kaba4cow.futuresscreenerbot.tool.barseries.Bar;
 import com.kaba4cow.futuresscreenerbot.tool.barseries.BarSeries;
