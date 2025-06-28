@@ -31,4 +31,8 @@ public class EventService {
 		return savedEvent;
 	}
 
+	public void deleteAllEvents() {
+		eventRepository.deleteAll();
+	}
+
 }

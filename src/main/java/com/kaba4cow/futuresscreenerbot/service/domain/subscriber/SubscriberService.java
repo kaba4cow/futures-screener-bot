@@ -51,4 +51,8 @@ public class SubscriberService {
 				.collect(Collectors.toList());
 	}
 
+	public void deleteAllSubscribers() {
+		subscriberRepository.deleteAll();
+	}
+
 }
