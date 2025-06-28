@@ -1,7 +1,5 @@
 package com.kaba4cow.futuresscreenerbot.telegram.updatehandler.inputhandler.impl;
 
-import java.math.BigDecimal;
-
 import org.springframework.stereotype.Component;
 
 import com.kaba4cow.futuresscreenerbot.entity.SubscriberSettings;
@@ -17,13 +15,13 @@ public class PumpInputHandler extends SettingsInputHandler {
 	private final PumpScreenerSettingsProperties pumpScreenerSettingsProperties;
 
 	@Override
-	protected boolean isOutOfRange(BigDecimal value) {
+	protected boolean isOutOfRange(Double value) {
 		return value.doubleValue() < pumpScreenerSettingsProperties.getMinPumpThreshold().doubleValue()
 				|| value.doubleValue() > pumpScreenerSettingsProperties.getMaxPumpThreshold().doubleValue();
 	}
 
 	@Override
-	protected void setValue(SubscriberSettings settings, BigDecimal value) {
+	protected void setValue(SubscriberSettings settings, Double value) {
 		settings.setPumpThreshold(value);
 	}
 

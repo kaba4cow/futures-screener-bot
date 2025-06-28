@@ -30,7 +30,7 @@ public class PumpNotificationFactory implements NotificationFactory {
 
 	@Override
 	public TelegramMessage createMessage(Set<Long> chatIds, Event event, long eventCount) {
-		BigDecimal rounded = event.getValue().setScale(2, RoundingMode.HALF_UP);
+		BigDecimal rounded = new BigDecimal(event.getValue()).setScale(2, RoundingMode.HALF_UP);
 		String text = templateService.evaluateTemplate("events/pump", Map.of(//
 				"symbol", event.getSymbol().toSymbolString(), //
 				"assets", event.getSymbol().toAssetsString(), //

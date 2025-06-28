@@ -1,7 +1,5 @@
 package com.kaba4cow.futuresscreenerbot.properties;
 
-import java.math.BigDecimal;
-
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
@@ -16,12 +14,12 @@ import lombok.Setter;
 @Component
 public class SubscriberSettingsProperties implements SubscriberSettingsProvider {
 
-	private BigDecimal pumpThreshold;
+	private Double pumpThreshold;
 
-	private BigDecimal dumpThreshold;
+	private Double dumpThreshold;
 
-	private BigDecimal longLiquidationThreshold;
+	private Double longLiquidationThreshold;
 
-	private BigDecimal shortLiquidationThreshold;
+	private Double shortLiquidationThreshold;
 
 }

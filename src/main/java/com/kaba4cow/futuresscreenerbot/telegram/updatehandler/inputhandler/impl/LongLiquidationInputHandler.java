@@ -1,7 +1,5 @@
 package com.kaba4cow.futuresscreenerbot.telegram.updatehandler.inputhandler.impl;
 
-import java.math.BigDecimal;
-
 import org.springframework.stereotype.Component;
 
 import com.kaba4cow.futuresscreenerbot.entity.SubscriberSettings;
@@ -17,14 +15,14 @@ public class LongLiquidationInputHandler extends SettingsInputHandler {
 	private final LongLiquidationScreenerSettingsProperties longLiquidationScreenerSettingsProperties;
 
 	@Override
-	protected boolean isOutOfRange(BigDecimal value) {
+	protected boolean isOutOfRange(Double value) {
 		return value.doubleValue() < longLiquidationScreenerSettingsProperties.getMinLongLiquidationThreshold().doubleValue()
 				|| value.doubleValue() > longLiquidationScreenerSettingsProperties.getMaxLongLiquidationThreshold()
 						.doubleValue();
 	}
 
 	@Override
-	protected void setValue(SubscriberSettings settings, BigDecimal value) {
+	protected void setValue(SubscriberSettings settings, Double value) {
 		settings.setLongLiquidationThreshold(value);
 	}
 

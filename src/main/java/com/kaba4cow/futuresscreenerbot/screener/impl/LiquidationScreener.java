@@ -1,7 +1,5 @@
 package com.kaba4cow.futuresscreenerbot.screener.impl;
 
-import java.math.BigDecimal;
-
 import org.json.JSONObject;
 
 import com.kaba4cow.futuresscreenerbot.entity.EventType;
@@ -28,14 +26,12 @@ public class LiquidationScreener implements Screener {
 	@Override
 	public void updateScreener(JSONObject jsonData) {
 		String side = jsonData.getJSONObject("o").getString("S");
-		BigDecimal price = jsonData.getJSONObject("o").getBigDecimal("p");
-		BigDecimal quantity = jsonData.getJSONObject("o").getBigDecimal("q");
-		BigDecimal liquidation = price.multiply(quantity);
-		if (side.equals("SELL") && liquidation.doubleValue() >= longLiquidationScreenerSettingsProperties
-				.getMinLongLiquidationThreshold().doubleValue())
+		float price = jsonData.getJSONObject("o").getFloat("p");
+		float quantity = jsonData.getJSONObject("o").getFloat("q");
+		double liquidation = price * quantity;
+		if (side.equals("SELL") && liquidation >= longLiquidationScreenerSettingsProperties.getMinLongLiquidationThreshold())
 			eventService.registerEvent(EventType.LONG_LIQUIDATION, symbol, liquidation);
-		if (side.equals("BUY") && liquidation.doubleValue() >= shortLiquidationScreenerSettingsProperties
-				.getMinShortLiquidationThreshold().doubleValue())
+		if (side.equals("BUY") && liquidation >= shortLiquidationScreenerSettingsProperties.getMinShortLiquidationThreshold())
 			eventService.registerEvent(EventType.SHORT_LIQUIDATION, symbol, liquidation);
 	}
 

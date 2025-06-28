@@ -1,7 +1,5 @@
 package com.kaba4cow.futuresscreenerbot.service.domain;
 
-import java.math.BigDecimal;
-
 import org.springframework.stereotype.Service;
 
 import com.kaba4cow.futuresscreenerbot.entity.Event;
@@ -22,7 +20,7 @@ public class EventService {
 
 	private final NotificationService notificationService;
 
-	public Event registerEvent(EventType type, Symbol symbol, BigDecimal value) {
+	public Event registerEvent(EventType type, Symbol symbol, Double value) {
 		Event event = new Event();
 		event.setSymbol(symbol);
 		event.setType(type);

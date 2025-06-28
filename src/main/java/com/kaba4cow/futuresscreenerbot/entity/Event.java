@@ -1,6 +1,5 @@
 package com.kaba4cow.futuresscreenerbot.entity;
 
-import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
@@ -45,7 +44,7 @@ public class Event {
 	private Symbol symbol;
 
 	@Column(name = "column_value", updatable = false)
-	private BigDecimal value;
+	private Double value;
 
 	@Enumerated(EnumType.STRING)
 	@Column(name = "column_type", updatable = false)

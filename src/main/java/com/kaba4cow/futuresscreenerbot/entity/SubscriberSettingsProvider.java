@@ -1,15 +1,13 @@
 package com.kaba4cow.futuresscreenerbot.entity;
 
-import java.math.BigDecimal;
-
 public interface SubscriberSettingsProvider {
 
-	BigDecimal getPumpThreshold();
+	Double getPumpThreshold();
 
-	BigDecimal getDumpThreshold();
+	Double getDumpThreshold();
 
-	BigDecimal getLongLiquidationThreshold();
+	Double getLongLiquidationThreshold();
 
-	BigDecimal getShortLiquidationThreshold();
+	Double getShortLiquidationThreshold();
 
 }

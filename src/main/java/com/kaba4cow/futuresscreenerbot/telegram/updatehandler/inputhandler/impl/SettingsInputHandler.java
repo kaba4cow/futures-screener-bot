@@ -1,7 +1,5 @@
 package com.kaba4cow.futuresscreenerbot.telegram.updatehandler.inputhandler.impl;
 
-import java.math.BigDecimal;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 
@@ -26,7 +24,7 @@ public abstract class SettingsInputHandler implements InputHandler {
 	@Override
 	public TelegramMessage getResponseMessage(Subscriber subscriber, String input) {
 		try {
-			BigDecimal value = new BigDecimal(input);
+			Double value = Double.valueOf(input);
 			if (isOutOfRange(value))
 				return new TelegramTextMessage(SendMessage.builder()//
 						.chatId(subscriber.getId())//
@@ -48,8 +46,8 @@ public abstract class SettingsInputHandler implements InputHandler {
 		}
 	}
 
-	protected abstract boolean isOutOfRange(BigDecimal value);
+	protected abstract boolean isOutOfRange(Double value);
 
-	protected abstract void setValue(SubscriberSettings settings, BigDecimal value);
+	protected abstract void setValue(SubscriberSettings settings, Double value);
 
 }

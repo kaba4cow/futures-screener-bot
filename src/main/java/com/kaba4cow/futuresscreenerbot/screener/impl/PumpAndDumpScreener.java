@@ -1,7 +1,5 @@
 package com.kaba4cow.futuresscreenerbot.screener.impl;
 
-import java.math.BigDecimal;
-
 import org.json.JSONObject;
 
 import com.kaba4cow.futuresscreenerbot.entity.EventType;
@@ -36,13 +34,13 @@ public class PumpAndDumpScreener implements Screener {
 		if (barSeries.addBar(newBar) && barSeries.getBarCount() == barSeries.getMaxBarCount()) {
 			Bar firstBar = barSeries.getFirst();
 			Bar lastBar = barSeries.getLast();
-			double firstPrice = firstBar.getClosePrice();
-			double lastPrice = lastBar.getClosePrice();
+			float firstPrice = firstBar.getClosePrice();
+			float lastPrice = lastBar.getClosePrice();
 			double deltaPrice = MathUtil.calculateDelta(firstPrice, lastPrice);
-			if (deltaPrice > 0f && deltaPrice >= pumpScreenerSettingsProperties.getMinPumpThreshold().doubleValue())
-				eventService.registerEvent(EventType.PUMP, symbol, BigDecimal.valueOf(deltaPrice));
-			if (deltaPrice < 0f && deltaPrice <= -dumpScreenerSettingsProperties.getMinDumpThreshold().doubleValue())
-				eventService.registerEvent(EventType.DUMP, symbol, BigDecimal.valueOf(deltaPrice).abs());
+			if (deltaPrice > 0f && deltaPrice >= pumpScreenerSettingsProperties.getMinPumpThreshold())
+				eventService.registerEvent(EventType.PUMP, symbol, deltaPrice);
+			if (deltaPrice < 0f && deltaPrice <= -dumpScreenerSettingsProperties.getMinDumpThreshold())
+				eventService.registerEvent(EventType.DUMP, symbol, -deltaPrice);
 		}
 	}
 
