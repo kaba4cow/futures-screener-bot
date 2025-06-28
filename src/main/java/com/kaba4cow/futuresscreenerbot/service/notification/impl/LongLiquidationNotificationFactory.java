@@ -10,10 +10,10 @@ import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 
 import com.kaba4cow.futuresscreenerbot.entity.Event;
 import com.kaba4cow.futuresscreenerbot.entity.EventType;
+import com.kaba4cow.futuresscreenerbot.external.telegram.message.TelegramMessage;
+import com.kaba4cow.futuresscreenerbot.external.telegram.message.TelegramTextMessage;
 import com.kaba4cow.futuresscreenerbot.service.TemplateService;
 import com.kaba4cow.futuresscreenerbot.service.notification.NotificationFactory;
-import com.kaba4cow.futuresscreenerbot.telegram.message.TelegramMessage;
-import com.kaba4cow.futuresscreenerbot.telegram.message.TelegramTextMessage;
 
 import lombok.RequiredArgsConstructor;
 

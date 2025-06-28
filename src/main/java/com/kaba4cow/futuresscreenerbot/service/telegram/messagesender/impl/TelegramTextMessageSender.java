@@ -4,10 +4,10 @@ import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
+import com.kaba4cow.futuresscreenerbot.external.telegram.TelegramBot;
+import com.kaba4cow.futuresscreenerbot.external.telegram.message.TelegramTextMessage;
 import com.kaba4cow.futuresscreenerbot.properties.TemplateProperties;
 import com.kaba4cow.futuresscreenerbot.service.telegram.messagesender.TelegramMessageSender;
-import com.kaba4cow.futuresscreenerbot.telegram.TelegramBot;
-import com.kaba4cow.futuresscreenerbot.telegram.message.TelegramTextMessage;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

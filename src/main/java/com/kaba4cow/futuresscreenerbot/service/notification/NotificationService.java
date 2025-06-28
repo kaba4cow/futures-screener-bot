@@ -10,10 +10,10 @@ import org.springframework.stereotype.Service;
 
 import com.kaba4cow.futuresscreenerbot.entity.Event;
 import com.kaba4cow.futuresscreenerbot.entity.Subscriber;
+import com.kaba4cow.futuresscreenerbot.external.telegram.message.TelegramMessage;
 import com.kaba4cow.futuresscreenerbot.repository.EventRepository;
-import com.kaba4cow.futuresscreenerbot.service.domain.SubscriberService;
+import com.kaba4cow.futuresscreenerbot.service.domain.subscriber.SubscriberService;
 import com.kaba4cow.futuresscreenerbot.service.telegram.TelegramMessageService;
-import com.kaba4cow.futuresscreenerbot.telegram.message.TelegramMessage;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
