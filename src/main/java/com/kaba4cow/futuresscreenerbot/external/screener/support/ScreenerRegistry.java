@@ -38,8 +38,4 @@ public class ScreenerRegistry {
 		return Collections.unmodifiableSet(registry.get(stream));
 	}
 
-	public int totalScreeners() {
-		return registry.size();
-	}
-
 }

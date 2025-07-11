@@ -17,8 +17,7 @@ public class ShortLiquidationInputHandler extends SettingsInputHandler {
 	@Override
 	protected boolean isOutOfRange(Double value) {
 		return value.doubleValue() < shortLiquidationScreenerSettingsProperties.getMinThreshold().doubleValue()
-				|| value.doubleValue() > shortLiquidationScreenerSettingsProperties.getMaxThreshold()
-						.doubleValue();
+				|| value.doubleValue() > shortLiquidationScreenerSettingsProperties.getMaxThreshold().doubleValue();
 	}
 
 	@Override
