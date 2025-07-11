@@ -20,7 +20,7 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @RequiredArgsConstructor
 @Component
-public class ScreenerStarter {
+public class ScreenerInitializer {
 
 	private final List<ScreenerFactory> screenerFactories;
 
@@ -31,7 +31,7 @@ public class ScreenerStarter {
 	private final ScreenerRegistry screenerRegistry;
 
 	@PostConstruct
-	public void createScreeners() {
+	public void initializeScreeners() {
 		collectSymbols().forEach(this::registerScreenersForSymbol);
 		log.info("Registered total {} screeners", screenerRegistry.totalScreeners());
 		Set<String> streams = screenerRegistry.getAllStreams();
