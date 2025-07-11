@@ -1,5 +1,8 @@
 package com.kaba4cow.futuresscreenerbot.external.screener.impl;
 
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+
 import org.json.JSONObject;
 import org.springframework.stereotype.Component;
 
@@ -14,11 +17,12 @@ import com.kaba4cow.futuresscreenerbot.tool.util.MathUtil;
 @Component
 public class PumpScreener extends AbstractScreener<PumpScreenerSettingsProperties, KLineScreenerStream> {
 
-	private final BarSeries barSeries = new BarSeries(2);
+	private final Map<Symbol, BarSeries> map = new ConcurrentHashMap<>();
 
 	@Override
 	public void update(Symbol symbol, JSONObject jsonData) {
 		Bar newBar = new Bar(jsonData);
+		BarSeries barSeries = getBarSeries(symbol);
 		if (barSeries.addBar(newBar) && barSeries.getBarCount() == barSeries.getMaxBarCount()) {
 			Bar firstBar = barSeries.getFirst();
 			Bar lastBar = barSeries.getLast();
@@ -30,6 +34,10 @@ public class PumpScreener extends AbstractScreener<PumpScreenerSettingsPropertie
 					registerEvent(symbol, deltaPrice);
 			}
 		}
+	}
+
+	private BarSeries getBarSeries(Symbol symbol) {
+		return map.computeIfAbsent(symbol, key -> new BarSeries(2));
 	}
 
 	@Override
