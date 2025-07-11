@@ -6,11 +6,11 @@ import com.kaba4cow.futuresscreenerbot.tool.Symbol;
 
 public interface Screener {
 
-	void updateScreener(JSONObject jsonData);
+	void update(JSONObject jsonData);
 
-	ScreenerType getScreenerType();
+	ScreenerType getType();
 
-	default String getScreenerStreamName() {
+	default String getStream() {
 		return getSymbol().toSymbolString().toLowerCase().concat(getStreamSuffix());
 	}
 

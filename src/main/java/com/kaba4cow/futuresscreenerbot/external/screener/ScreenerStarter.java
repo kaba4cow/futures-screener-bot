@@ -34,13 +34,13 @@ public class ScreenerStarter {
 	public void createScreeners() {
 		collectSymbols().forEach(this::registerScreenersForSymbol);
 		log.info("Registered total {} screeners", screenerRegistry.totalScreeners());
-		Set<String> streamNames = screenerRegistry.getScreenerStreamNames();
-		webSocketClient.combineStreams(new ArrayList<>(streamNames), data -> {
+		Set<String> streams = screenerRegistry.getAllStreams();
+		webSocketClient.combineStreams(new ArrayList<>(streams), data -> {
 			JSONObject json = new JSONObject(data);
-			String streamName = json.getString("stream");
+			String stream = json.getString("stream");
 			JSONObject jsonData = json.getJSONObject("data");
-			Screener screener = screenerRegistry.getScreener(streamName);
-			screener.updateScreener(jsonData);
+			Screener screener = screenerRegistry.getScreener(stream);
+			screener.update(jsonData);
 		});
 	}
 

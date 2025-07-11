@@ -25,7 +25,7 @@ public class LiquidationScreener implements Screener {
 	private final EventService eventService;
 
 	@Override
-	public void updateScreener(JSONObject jsonData) {
+	public void update(JSONObject jsonData) {
 		String side = jsonData.getJSONObject("o").getString("S");
 		float price = jsonData.getJSONObject("o").getFloat("p");
 		float quantity = jsonData.getJSONObject("o").getFloat("q");
@@ -37,7 +37,7 @@ public class LiquidationScreener implements Screener {
 	}
 
 	@Override
-	public ScreenerType getScreenerType() {
+	public ScreenerType getType() {
 		return ScreenerType.LIQUIDATION;
 	}
 

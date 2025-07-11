@@ -17,11 +17,11 @@ public class ScreenerRegistry {
 	private final Map<String, Screener> registry = new ConcurrentHashMap<>();
 
 	public void register(Screener screener) {
-		registry.put(screener.getScreenerStreamName(), screener);
-		log.info("Registered {} screener for symbol {}", screener.getScreenerType(), screener.getSymbol().toAssetsString());
+		registry.put(screener.getStream(), screener);
+		log.info("Registered {} screener for symbol {}", screener.getType(), screener.getSymbol().toAssetsString());
 	}
 
-	public Set<String> getScreenerStreamNames() {
+	public Set<String> getAllStreams() {
 		return Collections.unmodifiableSet(registry.keySet());
 	}
 
@@ -29,8 +29,8 @@ public class ScreenerRegistry {
 		return Collections.unmodifiableCollection(registry.values());
 	}
 
-	public Screener getScreener(String streamName) {
-		return registry.get(streamName);
+	public Screener getScreener(String stream) {
+		return registry.get(stream);
 	}
 
 	public int totalScreeners() {

@@ -30,7 +30,7 @@ public class PumpAndDumpScreener implements Screener {
 	private final BarSeries barSeries = new BarSeries(2);
 
 	@Override
-	public void updateScreener(JSONObject jsonData) {
+	public void update(JSONObject jsonData) {
 		Bar newBar = new Bar(jsonData);
 		if (barSeries.addBar(newBar) && barSeries.getBarCount() == barSeries.getMaxBarCount()) {
 			Bar firstBar = barSeries.getFirst();
@@ -46,7 +46,7 @@ public class PumpAndDumpScreener implements Screener {
 	}
 
 	@Override
-	public ScreenerType getScreenerType() {
+	public ScreenerType getType() {
 		return ScreenerType.PUMP_AND_DUMP;
 	}
 
