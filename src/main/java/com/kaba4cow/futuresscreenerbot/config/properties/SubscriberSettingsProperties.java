@@ -1,25 +1,23 @@
 package com.kaba4cow.futuresscreenerbot.config.properties;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.stereotype.Component;
 
 import com.kaba4cow.futuresscreenerbot.entity.subscriber.SubscriberSettingsProvider;
 
 import lombok.Getter;
-import lombok.Setter;
+import lombok.RequiredArgsConstructor;
 
+@RequiredArgsConstructor
 @Getter
-@Setter
 @ConfigurationProperties(prefix = "application.subscribers.settings")
-@Component
 public class SubscriberSettingsProperties implements SubscriberSettingsProvider {
 
-	private Double pumpThreshold;
+	private final Double pumpThreshold;
 
-	private Double dumpThreshold;
+	private final Double dumpThreshold;
 
-	private Double longLiquidationThreshold;
+	private final Double longLiquidationThreshold;
 
-	private Double shortLiquidationThreshold;
+	private final Double shortLiquidationThreshold;
 
 }

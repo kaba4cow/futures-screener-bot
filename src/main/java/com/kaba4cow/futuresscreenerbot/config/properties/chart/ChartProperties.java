@@ -3,29 +3,27 @@ package com.kaba4cow.futuresscreenerbot.config.properties.chart;
 import java.awt.Font;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.stereotype.Component;
 
 import lombok.Getter;
-import lombok.Setter;
+import lombok.RequiredArgsConstructor;
 
+@RequiredArgsConstructor
 @Getter
-@Setter
 @ConfigurationProperties(prefix = "application.chart")
-@Component
 public class ChartProperties {
 
-	private int barCount;
+	private final int barCount;
 
-	private int barWidth;
+	private final int barWidth;
 
-	private int offset;
+	private final int offset;
 
-	private String interval;
+	private final String interval;
 
-	private float[] lineStroke;
+	private final float[] lineStroke;
 
-	private Font font;
+	private final Font font;
 
-	private String dateTimePattern;
+	private final String dateTimePattern;
 
 }

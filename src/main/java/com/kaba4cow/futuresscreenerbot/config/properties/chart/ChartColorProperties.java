@@ -3,25 +3,23 @@ package com.kaba4cow.futuresscreenerbot.config.properties.chart;
 import java.awt.Color;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.stereotype.Component;
 
 import lombok.Getter;
-import lombok.Setter;
+import lombok.RequiredArgsConstructor;
 
+@RequiredArgsConstructor
 @Getter
-@Setter
 @ConfigurationProperties(prefix = "application.chart.color")
-@Component
 public class ChartColorProperties {
 
-	private Color background;
+	private final Color background;
 
-	private Color text;
+	private final Color text;
 
-	private Color line;
+	private final Color line;
 
-	private Color bull;
+	private final Color bull;
 
-	private Color bear;
+	private final Color bear;
 
 }
