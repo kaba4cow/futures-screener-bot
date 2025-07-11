@@ -1,5 +1,7 @@
 package com.kaba4cow.futuresscreenerbot.external.screener.support.stream;
 
+import java.util.Set;
+
 import org.json.JSONObject;
 import org.springframework.stereotype.Component;
 
@@ -20,8 +22,8 @@ public class ScreenerStreamDataReceiver implements WebSocketCallback {
 		JSONObject json = new JSONObject(data);
 		String stream = json.getString("stream");
 		JSONObject jsonData = json.getJSONObject("data");
-		Screener screener = screenerRegistry.getScreener(stream);
-		screener.update(jsonData);
+		Set<Screener> screeners = screenerRegistry.getScreeners(stream);
+		screeners.forEach(screener -> screener.update(jsonData));
 	}
 
 }
