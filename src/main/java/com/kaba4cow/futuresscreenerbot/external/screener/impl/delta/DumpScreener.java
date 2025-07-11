@@ -8,15 +8,13 @@ import org.springframework.stereotype.Component;
 
 import com.kaba4cow.futuresscreenerbot.config.properties.screener.settings.DumpScreenerSettingsProperties;
 import com.kaba4cow.futuresscreenerbot.entity.event.EventType;
-import com.kaba4cow.futuresscreenerbot.external.screener.impl.AbstractScreener;
-import com.kaba4cow.futuresscreenerbot.external.screener.stream.impl.KLineScreenerStream;
 import com.kaba4cow.futuresscreenerbot.tool.Symbol;
 import com.kaba4cow.futuresscreenerbot.tool.barseries.Bar;
 import com.kaba4cow.futuresscreenerbot.tool.barseries.BarSeries;
 import com.kaba4cow.futuresscreenerbot.tool.util.MathUtil;
 
 @Component
-public class DumpScreener extends AbstractScreener<DumpScreenerSettingsProperties, KLineScreenerStream> {
+public class DumpScreener extends DeltaScreener<DumpScreenerSettingsProperties> {
 
 	private final Map<Symbol, BarSeries> map = new ConcurrentHashMap<>();
 
