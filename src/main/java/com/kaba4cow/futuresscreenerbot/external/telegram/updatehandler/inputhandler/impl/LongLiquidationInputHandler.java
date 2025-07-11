@@ -16,8 +16,8 @@ public class LongLiquidationInputHandler extends SettingsInputHandler {
 
 	@Override
 	protected boolean isOutOfRange(Double value) {
-		return value.doubleValue() < longLiquidationScreenerSettingsProperties.getMinLongLiquidationThreshold().doubleValue()
-				|| value.doubleValue() > longLiquidationScreenerSettingsProperties.getMaxLongLiquidationThreshold()
+		return value.doubleValue() < longLiquidationScreenerSettingsProperties.getMinThreshold().doubleValue()
+				|| value.doubleValue() > longLiquidationScreenerSettingsProperties.getMaxThreshold()
 						.doubleValue();
 	}
 

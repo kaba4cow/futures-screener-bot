@@ -33,8 +33,8 @@ public class ShortLiquidationCommandHandler implements CommandHandler {
 				.text(templateService.evaluateTemplate("messages/settings/set-value", Map.of(//
 						"valueName", "Short Liquidation Threshold", //
 						"valueUnit", "$", //
-						"min", shortLiquidationScreenerSettingsProperties.getMinShortLiquidationThreshold(), //
-						"max", shortLiquidationScreenerSettingsProperties.getMaxShortLiquidationThreshold()//
+						"min", shortLiquidationScreenerSettingsProperties.getMinThreshold(), //
+						"max", shortLiquidationScreenerSettingsProperties.getMaxThreshold()//
 				)))//
 				.replyMarkup(replyKeyboardFactory.buildCancelKeyboard(subscriber))//
 				.build());

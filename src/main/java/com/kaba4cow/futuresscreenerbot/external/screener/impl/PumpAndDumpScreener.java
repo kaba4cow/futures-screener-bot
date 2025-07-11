@@ -37,9 +37,9 @@ public class PumpAndDumpScreener implements Screener {
 			float firstPrice = firstBar.getClosePrice();
 			float lastPrice = lastBar.getClosePrice();
 			double deltaPrice = MathUtil.calculateDelta(firstPrice, lastPrice);
-			if (deltaPrice > 0f && deltaPrice >= pumpScreenerSettingsProperties.getMinPumpThreshold())
+			if (deltaPrice > 0f && deltaPrice >= pumpScreenerSettingsProperties.getMinThreshold())
 				eventService.registerEvent(EventType.PUMP.signatureFor(symbol), deltaPrice);
-			if (deltaPrice < 0f && deltaPrice <= -dumpScreenerSettingsProperties.getMinDumpThreshold())
+			if (deltaPrice < 0f && deltaPrice <= -dumpScreenerSettingsProperties.getMinThreshold())
 				eventService.registerEvent(EventType.DUMP.signatureFor(symbol), -deltaPrice);
 		}
 	}

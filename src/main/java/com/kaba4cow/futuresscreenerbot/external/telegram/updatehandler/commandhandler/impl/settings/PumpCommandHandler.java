@@ -33,8 +33,8 @@ public class PumpCommandHandler implements CommandHandler {
 				.text(templateService.evaluateTemplate("messages/settings/set-value", Map.of(//
 						"valueName", "Pump Threshold", //
 						"valueUnit", "%", //
-						"min", pumpScreenerSettingsProperties.getMinPumpThreshold(), //
-						"max", pumpScreenerSettingsProperties.getMaxPumpThreshold()//
+						"min", pumpScreenerSettingsProperties.getMinThreshold(), //
+						"max", pumpScreenerSettingsProperties.getMaxThreshold()//
 				)))//
 				.replyMarkup(replyKeyboardFactory.buildCancelKeyboard(subscriber))//
 				.build());

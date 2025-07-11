@@ -29,9 +29,9 @@ public class LiquidationScreener implements Screener {
 		float price = jsonData.getJSONObject("o").getFloat("p");
 		float quantity = jsonData.getJSONObject("o").getFloat("q");
 		double liquidation = price * quantity;
-		if (side.equals("SELL") && liquidation >= longLiquidationScreenerSettingsProperties.getMinLongLiquidationThreshold())
+		if (side.equals("SELL") && liquidation >= longLiquidationScreenerSettingsProperties.getMinThreshold())
 			eventService.registerEvent(EventType.LONG_LIQUIDATION.signatureFor(symbol), liquidation);
-		if (side.equals("BUY") && liquidation >= shortLiquidationScreenerSettingsProperties.getMinShortLiquidationThreshold())
+		if (side.equals("BUY") && liquidation >= shortLiquidationScreenerSettingsProperties.getMinThreshold())
 			eventService.registerEvent(EventType.SHORT_LIQUIDATION.signatureFor(symbol), liquidation);
 	}
 

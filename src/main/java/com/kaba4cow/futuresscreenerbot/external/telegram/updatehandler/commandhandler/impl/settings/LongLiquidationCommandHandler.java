@@ -33,8 +33,8 @@ public class LongLiquidationCommandHandler implements CommandHandler {
 				.text(templateService.evaluateTemplate("messages/settings/set-value", Map.of(//
 						"valueName", "Long Liquidation Threshold", //
 						"valueUnit", "$", //
-						"min", longLiquidationScreenerSettingsProperties.getMinLongLiquidationThreshold(), //
-						"max", longLiquidationScreenerSettingsProperties.getMaxLongLiquidationThreshold()//
+						"min", longLiquidationScreenerSettingsProperties.getMinThreshold(), //
+						"max", longLiquidationScreenerSettingsProperties.getMaxThreshold()//
 				)))//
 				.replyMarkup(replyKeyboardFactory.buildCancelKeyboard(subscriber))//
 				.build());

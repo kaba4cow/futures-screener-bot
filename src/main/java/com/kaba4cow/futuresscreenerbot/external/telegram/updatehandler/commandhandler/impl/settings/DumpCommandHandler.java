@@ -33,8 +33,8 @@ public class DumpCommandHandler implements CommandHandler {
 				.text(templateService.evaluateTemplate("messages/settings/set-value", Map.of(//
 						"valueName", "Dump Threshold", //
 						"valueUnit", "%", //
-						"min", dumpScreenerSettingsProperties.getMinDumpThreshold(), //
-						"max", dumpScreenerSettingsProperties.getMaxDumpThreshold()//
+						"min", dumpScreenerSettingsProperties.getMinThreshold(), //
+						"max", dumpScreenerSettingsProperties.getMaxThreshold()//
 				)))//
 				.replyMarkup(replyKeyboardFactory.buildCancelKeyboard(subscriber))//
 				.build());

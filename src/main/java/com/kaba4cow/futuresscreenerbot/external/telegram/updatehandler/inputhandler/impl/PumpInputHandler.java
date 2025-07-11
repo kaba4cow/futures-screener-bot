@@ -16,8 +16,8 @@ public class PumpInputHandler extends SettingsInputHandler {
 
 	@Override
 	protected boolean isOutOfRange(Double value) {
-		return value.doubleValue() < pumpScreenerSettingsProperties.getMinPumpThreshold().doubleValue()
-				|| value.doubleValue() > pumpScreenerSettingsProperties.getMaxPumpThreshold().doubleValue();
+		return value.doubleValue() < pumpScreenerSettingsProperties.getMinThreshold().doubleValue()
+				|| value.doubleValue() > pumpScreenerSettingsProperties.getMaxThreshold().doubleValue();
 	}
 
 	@Override

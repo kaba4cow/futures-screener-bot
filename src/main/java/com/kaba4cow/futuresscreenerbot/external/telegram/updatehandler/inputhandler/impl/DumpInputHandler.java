@@ -16,8 +16,8 @@ public class DumpInputHandler extends SettingsInputHandler {
 
 	@Override
 	protected boolean isOutOfRange(Double value) {
-		return value.doubleValue() < dumpScreenerSettingsProperties.getMinDumpThreshold().doubleValue()
-				|| value.doubleValue() > dumpScreenerSettingsProperties.getMaxDumpThreshold().doubleValue();
+		return value.doubleValue() < dumpScreenerSettingsProperties.getMinThreshold().doubleValue()
+				|| value.doubleValue() > dumpScreenerSettingsProperties.getMaxThreshold().doubleValue();
 	}
 
 	@Override
