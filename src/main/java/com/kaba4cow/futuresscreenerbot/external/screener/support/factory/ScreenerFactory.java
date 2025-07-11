@@ -1,4 +1,4 @@
-package com.kaba4cow.futuresscreenerbot.external.screener.factory;
+package com.kaba4cow.futuresscreenerbot.external.screener.support.factory;
 
 import com.kaba4cow.futuresscreenerbot.external.screener.Screener;
 import com.kaba4cow.futuresscreenerbot.tool.Symbol;

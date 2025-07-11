@@ -1,4 +1,4 @@
-package com.kaba4cow.futuresscreenerbot.external.screener;
+package com.kaba4cow.futuresscreenerbot.external.screener.support;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +10,8 @@ import org.springframework.stereotype.Component;
 
 import com.binance.connector.futures.client.WebsocketClient;
 import com.kaba4cow.futuresscreenerbot.config.properties.screener.ScreenerProperties;
-import com.kaba4cow.futuresscreenerbot.external.screener.factory.ScreenerFactory;
+import com.kaba4cow.futuresscreenerbot.external.screener.Screener;
+import com.kaba4cow.futuresscreenerbot.external.screener.support.factory.ScreenerFactory;
 import com.kaba4cow.futuresscreenerbot.tool.Symbol;
 
 import jakarta.annotation.PostConstruct;

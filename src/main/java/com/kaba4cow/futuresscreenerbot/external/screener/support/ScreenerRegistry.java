@@ -1,4 +1,4 @@
-package com.kaba4cow.futuresscreenerbot.external.screener;
+package com.kaba4cow.futuresscreenerbot.external.screener.support;
 
 import java.util.Collection;
 import java.util.Collections;
@@ -7,6 +7,8 @@ import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 
 import org.springframework.stereotype.Component;
+
+import com.kaba4cow.futuresscreenerbot.external.screener.Screener;
 
 import lombok.extern.slf4j.Slf4j;
 

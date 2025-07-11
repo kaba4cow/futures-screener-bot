@@ -1,12 +1,12 @@
-package com.kaba4cow.futuresscreenerbot.external.screener.factory.impl;
+package com.kaba4cow.futuresscreenerbot.external.screener.support.factory.impl;
 
 import org.springframework.stereotype.Component;
 
 import com.kaba4cow.futuresscreenerbot.config.properties.screener.LongLiquidationScreenerSettingsProperties;
 import com.kaba4cow.futuresscreenerbot.config.properties.screener.ShortLiquidationScreenerSettingsProperties;
 import com.kaba4cow.futuresscreenerbot.external.screener.Screener;
-import com.kaba4cow.futuresscreenerbot.external.screener.factory.ScreenerFactory;
 import com.kaba4cow.futuresscreenerbot.external.screener.impl.LiquidationScreener;
+import com.kaba4cow.futuresscreenerbot.external.screener.support.factory.ScreenerFactory;
 import com.kaba4cow.futuresscreenerbot.service.domain.event.EventService;
 import com.kaba4cow.futuresscreenerbot.tool.Symbol;
 
