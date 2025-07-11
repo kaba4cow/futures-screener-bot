@@ -1,9 +1,11 @@
 package com.kaba4cow.futuresscreenerbot.external.screener;
 
 import java.util.ArrayList;
-import java.util.LinkedHashMap;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 import org.json.JSONObject;
 import org.springframework.stereotype.Component;
@@ -11,7 +13,6 @@ import org.springframework.stereotype.Component;
 import com.binance.connector.futures.client.WebsocketClient;
 import com.kaba4cow.futuresscreenerbot.config.properties.screener.ScreenerProperties;
 import com.kaba4cow.futuresscreenerbot.external.screener.factory.ScreenerFactory;
-import com.kaba4cow.futuresscreenerbot.service.FuturesService;
 import com.kaba4cow.futuresscreenerbot.tool.Symbol;
 
 import jakarta.annotation.PostConstruct;
@@ -27,15 +28,12 @@ public class ScreenerStarter {
 
 	private final WebsocketClient webSocketClient;
 
-	private final FuturesService futuresService;
-
 	private final ScreenerProperties screenerProperties;
 
 	@PostConstruct
 	public void createScreeners() {
-		Map<String, Screener> screeners = new LinkedHashMap<>();
-		futuresService.getSymbols().stream()//
-				.filter(this::filterSymbol)//
+		Map<String, Screener> screeners = new HashMap<>();
+		collectSymbols()//
 				.forEach(symbol -> registerScreenersForSymbol(symbol, screeners));
 		log.info("Registered total {} screeners", screeners.size());
 		webSocketClient.combineStreams(new ArrayList<>(screeners.keySet()), data -> {
@@ -46,10 +44,11 @@ public class ScreenerStarter {
 		});
 	}
 
-	private boolean filterSymbol(Symbol symbol) {
-		return !screenerProperties.getExcludedBaseAssets().contains(symbol.getBaseAsset()) && //
-				!screenerProperties.getQuoteAsset().equalsIgnoreCase(symbol.getBaseAsset()) && //
-				screenerProperties.getQuoteAsset().equalsIgnoreCase(symbol.getQuoteAsset());
+	public Set<Symbol> collectSymbols() {
+		String quoteAsset = screenerProperties.getQuoteAsset();
+		return screenerProperties.getBaseAssets().stream()//
+				.map(baseAsset -> new Symbol(baseAsset, quoteAsset))//
+				.collect(Collectors.toSet());
 	}
 
 	private void registerScreenersForSymbol(Symbol symbol, Map<String, Screener> screeners) {
@@ -58,8 +57,7 @@ public class ScreenerStarter {
 
 	private void registerScreener(Screener screener, Map<String, Screener> screeners) {
 		screeners.put(screener.getScreenerStreamName(), screener);
-		log.info("Registered {} screener for symbol {}/{}", screener.getScreenerType(), screener.getSymbol().getBaseAsset(),
-				screener.getSymbol().getQuoteAsset());
+		log.info("Registered {} screener for symbol {}", screener.getScreenerType(), screener.getSymbol().toAssetsString());
 	}
 
 }

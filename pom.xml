@@ -6,7 +6,7 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>3.4.5</version>
-		<relativePath/>
+		<relativePath />
 	</parent>
 	<groupId>com.kaba4cow</groupId>
 	<artifactId>futures-screener-bot</artifactId>
@@ -28,9 +28,9 @@
 			<version>6.9.7.1</version>
 		</dependency>
 		<dependency>
-		    <groupId>io.pebbletemplates</groupId>
-		    <artifactId>pebble</artifactId>
-		    <version>3.2.4</version>
+			<groupId>io.pebbletemplates</groupId>
+			<artifactId>pebble</artifactId>
+			<version>3.2.4</version>
 		</dependency>
 		<dependency>
 			<groupId>com.h2database</groupId>

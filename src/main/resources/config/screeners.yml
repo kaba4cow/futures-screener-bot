@@ -1,6 +1,6 @@
 application:
     screeners:
-        excluded-base-assets: USDC, USTC, USDT, FDUSD, BTCST, BTCDOM, BTC, ETH, BCH, ETC, BNB, SOL, XRP, TRX, LTC
+        base-assets: BTC, ETH, BCH, ETC, BNB, SOL, XRP, TRX, LTC, TON, HIFI, DATA, AVA, BB, PEOPLE, AEVO, IO, RONIN, MANA, ZRO, RENDER, PEPE, SHIB, DOGE
         quote-asset: USDT
         settings:
             pump:
