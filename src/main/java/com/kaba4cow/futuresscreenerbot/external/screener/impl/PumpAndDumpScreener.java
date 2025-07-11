@@ -45,7 +45,7 @@ public class PumpAndDumpScreener implements Screener {
 
 	@Override
 	public String getStreamSuffix() {
-		return "@kline_1m";
+		return "kline_1m";
 	}
 
 	@Override

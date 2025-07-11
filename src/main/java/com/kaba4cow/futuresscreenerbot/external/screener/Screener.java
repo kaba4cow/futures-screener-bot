@@ -9,7 +9,7 @@ public interface Screener {
 	void update(JSONObject jsonData);
 
 	default String getStream() {
-		return getSymbol().toSymbolString().toLowerCase().concat(getStreamSuffix());
+		return String.format("%s@%s", getSymbol().toSymbolString().toLowerCase(), getStreamSuffix());
 	}
 
 	String getStreamSuffix();

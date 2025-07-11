@@ -36,7 +36,7 @@ public class LiquidationScreener implements Screener {
 
 	@Override
 	public String getStreamSuffix() {
-		return "@forceOrder";
+		return "forceOrder";
 	}
 
 	@Override
