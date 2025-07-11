@@ -1,4 +1,4 @@
-package com.kaba4cow.futuresscreenerbot.config.properties.screener;
+package com.kaba4cow.futuresscreenerbot.config.properties.screener.settings;
 
 public interface ScreenerSettingsProperties {
 

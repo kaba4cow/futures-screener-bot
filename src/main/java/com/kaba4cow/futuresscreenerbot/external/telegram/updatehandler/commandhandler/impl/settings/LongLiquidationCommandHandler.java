@@ -5,7 +5,7 @@ import java.util.Map;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 
-import com.kaba4cow.futuresscreenerbot.config.properties.screener.LongLiquidationScreenerSettingsProperties;
+import com.kaba4cow.futuresscreenerbot.config.properties.screener.settings.LongLiquidationScreenerSettingsProperties;
 import com.kaba4cow.futuresscreenerbot.entity.subscriber.Subscriber;
 import com.kaba4cow.futuresscreenerbot.external.telegram.command.Command;
 import com.kaba4cow.futuresscreenerbot.external.telegram.message.TelegramMessage;

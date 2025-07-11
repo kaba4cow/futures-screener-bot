@@ -2,7 +2,7 @@ package com.kaba4cow.futuresscreenerbot.external.telegram.updatehandler.inputhan
 
 import org.springframework.stereotype.Component;
 
-import com.kaba4cow.futuresscreenerbot.config.properties.screener.PumpScreenerSettingsProperties;
+import com.kaba4cow.futuresscreenerbot.config.properties.screener.settings.PumpScreenerSettingsProperties;
 import com.kaba4cow.futuresscreenerbot.entity.subscriber.SubscriberSettings;
 import com.kaba4cow.futuresscreenerbot.external.telegram.command.Command;
 

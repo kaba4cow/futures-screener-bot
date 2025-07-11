@@ -2,8 +2,8 @@ package com.kaba4cow.futuresscreenerbot.external.screener.support.factory.impl;
 
 import org.springframework.stereotype.Component;
 
-import com.kaba4cow.futuresscreenerbot.config.properties.screener.DumpScreenerSettingsProperties;
-import com.kaba4cow.futuresscreenerbot.config.properties.screener.PumpScreenerSettingsProperties;
+import com.kaba4cow.futuresscreenerbot.config.properties.screener.settings.DumpScreenerSettingsProperties;
+import com.kaba4cow.futuresscreenerbot.config.properties.screener.settings.PumpScreenerSettingsProperties;
 import com.kaba4cow.futuresscreenerbot.external.screener.Screener;
 import com.kaba4cow.futuresscreenerbot.external.screener.impl.PumpAndDumpScreener;
 import com.kaba4cow.futuresscreenerbot.external.screener.support.factory.ScreenerFactory;
