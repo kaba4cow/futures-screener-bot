@@ -4,9 +4,6 @@ import org.json.JSONObject;
 
 import com.kaba4cow.futuresscreenerbot.entity.event.EventType;
 
-import lombok.RequiredArgsConstructor;
-
-@RequiredArgsConstructor
 public class LongLiquidationScreener extends AbstractScreener {
 
 	@Override

@@ -7,9 +7,6 @@ import com.kaba4cow.futuresscreenerbot.tool.barseries.Bar;
 import com.kaba4cow.futuresscreenerbot.tool.barseries.BarSeries;
 import com.kaba4cow.futuresscreenerbot.tool.util.MathUtil;
 
-import lombok.RequiredArgsConstructor;
-
-@RequiredArgsConstructor
 public class DumpScreener extends AbstractScreener {
 
 	private final BarSeries barSeries = new BarSeries(2);
