@@ -1,7 +1,6 @@
-package com.kaba4cow.futuresscreenerbot.external.screener;
+package com.kaba4cow.futuresscreenerbot.external.screener.support.stream;
 
 import java.util.ArrayList;
-import java.util.Set;
 
 import org.springframework.stereotype.Component;
 
@@ -18,11 +17,10 @@ public class ScreenerStreamCombiner {
 
 	private final ScreenerRegistry screenerRegistry;
 
-	private final StreamDataReceiver dataReceiver;
+	private final ScreenerStreamDataReceiver streamDataReceiver;
 
 	public void combineStreams() {
-		Set<String> streams = screenerRegistry.getAllStreams();
-		webSocketClient.combineStreams(new ArrayList<>(streams), dataReceiver);
+		webSocketClient.combineStreams(new ArrayList<>(screenerRegistry.getAllStreams()), streamDataReceiver);
 	}
 
 }

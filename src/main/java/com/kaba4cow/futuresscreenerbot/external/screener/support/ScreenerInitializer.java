@@ -7,8 +7,8 @@ import java.util.stream.Collectors;
 import org.springframework.stereotype.Component;
 
 import com.kaba4cow.futuresscreenerbot.config.properties.screener.ScreenerProperties;
-import com.kaba4cow.futuresscreenerbot.external.screener.ScreenerStreamCombiner;
 import com.kaba4cow.futuresscreenerbot.external.screener.support.factory.ScreenerFactory;
+import com.kaba4cow.futuresscreenerbot.external.screener.support.stream.ScreenerStreamCombiner;
 import com.kaba4cow.futuresscreenerbot.tool.Symbol;
 
 import jakarta.annotation.PostConstruct;

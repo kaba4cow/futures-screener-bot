@@ -1,16 +1,17 @@
-package com.kaba4cow.futuresscreenerbot.external.screener;
+package com.kaba4cow.futuresscreenerbot.external.screener.support.stream;
 
 import org.json.JSONObject;
 import org.springframework.stereotype.Component;
 
 import com.binance.connector.futures.client.utils.WebSocketCallback;
+import com.kaba4cow.futuresscreenerbot.external.screener.Screener;
 import com.kaba4cow.futuresscreenerbot.external.screener.support.ScreenerRegistry;
 
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 @Component
-public class StreamDataReceiver implements WebSocketCallback {
+public class ScreenerStreamDataReceiver implements WebSocketCallback {
 
 	private final ScreenerRegistry screenerRegistry;
 
