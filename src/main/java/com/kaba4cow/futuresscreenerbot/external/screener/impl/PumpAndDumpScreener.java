@@ -6,7 +6,6 @@ import com.kaba4cow.futuresscreenerbot.config.properties.screener.settings.DumpS
 import com.kaba4cow.futuresscreenerbot.config.properties.screener.settings.PumpScreenerSettingsProperties;
 import com.kaba4cow.futuresscreenerbot.entity.event.EventType;
 import com.kaba4cow.futuresscreenerbot.external.screener.Screener;
-import com.kaba4cow.futuresscreenerbot.external.screener.ScreenerType;
 import com.kaba4cow.futuresscreenerbot.service.domain.event.EventService;
 import com.kaba4cow.futuresscreenerbot.tool.Symbol;
 import com.kaba4cow.futuresscreenerbot.tool.barseries.Bar;
@@ -42,11 +41,6 @@ public class PumpAndDumpScreener implements Screener {
 			if (deltaPrice < 0f && deltaPrice <= -dumpScreenerSettingsProperties.getMinThreshold())
 				eventService.registerEvent(EventType.DUMP.signatureFor(symbol), -deltaPrice);
 		}
-	}
-
-	@Override
-	public ScreenerType getType() {
-		return ScreenerType.PUMP_AND_DUMP;
 	}
 
 	@Override

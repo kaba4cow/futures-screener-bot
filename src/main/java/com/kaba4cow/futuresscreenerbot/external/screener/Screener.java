@@ -8,8 +8,6 @@ public interface Screener {
 
 	void update(JSONObject jsonData);
 
-	ScreenerType getType();
-
 	default String getStream() {
 		return getSymbol().toSymbolString().toLowerCase().concat(getStreamSuffix());
 	}

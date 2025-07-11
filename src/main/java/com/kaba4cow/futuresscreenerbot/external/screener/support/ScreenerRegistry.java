@@ -21,7 +21,7 @@ public class ScreenerRegistry {
 
 	public void register(Screener screener) {
 		if (registry.computeIfAbsent(screener.getStream(), key -> new HashSet<>()).add(screener))
-			log.info("Registered {} screener for symbol {}", screener.getType(), screener.getSymbol().toAssetsString());
+			log.info("Registered {} for symbol {}", screener, screener.getSymbol().toAssetsString());
 	}
 
 	public Set<String> getAllStreams() {

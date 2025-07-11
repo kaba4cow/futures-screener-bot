@@ -6,7 +6,6 @@ import com.kaba4cow.futuresscreenerbot.config.properties.screener.settings.LongL
 import com.kaba4cow.futuresscreenerbot.config.properties.screener.settings.ShortLiquidationScreenerSettingsProperties;
 import com.kaba4cow.futuresscreenerbot.entity.event.EventType;
 import com.kaba4cow.futuresscreenerbot.external.screener.Screener;
-import com.kaba4cow.futuresscreenerbot.external.screener.ScreenerType;
 import com.kaba4cow.futuresscreenerbot.service.domain.event.EventService;
 import com.kaba4cow.futuresscreenerbot.tool.Symbol;
 
@@ -33,11 +32,6 @@ public class LiquidationScreener implements Screener {
 			eventService.registerEvent(EventType.LONG_LIQUIDATION.signatureFor(symbol), liquidation);
 		if (side.equals("BUY") && liquidation >= shortLiquidationScreenerSettingsProperties.getMinThreshold())
 			eventService.registerEvent(EventType.SHORT_LIQUIDATION.signatureFor(symbol), liquidation);
-	}
-
-	@Override
-	public ScreenerType getType() {
-		return ScreenerType.LIQUIDATION;
 	}
 
 	@Override
