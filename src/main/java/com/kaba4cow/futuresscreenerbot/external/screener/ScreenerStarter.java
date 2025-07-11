@@ -1,9 +1,7 @@
 package com.kaba4cow.futuresscreenerbot.external.screener;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -30,17 +28,19 @@ public class ScreenerStarter {
 
 	private final ScreenerProperties screenerProperties;
 
+	private final ScreenerRegistry screenerRegistry;
+
 	@PostConstruct
 	public void createScreeners() {
-		Map<String, Screener> screeners = new HashMap<>();
-		collectSymbols()//
-				.forEach(symbol -> registerScreenersForSymbol(symbol, screeners));
-		log.info("Registered total {} screeners", screeners.size());
-		webSocketClient.combineStreams(new ArrayList<>(screeners.keySet()), data -> {
+		collectSymbols().forEach(this::registerScreenersForSymbol);
+		log.info("Registered total {} screeners", screenerRegistry.totalScreeners());
+		Set<String> streamNames = screenerRegistry.getScreenerStreamNames();
+		webSocketClient.combineStreams(new ArrayList<>(streamNames), data -> {
 			JSONObject json = new JSONObject(data);
 			String streamName = json.getString("stream");
 			JSONObject jsonData = json.getJSONObject("data");
-			screeners.get(streamName).updateScreener(jsonData);
+			Screener screener = screenerRegistry.getScreener(streamName);
+			screener.updateScreener(jsonData);
 		});
 	}
 
@@ -51,13 +51,8 @@ public class ScreenerStarter {
 				.collect(Collectors.toSet());
 	}
 
-	private void registerScreenersForSymbol(Symbol symbol, Map<String, Screener> screeners) {
-		screenerFactories.forEach(screenerFactory -> registerScreener(screenerFactory.createScreener(symbol), screeners));
-	}
-
-	private void registerScreener(Screener screener, Map<String, Screener> screeners) {
-		screeners.put(screener.getScreenerStreamName(), screener);
-		log.info("Registered {} screener for symbol {}", screener.getScreenerType(), screener.getSymbol().toAssetsString());
+	private void registerScreenersForSymbol(Symbol symbol) {
+		screenerFactories.forEach(screenerFactory -> screenerRegistry.register(screenerFactory.createScreener(symbol)));
 	}
 
 }
