@@ -112,7 +112,7 @@ class SubscriberFilteringTest {
 	}
 
 	private Event createTestEvent(EventType type, Double value) {
-		EventSignature signature = new EventSignature(type, new Symbol("BTC", "USDT"));
+		EventSignature signature = type.signatureFor(new Symbol("BTC", "USDT"));
 		Event event = new Event();
 		event.setSignature(signature);
 		event.setValue(value);

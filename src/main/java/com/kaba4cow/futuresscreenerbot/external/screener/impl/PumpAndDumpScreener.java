@@ -4,7 +4,6 @@ import org.json.JSONObject;
 
 import com.kaba4cow.futuresscreenerbot.config.properties.screener.DumpScreenerSettingsProperties;
 import com.kaba4cow.futuresscreenerbot.config.properties.screener.PumpScreenerSettingsProperties;
-import com.kaba4cow.futuresscreenerbot.entity.event.EventSignature;
 import com.kaba4cow.futuresscreenerbot.entity.event.EventType;
 import com.kaba4cow.futuresscreenerbot.external.screener.Screener;
 import com.kaba4cow.futuresscreenerbot.external.screener.ScreenerType;
@@ -39,9 +38,9 @@ public class PumpAndDumpScreener implements Screener {
 			float lastPrice = lastBar.getClosePrice();
 			double deltaPrice = MathUtil.calculateDelta(firstPrice, lastPrice);
 			if (deltaPrice > 0f && deltaPrice >= pumpScreenerSettingsProperties.getMinPumpThreshold())
-				eventService.registerEvent(new EventSignature(EventType.PUMP, symbol), deltaPrice);
+				eventService.registerEvent(EventType.PUMP.signatureFor(symbol), deltaPrice);
 			if (deltaPrice < 0f && deltaPrice <= -dumpScreenerSettingsProperties.getMinDumpThreshold())
-				eventService.registerEvent(new EventSignature(EventType.DUMP, symbol), -deltaPrice);
+				eventService.registerEvent(EventType.DUMP.signatureFor(symbol), -deltaPrice);
 		}
 	}
 

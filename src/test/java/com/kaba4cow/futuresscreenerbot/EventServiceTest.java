@@ -30,7 +30,7 @@ class EventServiceTest {
 	@Test
 	void testEventRegistration() {
 		Symbol symbol = new Symbol("BTC", "USDT");
-		EventSignature signature = new EventSignature(EventType.PUMP, symbol);
+		EventSignature signature = EventType.PUMP.signatureFor(symbol);
 		Event event = eventService.registerEvent(signature, 5.0);
 		assertNotNull(event);
 		assertEquals(signature, event.getSignature());
@@ -42,27 +42,17 @@ class EventServiceTest {
 		Symbol btcSymbol = new Symbol("BTC", "USDT");
 		Symbol ethSymbol = new Symbol("ETH", "USDT");
 
-		assertNotNull(eventService.registerEvent(new EventSignature(EventType.PUMP, btcSymbol), 5.0));
+		assertNotNull(eventService.registerEvent(EventType.PUMP.signatureFor(btcSymbol), 5.0));
 
 		LocalDateTime thresholdTime = LocalDateTime.now();
 
-		assertNotNull(eventService.registerEvent(new EventSignature(EventType.PUMP, btcSymbol), 5.0));
+		assertNotNull(eventService.registerEvent(EventType.PUMP.signatureFor(btcSymbol), 5.0));
+		assertNotNull(eventService.registerEvent(EventType.PUMP.signatureFor(btcSymbol), 5.0));
+		assertNotNull(eventService.registerEvent(EventType.PUMP.signatureFor(ethSymbol), 5.0));
+		assertNotNull(eventService.registerEvent(EventType.DUMP.signatureFor(ethSymbol), 5.0));
 
-		assertNotNull(eventService.registerEvent(new EventSignature(EventType.PUMP, btcSymbol), 5.0));
-
-		assertNotNull(eventService.registerEvent(new EventSignature(EventType.PUMP, ethSymbol), 5.0));
-
-		assertNotNull(eventService.registerEvent(new EventSignature(EventType.DUMP, ethSymbol), 5.0));
-
-		assertEquals(2, eventService.countEventsBySignature(new EventSignature(//
-				EventType.PUMP, //
-				btcSymbol//
-		), thresholdTime));
-
-		assertEquals(1, eventService.countEventsBySignature(new EventSignature(//
-				EventType.DUMP, //
-				ethSymbol//
-		), thresholdTime));
+		assertEquals(2, eventService.countEventsBySignature(EventType.PUMP.signatureFor(btcSymbol), thresholdTime));
+		assertEquals(1, eventService.countEventsBySignature(EventType.DUMP.signatureFor(ethSymbol), thresholdTime));
 	}
 
 }
