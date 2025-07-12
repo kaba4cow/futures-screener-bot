@@ -5,7 +5,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 import org.springframework.stereotype.Component;
 
-import com.kaba4cow.futuresscreenerbot.external.telegram.message.TelegramMessage;
+import com.kaba4cow.futuresscreenerbot.infra.telegram.message.TelegramMessage;
 
 @Component
 public class TelegramMessageSenderRegistry {

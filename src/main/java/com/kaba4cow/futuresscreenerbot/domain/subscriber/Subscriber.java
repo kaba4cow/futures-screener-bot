@@ -1,6 +1,6 @@
 package com.kaba4cow.futuresscreenerbot.domain.subscriber;
 
-import com.kaba4cow.futuresscreenerbot.external.telegram.command.Command;
+import com.kaba4cow.futuresscreenerbot.infra.telegram.command.Command;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Embedded;

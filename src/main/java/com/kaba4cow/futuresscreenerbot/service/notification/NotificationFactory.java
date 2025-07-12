@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.kaba4cow.futuresscreenerbot.domain.event.Event;
 import com.kaba4cow.futuresscreenerbot.domain.event.EventType;
-import com.kaba4cow.futuresscreenerbot.external.telegram.message.TelegramMessage;
+import com.kaba4cow.futuresscreenerbot.infra.telegram.message.TelegramMessage;
 
 public interface NotificationFactory {
 

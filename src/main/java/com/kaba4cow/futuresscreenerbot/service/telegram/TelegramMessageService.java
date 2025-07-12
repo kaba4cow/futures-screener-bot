@@ -2,7 +2,7 @@ package com.kaba4cow.futuresscreenerbot.service.telegram;
 
 import org.springframework.stereotype.Service;
 
-import com.kaba4cow.futuresscreenerbot.external.telegram.message.TelegramMessage;
+import com.kaba4cow.futuresscreenerbot.infra.telegram.message.TelegramMessage;
 import com.kaba4cow.futuresscreenerbot.service.telegram.messagesender.TelegramMessageSenderRegistry;
 
 import lombok.RequiredArgsConstructor;

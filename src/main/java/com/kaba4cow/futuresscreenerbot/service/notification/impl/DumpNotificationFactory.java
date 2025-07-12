@@ -11,8 +11,8 @@ import org.telegram.telegrambots.meta.api.methods.send.SendPhoto;
 
 import com.kaba4cow.futuresscreenerbot.domain.event.Event;
 import com.kaba4cow.futuresscreenerbot.domain.event.EventType;
-import com.kaba4cow.futuresscreenerbot.external.telegram.message.TelegramMessage;
-import com.kaba4cow.futuresscreenerbot.external.telegram.message.TelegramPhotoMessage;
+import com.kaba4cow.futuresscreenerbot.infra.telegram.message.TelegramMessage;
+import com.kaba4cow.futuresscreenerbot.infra.telegram.message.TelegramPhotoMessage;
 import com.kaba4cow.futuresscreenerbot.service.ChartService;
 import com.kaba4cow.futuresscreenerbot.service.TemplateService;
 import com.kaba4cow.futuresscreenerbot.service.notification.NotificationFactory;

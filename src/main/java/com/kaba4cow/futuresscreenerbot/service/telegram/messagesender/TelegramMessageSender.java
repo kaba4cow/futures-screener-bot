@@ -2,7 +2,7 @@ package com.kaba4cow.futuresscreenerbot.service.telegram.messagesender;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.kaba4cow.futuresscreenerbot.external.telegram.message.TelegramMessage;
+import com.kaba4cow.futuresscreenerbot.infra.telegram.message.TelegramMessage;
 
 public interface TelegramMessageSender<T extends TelegramMessage> {
 

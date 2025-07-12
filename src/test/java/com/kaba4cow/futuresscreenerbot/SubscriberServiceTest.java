@@ -16,7 +16,7 @@ import com.kaba4cow.futuresscreenerbot.domain.subscriber.SubscriberService;
 import com.kaba4cow.futuresscreenerbot.domain.subscriber.SubscriberSettings;
 import com.kaba4cow.futuresscreenerbot.domain.subscriber.SubscriberSettingsProvider;
 import com.kaba4cow.futuresscreenerbot.domain.subscriber.SubscriberState;
-import com.kaba4cow.futuresscreenerbot.external.telegram.command.Command;
+import com.kaba4cow.futuresscreenerbot.infra.telegram.command.Command;
 
 @SpringBootTest
 class SubscriberServiceTest {
