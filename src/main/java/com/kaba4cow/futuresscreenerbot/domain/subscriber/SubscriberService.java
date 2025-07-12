@@ -9,7 +9,6 @@ import com.kaba4cow.futuresscreenerbot.domain.event.Event;
 import com.kaba4cow.futuresscreenerbot.domain.subscriber.extractor.SubscriberSettingsExtractor;
 import com.kaba4cow.futuresscreenerbot.domain.subscriber.extractor.SubscriberSettingsExtractorRegistry;
 import com.kaba4cow.futuresscreenerbot.infra.telegram.command.Command;
-import com.kaba4cow.futuresscreenerbot.repository.SubscriberRepository;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
