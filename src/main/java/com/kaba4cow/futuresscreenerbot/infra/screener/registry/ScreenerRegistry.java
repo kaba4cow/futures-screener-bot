@@ -1,4 +1,4 @@
-package com.kaba4cow.futuresscreenerbot.infra.screener.support;
+package com.kaba4cow.futuresscreenerbot.infra.screener.registry;
 
 import java.util.Collections;
 import java.util.HashSet;

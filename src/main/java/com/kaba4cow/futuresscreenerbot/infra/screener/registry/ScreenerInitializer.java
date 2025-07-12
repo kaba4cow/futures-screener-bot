@@ -1,4 +1,4 @@
-package com.kaba4cow.futuresscreenerbot.infra.screener.support;
+package com.kaba4cow.futuresscreenerbot.infra.screener.registry;
 
 import java.util.Collection;
 import java.util.Set;
@@ -8,9 +8,9 @@ import org.springframework.stereotype.Component;
 
 import com.kaba4cow.futuresscreenerbot.config.properties.screener.ScreenerProperties;
 import com.kaba4cow.futuresscreenerbot.infra.screener.stream.ScreenerStream;
-import com.kaba4cow.futuresscreenerbot.infra.screener.stream.support.StreamCombiner;
-import com.kaba4cow.futuresscreenerbot.infra.screener.stream.support.StreamRegistry;
-import com.kaba4cow.futuresscreenerbot.infra.screener.stream.support.StreamSymbolRegistry;
+import com.kaba4cow.futuresscreenerbot.infra.screener.stream.registry.StreamCombiner;
+import com.kaba4cow.futuresscreenerbot.infra.screener.stream.registry.StreamRegistry;
+import com.kaba4cow.futuresscreenerbot.infra.screener.stream.registry.StreamSymbolRegistry;
 import com.kaba4cow.futuresscreenerbot.util.tool.Symbol;
 
 import jakarta.annotation.PostConstruct;
