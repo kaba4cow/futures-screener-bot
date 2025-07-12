@@ -33,7 +33,7 @@ public class ChartService {
 	private final FuturesService futuresService;
 
 	public RenderedImage createChart(Symbol symbol) {
-		TimeTracker timeTracker = new TimeTracker().start();
+		TimeTracker timeTracker = new TimeTracker();
 		log.info("Rendering chart image for symbol {}...", symbol.toAssetsString());
 
 		BarSeries barSeries = futuresService.getBarSeries(symbol, chartProperties.getInterval(), chartProperties.getBarCount());
@@ -133,7 +133,7 @@ public class ChartService {
 		graphics.translate(0, metrics.getHeight());
 		graphics.drawString(String.format("To: %s", dateTimeFormatter.format(barSeries.getLast().getOpenTime())), 0, 0);
 
-		log.info("Chart image rendering took {} ms", timeTracker.finish().getDurationMillis());
+		log.info("Chart image rendering took {} ms", timeTracker.finish().getElapsedTimeMillis());
 		return image;
 	}
 
