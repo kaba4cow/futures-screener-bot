@@ -1,6 +1,6 @@
 application:
     screeners:
-        base-assets: BTC, ETH, BCH, ETC, BNB, SOL, XRP, TRX, LTC, TON, HIFI, DATA, AVA, BB, PEOPLE, AEVO, IO, RONIN, MANA, ZRO, RENDER, PEPE, SHIB, DOGE
+        base-assets: SOL, XRP, TRX, LTC, TON, HIFI, DATA, AVA, BB, PEOPLE, AEVO, IO, RONIN, MANA, ZRO, RENDER, PEPE, SHIB, DOGE
         quote-asset: USDT
         settings:
             pump:
