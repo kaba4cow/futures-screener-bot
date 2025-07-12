@@ -1,23 +1,28 @@
-package com.kaba4cow.futuresscreenerbot.infra.telegram.updatehandler.commandhandler.impl;
+package com.kaba4cow.futuresscreenerbot.infra.telegram.handler.commandhandler.impl.settings;
+
+import java.util.Map;
 
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 
+import com.kaba4cow.futuresscreenerbot.config.properties.screener.settings.DumpScreenerSettingsProperties;
 import com.kaba4cow.futuresscreenerbot.domain.subscriber.Subscriber;
 import com.kaba4cow.futuresscreenerbot.infra.telegram.command.Command;
+import com.kaba4cow.futuresscreenerbot.infra.telegram.handler.commandhandler.CommandHandler;
 import com.kaba4cow.futuresscreenerbot.infra.telegram.message.TelegramMessage;
 import com.kaba4cow.futuresscreenerbot.infra.telegram.message.TelegramTextMessage;
 import com.kaba4cow.futuresscreenerbot.infra.telegram.replykeyboard.ReplyKeyboardFactory;
-import com.kaba4cow.futuresscreenerbot.infra.telegram.updatehandler.commandhandler.CommandHandler;
 import com.kaba4cow.futuresscreenerbot.service.TemplateService;
 
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 @Component
-public class StartCommandHandler implements CommandHandler {
+public class DumpCommandHandler implements CommandHandler {
 
 	private final TemplateService templateService;
+
+	private final DumpScreenerSettingsProperties dumpScreenerSettingsProperties;
 
 	private final ReplyKeyboardFactory replyKeyboardFactory;
 
@@ -25,14 +30,19 @@ public class StartCommandHandler implements CommandHandler {
 	public TelegramMessage getResponseMessage(Subscriber subscriber) {
 		return new TelegramTextMessage(SendMessage.builder()//
 				.chatId(subscriber.getId())//
-				.text(templateService.evaluateTemplate("messages/start"))//
-				.replyMarkup(replyKeyboardFactory.buildMenuKeyboard(subscriber))//
+				.text(templateService.evaluateTemplate("messages/settings/set-value", Map.of(//
+						"valueName", "Dump Threshold", //
+						"valueUnit", "%", //
+						"min", dumpScreenerSettingsProperties.getMinThreshold(), //
+						"max", dumpScreenerSettingsProperties.getMaxThreshold()//
+				)))//
+				.replyMarkup(replyKeyboardFactory.buildCancelKeyboard(subscriber))//
 				.build());
 	}
 
 	@Override
 	public Command getCommand() {
-		return Command.START;
+		return Command.DUMP;
 	}
 
 }

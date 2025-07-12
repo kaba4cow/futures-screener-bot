@@ -1,4 +1,4 @@
-package com.kaba4cow.futuresscreenerbot.infra.telegram.updatehandler.inputhandler.impl;
+package com.kaba4cow.futuresscreenerbot.infra.telegram.handler.inputhandler.impl;
 
 import org.springframework.stereotype.Component;
 

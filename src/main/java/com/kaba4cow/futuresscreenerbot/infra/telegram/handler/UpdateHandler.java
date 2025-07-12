@@ -1,4 +1,4 @@
-package com.kaba4cow.futuresscreenerbot.infra.telegram.updatehandler;
+package com.kaba4cow.futuresscreenerbot.infra.telegram.handler;
 
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.meta.api.objects.Update;
@@ -8,11 +8,11 @@ import com.kaba4cow.futuresscreenerbot.domain.subscriber.SubscriberRepository;
 import com.kaba4cow.futuresscreenerbot.infra.telegram.TelegramMessageService;
 import com.kaba4cow.futuresscreenerbot.infra.telegram.command.Command;
 import com.kaba4cow.futuresscreenerbot.infra.telegram.command.CommandResolver;
+import com.kaba4cow.futuresscreenerbot.infra.telegram.handler.commandhandler.CommandHandler;
+import com.kaba4cow.futuresscreenerbot.infra.telegram.handler.commandhandler.CommandHandlerRegistry;
+import com.kaba4cow.futuresscreenerbot.infra.telegram.handler.inputhandler.InputHandler;
+import com.kaba4cow.futuresscreenerbot.infra.telegram.handler.inputhandler.InputHandlerRegistry;
 import com.kaba4cow.futuresscreenerbot.infra.telegram.message.TelegramMessage;
-import com.kaba4cow.futuresscreenerbot.infra.telegram.updatehandler.commandhandler.CommandHandler;
-import com.kaba4cow.futuresscreenerbot.infra.telegram.updatehandler.commandhandler.CommandHandlerRegistry;
-import com.kaba4cow.futuresscreenerbot.infra.telegram.updatehandler.inputhandler.InputHandler;
-import com.kaba4cow.futuresscreenerbot.infra.telegram.updatehandler.inputhandler.InputHandlerRegistry;
 
 import lombok.RequiredArgsConstructor;
 

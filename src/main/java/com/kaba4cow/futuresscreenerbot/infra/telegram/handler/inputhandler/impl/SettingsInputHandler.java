@@ -1,14 +1,14 @@
-package com.kaba4cow.futuresscreenerbot.infra.telegram.updatehandler.inputhandler.impl;
+package com.kaba4cow.futuresscreenerbot.infra.telegram.handler.inputhandler.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 
 import com.kaba4cow.futuresscreenerbot.domain.subscriber.Subscriber;
 import com.kaba4cow.futuresscreenerbot.domain.subscriber.SubscriberSettings;
+import com.kaba4cow.futuresscreenerbot.infra.telegram.handler.inputhandler.InputHandler;
 import com.kaba4cow.futuresscreenerbot.infra.telegram.message.TelegramMessage;
 import com.kaba4cow.futuresscreenerbot.infra.telegram.message.TelegramTextMessage;
 import com.kaba4cow.futuresscreenerbot.infra.telegram.replykeyboard.ReplyKeyboardFactory;
-import com.kaba4cow.futuresscreenerbot.infra.telegram.updatehandler.inputhandler.InputHandler;
 import com.kaba4cow.futuresscreenerbot.service.TemplateService;
 
 public abstract class SettingsInputHandler implements InputHandler {

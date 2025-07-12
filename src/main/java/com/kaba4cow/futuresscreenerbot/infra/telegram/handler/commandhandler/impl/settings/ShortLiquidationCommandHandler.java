@@ -1,23 +1,28 @@
-package com.kaba4cow.futuresscreenerbot.infra.telegram.updatehandler.commandhandler.impl;
+package com.kaba4cow.futuresscreenerbot.infra.telegram.handler.commandhandler.impl.settings;
+
+import java.util.Map;
 
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 
+import com.kaba4cow.futuresscreenerbot.config.properties.screener.settings.ShortLiquidationScreenerSettingsProperties;
 import com.kaba4cow.futuresscreenerbot.domain.subscriber.Subscriber;
 import com.kaba4cow.futuresscreenerbot.infra.telegram.command.Command;
+import com.kaba4cow.futuresscreenerbot.infra.telegram.handler.commandhandler.CommandHandler;
 import com.kaba4cow.futuresscreenerbot.infra.telegram.message.TelegramMessage;
 import com.kaba4cow.futuresscreenerbot.infra.telegram.message.TelegramTextMessage;
 import com.kaba4cow.futuresscreenerbot.infra.telegram.replykeyboard.ReplyKeyboardFactory;
-import com.kaba4cow.futuresscreenerbot.infra.telegram.updatehandler.commandhandler.CommandHandler;
 import com.kaba4cow.futuresscreenerbot.service.TemplateService;
 
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 @Component
-public class CancelCommandHandler implements CommandHandler {
+public class ShortLiquidationCommandHandler implements CommandHandler {
 
 	private final TemplateService templateService;
+
+	private final ShortLiquidationScreenerSettingsProperties shortLiquidationScreenerSettingsProperties;
 
 	private final ReplyKeyboardFactory replyKeyboardFactory;
 
@@ -25,14 +30,19 @@ public class CancelCommandHandler implements CommandHandler {
 	public TelegramMessage getResponseMessage(Subscriber subscriber) {
 		return new TelegramTextMessage(SendMessage.builder()//
 				.chatId(subscriber.getId())//
-				.text(templateService.evaluateTemplate("messages/cancel"))//
-				.replyMarkup(replyKeyboardFactory.buildMenuKeyboard(subscriber))//
+				.text(templateService.evaluateTemplate("messages/settings/set-value", Map.of(//
+						"valueName", "Short Liquidation Threshold", //
+						"valueUnit", "$", //
+						"min", shortLiquidationScreenerSettingsProperties.getMinThreshold(), //
+						"max", shortLiquidationScreenerSettingsProperties.getMaxThreshold()//
+				)))//
+				.replyMarkup(replyKeyboardFactory.buildCancelKeyboard(subscriber))//
 				.build());
 	}
 
 	@Override
 	public Command getCommand() {
-		return Command.CANCEL;
+		return Command.SHORT_LIQUIDATION;
 	}
 
 }

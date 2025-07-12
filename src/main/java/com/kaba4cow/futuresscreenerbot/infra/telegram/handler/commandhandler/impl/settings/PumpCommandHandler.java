@@ -1,28 +1,28 @@
-package com.kaba4cow.futuresscreenerbot.infra.telegram.updatehandler.commandhandler.impl.settings;
+package com.kaba4cow.futuresscreenerbot.infra.telegram.handler.commandhandler.impl.settings;
 
 import java.util.Map;
 
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 
-import com.kaba4cow.futuresscreenerbot.config.properties.screener.settings.ShortLiquidationScreenerSettingsProperties;
+import com.kaba4cow.futuresscreenerbot.config.properties.screener.settings.PumpScreenerSettingsProperties;
 import com.kaba4cow.futuresscreenerbot.domain.subscriber.Subscriber;
 import com.kaba4cow.futuresscreenerbot.infra.telegram.command.Command;
+import com.kaba4cow.futuresscreenerbot.infra.telegram.handler.commandhandler.CommandHandler;
 import com.kaba4cow.futuresscreenerbot.infra.telegram.message.TelegramMessage;
 import com.kaba4cow.futuresscreenerbot.infra.telegram.message.TelegramTextMessage;
 import com.kaba4cow.futuresscreenerbot.infra.telegram.replykeyboard.ReplyKeyboardFactory;
-import com.kaba4cow.futuresscreenerbot.infra.telegram.updatehandler.commandhandler.CommandHandler;
 import com.kaba4cow.futuresscreenerbot.service.TemplateService;
 
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 @Component
-public class ShortLiquidationCommandHandler implements CommandHandler {
+public class PumpCommandHandler implements CommandHandler {
 
 	private final TemplateService templateService;
 
-	private final ShortLiquidationScreenerSettingsProperties shortLiquidationScreenerSettingsProperties;
+	private final PumpScreenerSettingsProperties pumpScreenerSettingsProperties;
 
 	private final ReplyKeyboardFactory replyKeyboardFactory;
 
@@ -31,10 +31,10 @@ public class ShortLiquidationCommandHandler implements CommandHandler {
 		return new TelegramTextMessage(SendMessage.builder()//
 				.chatId(subscriber.getId())//
 				.text(templateService.evaluateTemplate("messages/settings/set-value", Map.of(//
-						"valueName", "Short Liquidation Threshold", //
-						"valueUnit", "$", //
-						"min", shortLiquidationScreenerSettingsProperties.getMinThreshold(), //
-						"max", shortLiquidationScreenerSettingsProperties.getMaxThreshold()//
+						"valueName", "Pump Threshold", //
+						"valueUnit", "%", //
+						"min", pumpScreenerSettingsProperties.getMinThreshold(), //
+						"max", pumpScreenerSettingsProperties.getMaxThreshold()//
 				)))//
 				.replyMarkup(replyKeyboardFactory.buildCancelKeyboard(subscriber))//
 				.build());
@@ -42,7 +42,7 @@ public class ShortLiquidationCommandHandler implements CommandHandler {
 
 	@Override
 	public Command getCommand() {
-		return Command.SHORT_LIQUIDATION;
+		return Command.PUMP;
 	}
 
 }

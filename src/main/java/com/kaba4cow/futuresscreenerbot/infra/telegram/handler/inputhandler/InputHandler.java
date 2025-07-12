@@ -1,4 +1,4 @@
-package com.kaba4cow.futuresscreenerbot.infra.telegram.updatehandler.commandhandler;
+package com.kaba4cow.futuresscreenerbot.infra.telegram.handler.inputhandler;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -6,14 +6,14 @@ import com.kaba4cow.futuresscreenerbot.domain.subscriber.Subscriber;
 import com.kaba4cow.futuresscreenerbot.infra.telegram.command.Command;
 import com.kaba4cow.futuresscreenerbot.infra.telegram.message.TelegramMessage;
 
-public interface CommandHandler {
+public interface InputHandler {
 
 	@Autowired
-	default void registerSelf(CommandHandlerRegistry registry) {
+	default void registerSelf(InputHandlerRegistry registry) {
 		registry.register(this);
 	}
 
-	TelegramMessage getResponseMessage(Subscriber subscriber);
+	TelegramMessage getResponseMessage(Subscriber subscriber, String input);
 
 	Command getCommand();
 
