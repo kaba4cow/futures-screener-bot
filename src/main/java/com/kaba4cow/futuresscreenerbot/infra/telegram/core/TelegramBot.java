@@ -1,4 +1,4 @@
-package com.kaba4cow.futuresscreenerbot.infra.telegram;
+package com.kaba4cow.futuresscreenerbot.infra.telegram.core;
 
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Component;

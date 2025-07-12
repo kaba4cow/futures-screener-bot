@@ -5,7 +5,7 @@ import org.telegram.telegrambots.meta.api.methods.send.SendPhoto;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 import com.kaba4cow.futuresscreenerbot.config.properties.TemplateProperties;
-import com.kaba4cow.futuresscreenerbot.infra.telegram.TelegramBot;
+import com.kaba4cow.futuresscreenerbot.infra.telegram.core.TelegramBot;
 import com.kaba4cow.futuresscreenerbot.infra.telegram.message.TelegramPhotoMessage;
 import com.kaba4cow.futuresscreenerbot.infra.telegram.sender.TelegramMessageSender;
 

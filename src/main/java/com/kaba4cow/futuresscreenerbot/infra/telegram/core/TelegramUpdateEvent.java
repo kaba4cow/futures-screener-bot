@@ -1,4 +1,4 @@
-package com.kaba4cow.futuresscreenerbot.infra.telegram;
+package com.kaba4cow.futuresscreenerbot.infra.telegram.core;
 
 import org.telegram.telegrambots.meta.api.objects.Update;
 
