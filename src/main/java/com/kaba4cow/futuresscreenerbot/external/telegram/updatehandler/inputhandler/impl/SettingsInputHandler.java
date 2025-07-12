@@ -3,8 +3,8 @@ package com.kaba4cow.futuresscreenerbot.external.telegram.updatehandler.inputhan
 import org.springframework.beans.factory.annotation.Autowired;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 
-import com.kaba4cow.futuresscreenerbot.entity.subscriber.Subscriber;
-import com.kaba4cow.futuresscreenerbot.entity.subscriber.SubscriberSettings;
+import com.kaba4cow.futuresscreenerbot.domain.subscriber.Subscriber;
+import com.kaba4cow.futuresscreenerbot.domain.subscriber.SubscriberSettings;
 import com.kaba4cow.futuresscreenerbot.external.telegram.message.TelegramMessage;
 import com.kaba4cow.futuresscreenerbot.external.telegram.message.TelegramTextMessage;
 import com.kaba4cow.futuresscreenerbot.external.telegram.replykeyboard.ReplyKeyboardFactory;

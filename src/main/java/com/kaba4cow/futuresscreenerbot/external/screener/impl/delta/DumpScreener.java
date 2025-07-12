@@ -3,7 +3,7 @@ package com.kaba4cow.futuresscreenerbot.external.screener.impl.delta;
 import org.springframework.stereotype.Component;
 
 import com.kaba4cow.futuresscreenerbot.config.properties.screener.settings.DumpScreenerSettingsProperties;
-import com.kaba4cow.futuresscreenerbot.entity.event.EventType;
+import com.kaba4cow.futuresscreenerbot.domain.event.EventType;
 import com.kaba4cow.futuresscreenerbot.util.util.MathUtil;
 
 @Component

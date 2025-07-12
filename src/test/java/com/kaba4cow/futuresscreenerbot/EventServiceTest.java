@@ -10,10 +10,10 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import com.kaba4cow.futuresscreenerbot.entity.event.Event;
-import com.kaba4cow.futuresscreenerbot.entity.event.EventSignature;
-import com.kaba4cow.futuresscreenerbot.entity.event.EventType;
-import com.kaba4cow.futuresscreenerbot.service.domain.event.EventService;
+import com.kaba4cow.futuresscreenerbot.domain.event.Event;
+import com.kaba4cow.futuresscreenerbot.domain.event.EventService;
+import com.kaba4cow.futuresscreenerbot.domain.event.EventSignature;
+import com.kaba4cow.futuresscreenerbot.domain.event.EventType;
 import com.kaba4cow.futuresscreenerbot.util.Symbol;
 
 @SpringBootTest

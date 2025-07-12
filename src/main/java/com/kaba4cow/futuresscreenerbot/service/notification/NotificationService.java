@@ -7,10 +7,10 @@ import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
-import com.kaba4cow.futuresscreenerbot.entity.event.Event;
-import com.kaba4cow.futuresscreenerbot.entity.subscriber.Subscriber;
+import com.kaba4cow.futuresscreenerbot.domain.event.Event;
+import com.kaba4cow.futuresscreenerbot.domain.subscriber.Subscriber;
+import com.kaba4cow.futuresscreenerbot.domain.subscriber.SubscriberService;
 import com.kaba4cow.futuresscreenerbot.external.telegram.message.TelegramMessage;
-import com.kaba4cow.futuresscreenerbot.service.domain.subscriber.SubscriberService;
 import com.kaba4cow.futuresscreenerbot.service.telegram.TelegramMessageService;
 
 import lombok.RequiredArgsConstructor;

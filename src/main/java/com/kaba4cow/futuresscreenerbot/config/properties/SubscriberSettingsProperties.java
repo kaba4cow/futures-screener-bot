@@ -2,7 +2,7 @@ package com.kaba4cow.futuresscreenerbot.config.properties;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
-import com.kaba4cow.futuresscreenerbot.entity.subscriber.SubscriberSettingsProvider;
+import com.kaba4cow.futuresscreenerbot.domain.subscriber.SubscriberSettingsProvider;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;

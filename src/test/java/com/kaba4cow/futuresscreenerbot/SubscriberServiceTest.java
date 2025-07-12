@@ -11,12 +11,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import com.kaba4cow.futuresscreenerbot.config.properties.SubscriberSettingsProperties;
-import com.kaba4cow.futuresscreenerbot.entity.subscriber.Subscriber;
-import com.kaba4cow.futuresscreenerbot.entity.subscriber.SubscriberSettings;
-import com.kaba4cow.futuresscreenerbot.entity.subscriber.SubscriberSettingsProvider;
-import com.kaba4cow.futuresscreenerbot.entity.subscriber.SubscriberState;
+import com.kaba4cow.futuresscreenerbot.domain.subscriber.Subscriber;
+import com.kaba4cow.futuresscreenerbot.domain.subscriber.SubscriberService;
+import com.kaba4cow.futuresscreenerbot.domain.subscriber.SubscriberSettings;
+import com.kaba4cow.futuresscreenerbot.domain.subscriber.SubscriberSettingsProvider;
+import com.kaba4cow.futuresscreenerbot.domain.subscriber.SubscriberState;
 import com.kaba4cow.futuresscreenerbot.external.telegram.command.Command;
-import com.kaba4cow.futuresscreenerbot.service.domain.subscriber.SubscriberService;
 
 @SpringBootTest
 class SubscriberServiceTest {

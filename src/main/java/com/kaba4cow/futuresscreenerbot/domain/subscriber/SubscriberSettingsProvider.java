@@ -1,4 +1,4 @@
-package com.kaba4cow.futuresscreenerbot.entity.subscriber;
+package com.kaba4cow.futuresscreenerbot.domain.subscriber;
 
 public interface SubscriberSettingsProvider {
 

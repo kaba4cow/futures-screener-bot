@@ -1,17 +1,15 @@
-package com.kaba4cow.futuresscreenerbot.service.domain.subscriber;
+package com.kaba4cow.futuresscreenerbot.domain.subscriber;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
-import com.kaba4cow.futuresscreenerbot.entity.event.Event;
-import com.kaba4cow.futuresscreenerbot.entity.subscriber.Subscriber;
-import com.kaba4cow.futuresscreenerbot.entity.subscriber.SubscriberState;
+import com.kaba4cow.futuresscreenerbot.domain.event.Event;
+import com.kaba4cow.futuresscreenerbot.domain.subscriber.extractor.SubscriberSettingsExtractor;
+import com.kaba4cow.futuresscreenerbot.domain.subscriber.extractor.SubscriberSettingsExtractorRegistry;
 import com.kaba4cow.futuresscreenerbot.external.telegram.command.Command;
 import com.kaba4cow.futuresscreenerbot.repository.SubscriberRepository;
-import com.kaba4cow.futuresscreenerbot.service.domain.subscriber.settingsextractor.SubscriberSettingsExtractor;
-import com.kaba4cow.futuresscreenerbot.service.domain.subscriber.settingsextractor.SubscriberSettingsExtractorRegistry;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

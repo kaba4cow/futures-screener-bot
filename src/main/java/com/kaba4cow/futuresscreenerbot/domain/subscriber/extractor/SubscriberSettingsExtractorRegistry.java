@@ -1,11 +1,11 @@
-package com.kaba4cow.futuresscreenerbot.service.domain.subscriber.settingsextractor;
+package com.kaba4cow.futuresscreenerbot.domain.subscriber.extractor;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 import org.springframework.stereotype.Component;
 
-import com.kaba4cow.futuresscreenerbot.entity.event.EventType;
+import com.kaba4cow.futuresscreenerbot.domain.event.EventType;
 
 @Component
 public class SubscriberSettingsExtractorRegistry {

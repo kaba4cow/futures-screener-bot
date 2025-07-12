@@ -1,10 +1,9 @@
-package com.kaba4cow.futuresscreenerbot.service.domain.subscriber;
+package com.kaba4cow.futuresscreenerbot.domain.subscriber;
 
 import org.springframework.stereotype.Component;
 
-import com.kaba4cow.futuresscreenerbot.entity.event.Event;
-import com.kaba4cow.futuresscreenerbot.entity.subscriber.Subscriber;
-import com.kaba4cow.futuresscreenerbot.service.domain.subscriber.settingsextractor.SubscriberSettingsExtractor;
+import com.kaba4cow.futuresscreenerbot.domain.event.Event;
+import com.kaba4cow.futuresscreenerbot.domain.subscriber.extractor.SubscriberSettingsExtractor;
 
 @Component
 public class SubscriberFilter {

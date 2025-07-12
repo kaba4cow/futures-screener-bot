@@ -1,4 +1,4 @@
-package com.kaba4cow.futuresscreenerbot.entity.event;
+package com.kaba4cow.futuresscreenerbot.domain.event;
 
 import com.kaba4cow.futuresscreenerbot.util.Symbol;
 

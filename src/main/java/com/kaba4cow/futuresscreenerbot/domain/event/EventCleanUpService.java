@@ -1,4 +1,4 @@
-package com.kaba4cow.futuresscreenerbot.service.domain.event;
+package com.kaba4cow.futuresscreenerbot.domain.event;
 
 import java.time.LocalDateTime;
 import java.util.concurrent.TimeUnit;

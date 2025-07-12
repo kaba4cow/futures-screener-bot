@@ -11,14 +11,14 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import com.kaba4cow.futuresscreenerbot.entity.event.Event;
-import com.kaba4cow.futuresscreenerbot.entity.event.EventSignature;
-import com.kaba4cow.futuresscreenerbot.entity.event.EventType;
-import com.kaba4cow.futuresscreenerbot.entity.subscriber.Subscriber;
-import com.kaba4cow.futuresscreenerbot.entity.subscriber.SubscriberSettings;
-import com.kaba4cow.futuresscreenerbot.entity.subscriber.SubscriberState;
+import com.kaba4cow.futuresscreenerbot.domain.event.Event;
+import com.kaba4cow.futuresscreenerbot.domain.event.EventSignature;
+import com.kaba4cow.futuresscreenerbot.domain.event.EventType;
+import com.kaba4cow.futuresscreenerbot.domain.subscriber.Subscriber;
+import com.kaba4cow.futuresscreenerbot.domain.subscriber.SubscriberService;
+import com.kaba4cow.futuresscreenerbot.domain.subscriber.SubscriberSettings;
+import com.kaba4cow.futuresscreenerbot.domain.subscriber.SubscriberState;
 import com.kaba4cow.futuresscreenerbot.repository.SubscriberRepository;
-import com.kaba4cow.futuresscreenerbot.service.domain.subscriber.SubscriberService;
 import com.kaba4cow.futuresscreenerbot.util.Symbol;
 
 @SpringBootTest

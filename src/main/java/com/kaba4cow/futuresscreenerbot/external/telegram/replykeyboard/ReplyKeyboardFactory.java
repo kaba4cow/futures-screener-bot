@@ -3,8 +3,8 @@ package com.kaba4cow.futuresscreenerbot.external.telegram.replykeyboard;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.meta.api.objects.replykeyboard.ReplyKeyboard;
 
-import com.kaba4cow.futuresscreenerbot.entity.subscriber.Subscriber;
-import com.kaba4cow.futuresscreenerbot.entity.subscriber.SubscriberState;
+import com.kaba4cow.futuresscreenerbot.domain.subscriber.Subscriber;
+import com.kaba4cow.futuresscreenerbot.domain.subscriber.SubscriberState;
 import com.kaba4cow.futuresscreenerbot.external.telegram.command.Command;
 import com.kaba4cow.futuresscreenerbot.external.telegram.command.CommandResolver;
 
