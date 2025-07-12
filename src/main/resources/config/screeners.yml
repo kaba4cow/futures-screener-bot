@@ -10,8 +10,8 @@ application:
                 min-dump-threshold: 1.0
                 max-dump-threshold: 100.0
             long-liquidation:
-                min-long-liquidation-threshold: 10000.0
-                max-long-liquidation-threshold: 100000.0
+                min-long-liquidation-threshold: 50000.0
+                max-long-liquidation-threshold: 500000.0
             short-liquidation:
-                min-short-liquidation-threshold: 10000.0
-                max-short-liquidation-threshold: 100000.0
+                min-short-liquidation-threshold: 50000.0
+                max-short-liquidation-threshold: 500000.0
