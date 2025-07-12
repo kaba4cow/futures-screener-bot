@@ -13,10 +13,10 @@ import com.kaba4cow.futuresscreenerbot.config.properties.chart.ChartColorPropert
 import com.kaba4cow.futuresscreenerbot.config.properties.chart.ChartProperties;
 import com.kaba4cow.futuresscreenerbot.domain.barseries.Bar;
 import com.kaba4cow.futuresscreenerbot.domain.barseries.BarSeries;
-import com.kaba4cow.futuresscreenerbot.util.Symbol;
-import com.kaba4cow.futuresscreenerbot.util.TimeTracker;
-import com.kaba4cow.futuresscreenerbot.util.util.FormattingUtil;
-import com.kaba4cow.futuresscreenerbot.util.util.MathUtil;
+import com.kaba4cow.futuresscreenerbot.util.FormattingUtil;
+import com.kaba4cow.futuresscreenerbot.util.MathUtil;
+import com.kaba4cow.futuresscreenerbot.util.tool.Symbol;
+import com.kaba4cow.futuresscreenerbot.util.tool.TimeTracker;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

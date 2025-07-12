@@ -1,4 +1,4 @@
-package com.kaba4cow.futuresscreenerbot.util.util;
+package com.kaba4cow.futuresscreenerbot.util;
 
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;

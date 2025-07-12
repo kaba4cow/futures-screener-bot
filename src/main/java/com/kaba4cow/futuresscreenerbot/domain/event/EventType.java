@@ -1,6 +1,6 @@
 package com.kaba4cow.futuresscreenerbot.domain.event;
 
-import com.kaba4cow.futuresscreenerbot.util.Symbol;
+import com.kaba4cow.futuresscreenerbot.util.tool.Symbol;
 
 public enum EventType {
 

@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import com.kaba4cow.futuresscreenerbot.util.util.TimeConversionUtil;
+import com.kaba4cow.futuresscreenerbot.util.TimeConversionUtil;
 
 import lombok.Getter;
 

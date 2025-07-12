@@ -1,4 +1,4 @@
-package com.kaba4cow.futuresscreenerbot.util.util;
+package com.kaba4cow.futuresscreenerbot.util;
 
 import java.time.Instant;
 import java.time.LocalDateTime;

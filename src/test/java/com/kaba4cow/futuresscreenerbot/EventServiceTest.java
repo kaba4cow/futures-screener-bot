@@ -14,7 +14,7 @@ import com.kaba4cow.futuresscreenerbot.domain.event.Event;
 import com.kaba4cow.futuresscreenerbot.domain.event.EventService;
 import com.kaba4cow.futuresscreenerbot.domain.event.EventSignature;
 import com.kaba4cow.futuresscreenerbot.domain.event.EventType;
-import com.kaba4cow.futuresscreenerbot.util.Symbol;
+import com.kaba4cow.futuresscreenerbot.util.tool.Symbol;
 
 @SpringBootTest
 class EventServiceTest {

@@ -4,7 +4,7 @@ import org.springframework.stereotype.Component;
 
 import com.kaba4cow.futuresscreenerbot.config.properties.screener.settings.DumpScreenerSettingsProperties;
 import com.kaba4cow.futuresscreenerbot.domain.event.EventType;
-import com.kaba4cow.futuresscreenerbot.util.util.MathUtil;
+import com.kaba4cow.futuresscreenerbot.util.MathUtil;
 
 @Component
 public class DumpScreener extends DeltaScreener<DumpScreenerSettingsProperties> {

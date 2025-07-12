@@ -17,8 +17,8 @@ import com.kaba4cow.futuresscreenerbot.external.telegram.replykeyboard.ReplyKeyb
 import com.kaba4cow.futuresscreenerbot.external.telegram.updatehandler.inputhandler.InputHandler;
 import com.kaba4cow.futuresscreenerbot.service.ChartService;
 import com.kaba4cow.futuresscreenerbot.service.TemplateService;
-import com.kaba4cow.futuresscreenerbot.util.ImageInputFileWriter;
-import com.kaba4cow.futuresscreenerbot.util.Symbol;
+import com.kaba4cow.futuresscreenerbot.util.tool.ImageInputFileWriter;
+import com.kaba4cow.futuresscreenerbot.util.tool.Symbol;
 
 import lombok.RequiredArgsConstructor;
 

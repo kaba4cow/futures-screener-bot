@@ -1,4 +1,4 @@
-package com.kaba4cow.futuresscreenerbot.util;
+package com.kaba4cow.futuresscreenerbot.util.tool;
 
 public class TimeTracker {
 
