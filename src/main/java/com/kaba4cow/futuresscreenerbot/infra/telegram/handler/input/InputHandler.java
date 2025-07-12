@@ -1,4 +1,4 @@
-package com.kaba4cow.futuresscreenerbot.infra.telegram.handler.inputhandler;
+package com.kaba4cow.futuresscreenerbot.infra.telegram.handler.input;
 
 import org.springframework.beans.factory.annotation.Autowired;
 

@@ -8,10 +8,10 @@ import com.kaba4cow.futuresscreenerbot.domain.subscriber.SubscriberRepository;
 import com.kaba4cow.futuresscreenerbot.infra.telegram.TelegramMessageService;
 import com.kaba4cow.futuresscreenerbot.infra.telegram.command.Command;
 import com.kaba4cow.futuresscreenerbot.infra.telegram.command.CommandResolver;
-import com.kaba4cow.futuresscreenerbot.infra.telegram.handler.commandhandler.CommandHandler;
-import com.kaba4cow.futuresscreenerbot.infra.telegram.handler.commandhandler.CommandHandlerRegistry;
-import com.kaba4cow.futuresscreenerbot.infra.telegram.handler.inputhandler.InputHandler;
-import com.kaba4cow.futuresscreenerbot.infra.telegram.handler.inputhandler.InputHandlerRegistry;
+import com.kaba4cow.futuresscreenerbot.infra.telegram.handler.command.CommandHandler;
+import com.kaba4cow.futuresscreenerbot.infra.telegram.handler.command.CommandHandlerRegistry;
+import com.kaba4cow.futuresscreenerbot.infra.telegram.handler.input.InputHandler;
+import com.kaba4cow.futuresscreenerbot.infra.telegram.handler.input.InputHandlerRegistry;
 import com.kaba4cow.futuresscreenerbot.infra.telegram.message.TelegramMessage;
 
 import lombok.RequiredArgsConstructor;

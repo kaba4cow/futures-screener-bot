@@ -1,11 +1,11 @@
-package com.kaba4cow.futuresscreenerbot.infra.telegram.handler.commandhandler.impl;
+package com.kaba4cow.futuresscreenerbot.infra.telegram.handler.command.impl;
 
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 
 import com.kaba4cow.futuresscreenerbot.domain.subscriber.Subscriber;
 import com.kaba4cow.futuresscreenerbot.infra.telegram.command.Command;
-import com.kaba4cow.futuresscreenerbot.infra.telegram.handler.commandhandler.CommandHandler;
+import com.kaba4cow.futuresscreenerbot.infra.telegram.handler.command.CommandHandler;
 import com.kaba4cow.futuresscreenerbot.infra.telegram.message.TelegramMessage;
 import com.kaba4cow.futuresscreenerbot.infra.telegram.message.TelegramTextMessage;
 import com.kaba4cow.futuresscreenerbot.infra.telegram.replykeyboard.ReplyKeyboardFactory;
