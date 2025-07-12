@@ -6,6 +6,7 @@ import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.awt.image.RenderedImage;
 import java.time.format.DateTimeFormatter;
+import java.util.concurrent.TimeUnit;
 
 import org.springframework.stereotype.Service;
 
@@ -15,8 +16,8 @@ import com.kaba4cow.futuresscreenerbot.config.properties.chart.ChartProperties;
 import com.kaba4cow.futuresscreenerbot.domain.Symbol;
 import com.kaba4cow.futuresscreenerbot.domain.barseries.Bar;
 import com.kaba4cow.futuresscreenerbot.domain.barseries.BarSeries;
-import com.kaba4cow.futuresscreenerbot.util.FormattingUtil;
 import com.kaba4cow.futuresscreenerbot.util.MathUtil;
+import com.kaba4cow.futuresscreenerbot.util.tool.DecimalFormatter;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -32,7 +33,7 @@ public class ChartService {
 
 	private final FuturesService futuresService;
 
-	@WithProfiling
+	@WithProfiling(timeUnit = TimeUnit.SECONDS)
 	public RenderedImage createChart(Symbol symbol) {
 		BarSeries barSeries = futuresService.getBarSeries(symbol, chartProperties.getInterval(), chartProperties.getBarCount());
 
@@ -97,7 +98,7 @@ public class ChartService {
 			int lowX = minLowIndex * chartProperties.getBarWidth();
 			graphics.setColor(chartColorProperties.getLine());
 			graphics.drawLine(lowX, maxY, width, maxY);
-			String lowText = FormattingUtil.number(minLowPrice, 8);
+			String lowText = DecimalFormatter.formatNumber(minLowPrice, 8);
 			graphics.setColor(chartColorProperties.getText());
 			graphics.drawString(lowText, width - metrics.stringWidth(lowText), maxY - 1);
 		}
@@ -105,7 +106,7 @@ public class ChartService {
 			int highX = maxHighIndex * chartProperties.getBarWidth();
 			graphics.setColor(chartColorProperties.getLine());
 			graphics.drawLine(highX, minY, width, minY);
-			String highText = FormattingUtil.number(maxHighPrice, 8);
+			String highText = DecimalFormatter.formatNumber(maxHighPrice, 8);
 			graphics.setColor(chartColorProperties.getText());
 			graphics.drawString(highText, width - metrics.stringWidth(highText), minY - 1);
 		}
@@ -114,7 +115,7 @@ public class ChartService {
 			double closeY = MathUtil.map(currentClosePrice, minLowPrice, maxHighPrice, maxY, minY);
 			graphics.setColor(chartColorProperties.getLine());
 			graphics.drawLine(closeX, (int) closeY, width, (int) closeY);
-			String closeText = FormattingUtil.number(currentClosePrice, 8);
+			String closeText = DecimalFormatter.formatNumber(currentClosePrice, 8);
 			graphics.setColor(chartColorProperties.getText());
 			graphics.drawString(closeText, width - metrics.stringWidth(closeText), (int) closeY - 1);
 		}
