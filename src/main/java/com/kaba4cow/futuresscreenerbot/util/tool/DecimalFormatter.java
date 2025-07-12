@@ -9,6 +9,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class DecimalFormatter {
 
+	private static final double THOUSANDS = 1.0e+3;
+	private static final double MILLIONS = 1.0e+6;
+	private static final double BILLIONS = 1.0e+9;
+	private static final double TRILLIONS = 1.0e+12;
+
 	private static final DecimalFormat decimalFormat;
 
 	static {
@@ -21,15 +26,18 @@ public class DecimalFormatter {
 
 	public static String formatNumber(double number, int digits) {
 		String suffix = "";
-		if (number > 1e+12d) {
-			number /= 1e+12d;
+		if (number > TRILLIONS) {
+			number /= TRILLIONS;
 			suffix = "T";
-		} else if (number > 1e+9d) {
-			number /= 1e+9d;
+		} else if (number > BILLIONS) {
+			number /= BILLIONS;
 			suffix = "B";
-		} else if (number > 1e+6d) {
-			number /= 1e+6d;
+		} else if (number > MILLIONS) {
+			number /= MILLIONS;
 			suffix = "M";
+		} else if (number > THOUSANDS) {
+			number /= THOUSANDS;
+			suffix = "k";
 		}
 		decimalFormat.setMinimumFractionDigits(0);
 		decimalFormat.setMaximumFractionDigits(digits);
