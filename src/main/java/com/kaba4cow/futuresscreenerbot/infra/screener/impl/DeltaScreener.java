@@ -1,4 +1,4 @@
-package com.kaba4cow.futuresscreenerbot.infra.screener.impl.delta;
+package com.kaba4cow.futuresscreenerbot.infra.screener.impl;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -8,7 +8,6 @@ import org.json.JSONObject;
 import com.kaba4cow.futuresscreenerbot.config.properties.screener.settings.ScreenerSettingsProperties;
 import com.kaba4cow.futuresscreenerbot.domain.barseries.Bar;
 import com.kaba4cow.futuresscreenerbot.domain.barseries.BarSeries;
-import com.kaba4cow.futuresscreenerbot.infra.screener.impl.AbstractScreener;
 import com.kaba4cow.futuresscreenerbot.infra.screener.stream.impl.KLineScreenerStream;
 import com.kaba4cow.futuresscreenerbot.util.tool.Symbol;
 

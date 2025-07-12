@@ -1,4 +1,4 @@
-package com.kaba4cow.futuresscreenerbot.infra.screener.impl.liquidation;
+package com.kaba4cow.futuresscreenerbot.infra.screener.impl;
 
 import org.springframework.stereotype.Component;
 
