@@ -1,4 +1,4 @@
-package com.kaba4cow.futuresscreenerbot.util.barseries;
+package com.kaba4cow.futuresscreenerbot.domain.barseries;
 
 import java.util.LinkedList;
 
