@@ -1,8 +1,8 @@
-package com.kaba4cow.futuresscreenerbot.infra.screener.stream;
+package com.kaba4cow.futuresscreenerbot.infra.stream;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.kaba4cow.futuresscreenerbot.infra.screener.stream.registry.StreamRegistry;
+import com.kaba4cow.futuresscreenerbot.infra.stream.registry.StreamRegistry;
 import com.kaba4cow.futuresscreenerbot.util.tool.Symbol;
 
 public interface ScreenerStream {

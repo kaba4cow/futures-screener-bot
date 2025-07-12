@@ -3,7 +3,7 @@ package com.kaba4cow.futuresscreenerbot.infra.screener.impl;
 import org.json.JSONObject;
 
 import com.kaba4cow.futuresscreenerbot.config.properties.screener.settings.ScreenerSettingsProperties;
-import com.kaba4cow.futuresscreenerbot.infra.screener.stream.impl.ForceOrderScreenerStream;
+import com.kaba4cow.futuresscreenerbot.infra.stream.impl.ForceOrderScreenerStream;
 import com.kaba4cow.futuresscreenerbot.util.tool.Symbol;
 
 public abstract class LiquidationScreener<T extends ScreenerSettingsProperties>

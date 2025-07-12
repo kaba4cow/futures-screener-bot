@@ -1,4 +1,4 @@
-package com.kaba4cow.futuresscreenerbot.infra.screener.stream.registry;
+package com.kaba4cow.futuresscreenerbot.infra.stream.registry;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;

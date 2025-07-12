@@ -1,4 +1,4 @@
-package com.kaba4cow.futuresscreenerbot.infra.screener.stream.registry;
+package com.kaba4cow.futuresscreenerbot.infra.stream.registry;
 
 import java.util.Collection;
 import java.util.Collections;
@@ -7,7 +7,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 import org.springframework.stereotype.Component;
 
-import com.kaba4cow.futuresscreenerbot.infra.screener.stream.ScreenerStream;
+import com.kaba4cow.futuresscreenerbot.infra.stream.ScreenerStream;
 
 @Component
 public class StreamRegistry {

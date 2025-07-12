@@ -5,7 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.kaba4cow.futuresscreenerbot.domain.event.EventType;
 import com.kaba4cow.futuresscreenerbot.infra.screener.registry.ScreenerRegistry;
-import com.kaba4cow.futuresscreenerbot.infra.screener.stream.ScreenerStream;
+import com.kaba4cow.futuresscreenerbot.infra.stream.ScreenerStream;
 import com.kaba4cow.futuresscreenerbot.util.tool.Symbol;
 
 public interface Screener {

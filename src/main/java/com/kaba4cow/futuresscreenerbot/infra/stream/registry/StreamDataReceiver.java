@@ -1,11 +1,11 @@
-package com.kaba4cow.futuresscreenerbot.infra.screener.stream.registry;
+package com.kaba4cow.futuresscreenerbot.infra.stream.registry;
 
 import org.json.JSONObject;
 import org.springframework.stereotype.Component;
 
 import com.binance.connector.futures.client.utils.WebSocketCallback;
 import com.kaba4cow.futuresscreenerbot.infra.screener.registry.ScreenerRegistry;
-import com.kaba4cow.futuresscreenerbot.infra.screener.stream.ScreenerStream;
+import com.kaba4cow.futuresscreenerbot.infra.stream.ScreenerStream;
 import com.kaba4cow.futuresscreenerbot.util.tool.Symbol;
 
 import lombok.RequiredArgsConstructor;

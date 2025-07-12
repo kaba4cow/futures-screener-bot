@@ -7,10 +7,10 @@ import java.util.stream.Collectors;
 import org.springframework.stereotype.Component;
 
 import com.kaba4cow.futuresscreenerbot.config.properties.screener.ScreenerProperties;
-import com.kaba4cow.futuresscreenerbot.infra.screener.stream.ScreenerStream;
-import com.kaba4cow.futuresscreenerbot.infra.screener.stream.registry.StreamCombiner;
-import com.kaba4cow.futuresscreenerbot.infra.screener.stream.registry.StreamRegistry;
-import com.kaba4cow.futuresscreenerbot.infra.screener.stream.registry.StreamSymbolRegistry;
+import com.kaba4cow.futuresscreenerbot.infra.stream.ScreenerStream;
+import com.kaba4cow.futuresscreenerbot.infra.stream.registry.StreamCombiner;
+import com.kaba4cow.futuresscreenerbot.infra.stream.registry.StreamRegistry;
+import com.kaba4cow.futuresscreenerbot.infra.stream.registry.StreamSymbolRegistry;
 import com.kaba4cow.futuresscreenerbot.util.tool.Symbol;
 
 import jakarta.annotation.PostConstruct;

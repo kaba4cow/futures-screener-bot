@@ -9,7 +9,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import org.springframework.stereotype.Component;
 
 import com.kaba4cow.futuresscreenerbot.infra.screener.Screener;
-import com.kaba4cow.futuresscreenerbot.infra.screener.stream.ScreenerStream;
+import com.kaba4cow.futuresscreenerbot.infra.stream.ScreenerStream;
 
 import lombok.extern.slf4j.Slf4j;
 
