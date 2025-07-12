@@ -4,7 +4,7 @@ import java.time.LocalDateTime;
 
 import org.springframework.stereotype.Service;
 
-import com.kaba4cow.futuresscreenerbot.service.notification.NotificationService;
+import com.kaba4cow.futuresscreenerbot.domain.subscriber.notification.NotificationService;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

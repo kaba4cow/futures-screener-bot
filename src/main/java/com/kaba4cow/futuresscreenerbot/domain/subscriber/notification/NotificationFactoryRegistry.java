@@ -1,4 +1,4 @@
-package com.kaba4cow.futuresscreenerbot.service.notification;
+package com.kaba4cow.futuresscreenerbot.domain.subscriber.notification;
 
 import java.util.Map;
 import java.util.NoSuchElementException;
