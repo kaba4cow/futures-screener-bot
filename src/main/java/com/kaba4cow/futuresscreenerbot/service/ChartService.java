@@ -9,6 +9,7 @@ import java.time.format.DateTimeFormatter;
 
 import org.springframework.stereotype.Service;
 
+import com.kaba4cow.futuresscreenerbot.aspect.WithProfiling;
 import com.kaba4cow.futuresscreenerbot.config.properties.chart.ChartColorProperties;
 import com.kaba4cow.futuresscreenerbot.config.properties.chart.ChartProperties;
 import com.kaba4cow.futuresscreenerbot.domain.Symbol;
@@ -31,6 +32,7 @@ public class ChartService {
 
 	private final FuturesService futuresService;
 
+	@WithProfiling
 	public RenderedImage createChart(Symbol symbol) {
 		BarSeries barSeries = futuresService.getBarSeries(symbol, chartProperties.getInterval(), chartProperties.getBarCount());
 
