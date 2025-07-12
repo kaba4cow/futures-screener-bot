@@ -5,7 +5,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 import org.springframework.stereotype.Component;
 
-import com.kaba4cow.futuresscreenerbot.tool.Symbol;
+import com.kaba4cow.futuresscreenerbot.util.Symbol;
 
 @Component
 public class StreamSymbolRegistry {

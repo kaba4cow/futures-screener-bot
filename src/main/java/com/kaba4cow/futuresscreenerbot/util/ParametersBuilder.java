@@ -1,4 +1,4 @@
-package com.kaba4cow.futuresscreenerbot.tool;
+package com.kaba4cow.futuresscreenerbot.util;
 
 import java.util.LinkedHashMap;
 

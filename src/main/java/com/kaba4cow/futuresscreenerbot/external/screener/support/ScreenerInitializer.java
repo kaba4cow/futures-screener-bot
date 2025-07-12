@@ -11,7 +11,7 @@ import com.kaba4cow.futuresscreenerbot.external.screener.stream.ScreenerStream;
 import com.kaba4cow.futuresscreenerbot.external.screener.stream.support.StreamCombiner;
 import com.kaba4cow.futuresscreenerbot.external.screener.stream.support.StreamRegistry;
 import com.kaba4cow.futuresscreenerbot.external.screener.stream.support.StreamSymbolRegistry;
-import com.kaba4cow.futuresscreenerbot.tool.Symbol;
+import com.kaba4cow.futuresscreenerbot.util.Symbol;
 
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;

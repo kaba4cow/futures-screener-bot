@@ -1,4 +1,4 @@
-package com.kaba4cow.futuresscreenerbot.tool;
+package com.kaba4cow.futuresscreenerbot.util;
 
 import jakarta.persistence.Embeddable;
 import lombok.AllArgsConstructor;

@@ -8,9 +8,9 @@ import org.json.JSONObject;
 import com.kaba4cow.futuresscreenerbot.config.properties.screener.settings.ScreenerSettingsProperties;
 import com.kaba4cow.futuresscreenerbot.external.screener.impl.AbstractScreener;
 import com.kaba4cow.futuresscreenerbot.external.screener.stream.impl.KLineScreenerStream;
-import com.kaba4cow.futuresscreenerbot.tool.Symbol;
-import com.kaba4cow.futuresscreenerbot.tool.barseries.Bar;
-import com.kaba4cow.futuresscreenerbot.tool.barseries.BarSeries;
+import com.kaba4cow.futuresscreenerbot.util.Symbol;
+import com.kaba4cow.futuresscreenerbot.util.barseries.Bar;
+import com.kaba4cow.futuresscreenerbot.util.barseries.BarSeries;
 
 public abstract class DeltaScreener<T extends ScreenerSettingsProperties> extends AbstractScreener<T, KLineScreenerStream> {
 

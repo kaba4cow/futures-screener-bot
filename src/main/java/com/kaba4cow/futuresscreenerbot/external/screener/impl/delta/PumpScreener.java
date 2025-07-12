@@ -4,7 +4,7 @@ import org.springframework.stereotype.Component;
 
 import com.kaba4cow.futuresscreenerbot.config.properties.screener.settings.PumpScreenerSettingsProperties;
 import com.kaba4cow.futuresscreenerbot.entity.event.EventType;
-import com.kaba4cow.futuresscreenerbot.tool.util.MathUtil;
+import com.kaba4cow.futuresscreenerbot.util.util.MathUtil;
 
 @Component
 public class PumpScreener extends DeltaScreener<PumpScreenerSettingsProperties> {

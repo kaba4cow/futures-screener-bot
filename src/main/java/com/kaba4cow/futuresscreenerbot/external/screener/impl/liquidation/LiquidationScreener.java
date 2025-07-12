@@ -5,7 +5,7 @@ import org.json.JSONObject;
 import com.kaba4cow.futuresscreenerbot.config.properties.screener.settings.ScreenerSettingsProperties;
 import com.kaba4cow.futuresscreenerbot.external.screener.impl.AbstractScreener;
 import com.kaba4cow.futuresscreenerbot.external.screener.stream.impl.ForceOrderScreenerStream;
-import com.kaba4cow.futuresscreenerbot.tool.Symbol;
+import com.kaba4cow.futuresscreenerbot.util.Symbol;
 
 public abstract class LiquidationScreener<T extends ScreenerSettingsProperties>
 		extends AbstractScreener<T, ForceOrderScreenerStream> {

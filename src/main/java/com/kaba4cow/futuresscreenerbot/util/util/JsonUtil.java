@@ -1,4 +1,4 @@
-package com.kaba4cow.futuresscreenerbot.tool.util;
+package com.kaba4cow.futuresscreenerbot.util.util;
 
 import org.json.JSONArray;
 

@@ -19,7 +19,7 @@ import com.kaba4cow.futuresscreenerbot.entity.subscriber.SubscriberSettings;
 import com.kaba4cow.futuresscreenerbot.entity.subscriber.SubscriberState;
 import com.kaba4cow.futuresscreenerbot.repository.SubscriberRepository;
 import com.kaba4cow.futuresscreenerbot.service.domain.subscriber.SubscriberService;
-import com.kaba4cow.futuresscreenerbot.tool.Symbol;
+import com.kaba4cow.futuresscreenerbot.util.Symbol;
 
 @SpringBootTest
 class SubscriberFilteringTest {

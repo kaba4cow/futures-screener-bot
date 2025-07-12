@@ -14,7 +14,7 @@ import com.kaba4cow.futuresscreenerbot.external.telegram.message.TelegramMessage
 import com.kaba4cow.futuresscreenerbot.external.telegram.message.TelegramTextMessage;
 import com.kaba4cow.futuresscreenerbot.service.TemplateService;
 import com.kaba4cow.futuresscreenerbot.service.notification.NotificationFactory;
-import com.kaba4cow.futuresscreenerbot.tool.Symbol;
+import com.kaba4cow.futuresscreenerbot.util.Symbol;
 
 import lombok.RequiredArgsConstructor;
 

@@ -7,7 +7,7 @@ import com.kaba4cow.futuresscreenerbot.entity.event.EventSignature;
 import com.kaba4cow.futuresscreenerbot.external.screener.Screener;
 import com.kaba4cow.futuresscreenerbot.external.screener.stream.ScreenerStream;
 import com.kaba4cow.futuresscreenerbot.service.domain.event.EventService;
-import com.kaba4cow.futuresscreenerbot.tool.Symbol;
+import com.kaba4cow.futuresscreenerbot.util.Symbol;
 
 public abstract class AbstractScreener<T extends ScreenerSettingsProperties, S extends ScreenerStream> implements Screener {
 
