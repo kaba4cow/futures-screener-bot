@@ -4,6 +4,7 @@ spring:
     config:
         import: 
             - classpath:config/telegram.yml
+            - classpath:config/aspect.yml
             - classpath:config/chart.yml
             - classpath:config/screeners.yml
             - classpath:config/subscribers.yml
