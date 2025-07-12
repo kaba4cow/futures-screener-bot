@@ -2,7 +2,7 @@ package com.kaba4cow.futuresscreenerbot.infra.screener.impl;
 
 import org.springframework.stereotype.Component;
 
-import com.kaba4cow.futuresscreenerbot.config.properties.screener.settings.ShortLiquidationScreenerSettingsProperties;
+import com.kaba4cow.futuresscreenerbot.config.properties.settings.ShortLiquidationScreenerSettingsProperties;
 import com.kaba4cow.futuresscreenerbot.domain.event.EventType;
 
 @Component

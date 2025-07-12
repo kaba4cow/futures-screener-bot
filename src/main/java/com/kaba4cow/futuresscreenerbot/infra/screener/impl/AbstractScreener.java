@@ -2,7 +2,7 @@ package com.kaba4cow.futuresscreenerbot.infra.screener.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.kaba4cow.futuresscreenerbot.config.properties.screener.settings.ScreenerSettingsProperties;
+import com.kaba4cow.futuresscreenerbot.config.properties.settings.ScreenerSettingsProperties;
 import com.kaba4cow.futuresscreenerbot.domain.event.EventService;
 import com.kaba4cow.futuresscreenerbot.domain.event.EventSignature;
 import com.kaba4cow.futuresscreenerbot.infra.screener.Screener;

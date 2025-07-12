@@ -2,7 +2,7 @@ package com.kaba4cow.futuresscreenerbot.infra.telegram.handler.input.impl;
 
 import org.springframework.stereotype.Component;
 
-import com.kaba4cow.futuresscreenerbot.config.properties.screener.settings.LongLiquidationScreenerSettingsProperties;
+import com.kaba4cow.futuresscreenerbot.config.properties.settings.LongLiquidationScreenerSettingsProperties;
 import com.kaba4cow.futuresscreenerbot.domain.subscriber.SubscriberSettings;
 import com.kaba4cow.futuresscreenerbot.infra.telegram.command.Command;
 

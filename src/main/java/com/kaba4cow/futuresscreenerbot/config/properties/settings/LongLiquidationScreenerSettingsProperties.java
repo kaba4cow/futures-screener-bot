@@ -1,4 +1,4 @@
-package com.kaba4cow.futuresscreenerbot.config.properties.screener.settings;
+package com.kaba4cow.futuresscreenerbot.config.properties.settings;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 

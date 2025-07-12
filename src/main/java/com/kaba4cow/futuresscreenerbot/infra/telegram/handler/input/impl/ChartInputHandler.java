@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.methods.send.SendPhoto;
 
-import com.kaba4cow.futuresscreenerbot.config.properties.screener.ScreenerProperties;
+import com.kaba4cow.futuresscreenerbot.config.properties.ScreenerProperties;
 import com.kaba4cow.futuresscreenerbot.domain.subscriber.Subscriber;
 import com.kaba4cow.futuresscreenerbot.infra.telegram.command.Command;
 import com.kaba4cow.futuresscreenerbot.infra.telegram.handler.input.InputHandler;

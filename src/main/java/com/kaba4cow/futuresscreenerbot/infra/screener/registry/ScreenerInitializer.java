@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Component;
 
-import com.kaba4cow.futuresscreenerbot.config.properties.screener.ScreenerProperties;
+import com.kaba4cow.futuresscreenerbot.config.properties.ScreenerProperties;
 import com.kaba4cow.futuresscreenerbot.infra.stream.ScreenerStream;
 import com.kaba4cow.futuresscreenerbot.infra.stream.registry.StreamCombiner;
 import com.kaba4cow.futuresscreenerbot.infra.stream.registry.StreamRegistry;
