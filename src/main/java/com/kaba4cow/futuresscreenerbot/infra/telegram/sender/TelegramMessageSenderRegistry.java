@@ -1,4 +1,4 @@
-package com.kaba4cow.futuresscreenerbot.service.telegram.sender;
+package com.kaba4cow.futuresscreenerbot.infra.telegram.sender;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;

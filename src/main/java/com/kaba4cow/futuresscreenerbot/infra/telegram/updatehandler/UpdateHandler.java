@@ -5,6 +5,7 @@ import org.telegram.telegrambots.meta.api.objects.Update;
 
 import com.kaba4cow.futuresscreenerbot.domain.subscriber.Subscriber;
 import com.kaba4cow.futuresscreenerbot.domain.subscriber.SubscriberRepository;
+import com.kaba4cow.futuresscreenerbot.infra.telegram.TelegramMessageService;
 import com.kaba4cow.futuresscreenerbot.infra.telegram.command.Command;
 import com.kaba4cow.futuresscreenerbot.infra.telegram.command.CommandResolver;
 import com.kaba4cow.futuresscreenerbot.infra.telegram.message.TelegramMessage;
@@ -12,7 +13,6 @@ import com.kaba4cow.futuresscreenerbot.infra.telegram.updatehandler.commandhandl
 import com.kaba4cow.futuresscreenerbot.infra.telegram.updatehandler.commandhandler.CommandHandlerRegistry;
 import com.kaba4cow.futuresscreenerbot.infra.telegram.updatehandler.inputhandler.InputHandler;
 import com.kaba4cow.futuresscreenerbot.infra.telegram.updatehandler.inputhandler.InputHandlerRegistry;
-import com.kaba4cow.futuresscreenerbot.service.telegram.TelegramMessageService;
 
 import lombok.RequiredArgsConstructor;
 

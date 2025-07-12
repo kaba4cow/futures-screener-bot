@@ -9,7 +9,6 @@ import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import org.telegram.telegrambots.updatesreceivers.DefaultBotSession;
 
 import com.kaba4cow.futuresscreenerbot.config.properties.TelegramBotProperties;
-import com.kaba4cow.futuresscreenerbot.service.telegram.TelegramUpdateEvent;
 
 import jakarta.annotation.PostConstruct;
 
