@@ -6,10 +6,10 @@ import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONObject;
 
 import com.kaba4cow.futuresscreenerbot.config.properties.settings.ScreenerSettingsProperties;
+import com.kaba4cow.futuresscreenerbot.domain.Symbol;
 import com.kaba4cow.futuresscreenerbot.domain.barseries.Bar;
 import com.kaba4cow.futuresscreenerbot.domain.barseries.BarSeries;
 import com.kaba4cow.futuresscreenerbot.infra.stream.impl.KLineScreenerStream;
-import com.kaba4cow.futuresscreenerbot.util.tool.Symbol;
 
 public abstract class DeltaScreener<T extends ScreenerSettingsProperties> extends AbstractScreener<T, KLineScreenerStream> {
 

@@ -8,13 +8,13 @@ import java.util.Set;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 
+import com.kaba4cow.futuresscreenerbot.domain.Symbol;
 import com.kaba4cow.futuresscreenerbot.domain.event.Event;
 import com.kaba4cow.futuresscreenerbot.domain.event.EventType;
 import com.kaba4cow.futuresscreenerbot.domain.subscriber.notification.NotificationFactory;
 import com.kaba4cow.futuresscreenerbot.infra.telegram.message.TelegramMessage;
 import com.kaba4cow.futuresscreenerbot.infra.telegram.message.TelegramTextMessage;
 import com.kaba4cow.futuresscreenerbot.service.TemplateService;
-import com.kaba4cow.futuresscreenerbot.util.tool.Symbol;
 
 import lombok.RequiredArgsConstructor;
 

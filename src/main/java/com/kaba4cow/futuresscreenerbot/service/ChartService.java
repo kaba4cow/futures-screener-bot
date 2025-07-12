@@ -11,12 +11,11 @@ import org.springframework.stereotype.Service;
 
 import com.kaba4cow.futuresscreenerbot.config.properties.chart.ChartColorProperties;
 import com.kaba4cow.futuresscreenerbot.config.properties.chart.ChartProperties;
+import com.kaba4cow.futuresscreenerbot.domain.Symbol;
 import com.kaba4cow.futuresscreenerbot.domain.barseries.Bar;
 import com.kaba4cow.futuresscreenerbot.domain.barseries.BarSeries;
 import com.kaba4cow.futuresscreenerbot.util.FormattingUtil;
 import com.kaba4cow.futuresscreenerbot.util.MathUtil;
-import com.kaba4cow.futuresscreenerbot.util.tool.Symbol;
-import com.kaba4cow.futuresscreenerbot.util.tool.TimeTracker;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -33,9 +32,6 @@ public class ChartService {
 	private final FuturesService futuresService;
 
 	public RenderedImage createChart(Symbol symbol) {
-		TimeTracker timeTracker = new TimeTracker();
-		log.info("Rendering chart image for symbol {}...", symbol.toAssetsString());
-
 		BarSeries barSeries = futuresService.getBarSeries(symbol, chartProperties.getInterval(), chartProperties.getBarCount());
 
 		double currentClosePrice = barSeries.getLast().getClosePrice();
@@ -133,7 +129,6 @@ public class ChartService {
 		graphics.translate(0, metrics.getHeight());
 		graphics.drawString(String.format("To: %s", dateTimeFormatter.format(barSeries.getLast().getOpenTime())), 0, 0);
 
-		log.info("Chart image rendering took {} ms", timeTracker.finish().getElapsedTimeMillis());
 		return image;
 	}
 

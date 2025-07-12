@@ -11,6 +11,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import com.kaba4cow.futuresscreenerbot.domain.Symbol;
 import com.kaba4cow.futuresscreenerbot.domain.event.Event;
 import com.kaba4cow.futuresscreenerbot.domain.event.EventSignature;
 import com.kaba4cow.futuresscreenerbot.domain.event.EventType;
@@ -19,7 +20,6 @@ import com.kaba4cow.futuresscreenerbot.domain.subscriber.SubscriberRepository;
 import com.kaba4cow.futuresscreenerbot.domain.subscriber.SubscriberService;
 import com.kaba4cow.futuresscreenerbot.domain.subscriber.SubscriberSettings;
 import com.kaba4cow.futuresscreenerbot.domain.subscriber.SubscriberState;
-import com.kaba4cow.futuresscreenerbot.util.tool.Symbol;
 
 @SpringBootTest
 class SubscriberFilteringTest {

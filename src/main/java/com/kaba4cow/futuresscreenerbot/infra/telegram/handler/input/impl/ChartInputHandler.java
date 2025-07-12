@@ -8,6 +8,7 @@ import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.methods.send.SendPhoto;
 
 import com.kaba4cow.futuresscreenerbot.config.properties.ScreenerProperties;
+import com.kaba4cow.futuresscreenerbot.domain.Symbol;
 import com.kaba4cow.futuresscreenerbot.domain.subscriber.Subscriber;
 import com.kaba4cow.futuresscreenerbot.infra.telegram.command.Command;
 import com.kaba4cow.futuresscreenerbot.infra.telegram.handler.input.InputHandler;
@@ -18,7 +19,6 @@ import com.kaba4cow.futuresscreenerbot.infra.telegram.replykeyboard.ReplyKeyboar
 import com.kaba4cow.futuresscreenerbot.service.ChartService;
 import com.kaba4cow.futuresscreenerbot.service.TemplateService;
 import com.kaba4cow.futuresscreenerbot.util.tool.ImageInputFileWriter;
-import com.kaba4cow.futuresscreenerbot.util.tool.Symbol;
 
 import lombok.RequiredArgsConstructor;
 

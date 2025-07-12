@@ -3,11 +3,11 @@ package com.kaba4cow.futuresscreenerbot.infra.screener.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.kaba4cow.futuresscreenerbot.config.properties.settings.ScreenerSettingsProperties;
+import com.kaba4cow.futuresscreenerbot.domain.Symbol;
 import com.kaba4cow.futuresscreenerbot.domain.event.EventService;
 import com.kaba4cow.futuresscreenerbot.domain.event.EventSignature;
 import com.kaba4cow.futuresscreenerbot.infra.screener.Screener;
 import com.kaba4cow.futuresscreenerbot.infra.stream.ScreenerStream;
-import com.kaba4cow.futuresscreenerbot.util.tool.Symbol;
 
 public abstract class AbstractScreener<T extends ScreenerSettingsProperties, S extends ScreenerStream> implements Screener {
 
