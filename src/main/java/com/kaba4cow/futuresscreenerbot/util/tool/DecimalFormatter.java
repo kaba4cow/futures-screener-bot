@@ -14,17 +14,7 @@ public class DecimalFormatter {
 	private static final double BILLIONS = 1.0e+9;
 	private static final double TRILLIONS = 1.0e+12;
 
-	private static final DecimalFormat decimalFormat;
-
-	static {
-		DecimalFormatSymbols decimalFormatSymbols = new DecimalFormatSymbols();
-		decimalFormatSymbols.setDecimalSeparator('.');
-		decimalFormat = new DecimalFormat();
-		decimalFormat.setDecimalFormatSymbols(decimalFormatSymbols);
-		decimalFormat.setGroupingUsed(false);
-	}
-
-	public static String formatNumber(double number, int digits) {
+	public static String formatWithSuffix(double number, int digits) {
 		String suffix = "";
 		if (number > TRILLIONS) {
 			number /= TRILLIONS;
@@ -39,9 +29,22 @@ public class DecimalFormatter {
 			number /= THOUSANDS;
 			suffix = "k";
 		}
-		decimalFormat.setMinimumFractionDigits(0);
-		decimalFormat.setMaximumFractionDigits(digits);
-		return String.format("%s%s", decimalFormat.format(number), suffix);
+		return format(number, digits).concat(suffix);
+	}
+
+	public static String format(double number, int digits) {
+		return createFormat(digits).format(number);
+	}
+
+	private static DecimalFormat createFormat(int digits) {
+		DecimalFormatSymbols symbols = new DecimalFormatSymbols();
+		symbols.setDecimalSeparator('.');
+		DecimalFormat format = new DecimalFormat();
+		format.setDecimalFormatSymbols(symbols);
+		format.setGroupingUsed(false);
+		format.setMinimumFractionDigits(0);
+		format.setMaximumFractionDigits(digits);
+		return format;
 	}
 
 }

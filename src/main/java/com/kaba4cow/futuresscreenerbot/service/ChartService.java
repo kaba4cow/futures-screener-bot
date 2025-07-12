@@ -98,7 +98,7 @@ public class ChartService {
 			int lowX = minLowIndex * chartProperties.getBarWidth();
 			graphics.setColor(chartColorProperties.getLine());
 			graphics.drawLine(lowX, maxY, width, maxY);
-			String lowText = DecimalFormatter.formatNumber(minLowPrice, 8);
+			String lowText = DecimalFormatter.formatWithSuffix(minLowPrice, 8);
 			graphics.setColor(chartColorProperties.getText());
 			graphics.drawString(lowText, width - metrics.stringWidth(lowText), maxY - 1);
 		}
@@ -106,7 +106,7 @@ public class ChartService {
 			int highX = maxHighIndex * chartProperties.getBarWidth();
 			graphics.setColor(chartColorProperties.getLine());
 			graphics.drawLine(highX, minY, width, minY);
-			String highText = DecimalFormatter.formatNumber(maxHighPrice, 8);
+			String highText = DecimalFormatter.formatWithSuffix(maxHighPrice, 8);
 			graphics.setColor(chartColorProperties.getText());
 			graphics.drawString(highText, width - metrics.stringWidth(highText), minY - 1);
 		}
@@ -115,7 +115,7 @@ public class ChartService {
 			double closeY = MathUtil.map(currentClosePrice, minLowPrice, maxHighPrice, maxY, minY);
 			graphics.setColor(chartColorProperties.getLine());
 			graphics.drawLine(closeX, (int) closeY, width, (int) closeY);
-			String closeText = DecimalFormatter.formatNumber(currentClosePrice, 8);
+			String closeText = DecimalFormatter.formatWithSuffix(currentClosePrice, 8);
 			graphics.setColor(chartColorProperties.getText());
 			graphics.drawString(closeText, width - metrics.stringWidth(closeText), (int) closeY - 1);
 		}
