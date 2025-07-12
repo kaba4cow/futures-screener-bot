@@ -1,4 +1,4 @@
-package com.kaba4cow.futuresscreenerbot.service.telegram.messagesender;
+package com.kaba4cow.futuresscreenerbot.service.telegram.sender;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
